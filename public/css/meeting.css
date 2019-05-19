@@ -1,0 +1,126 @@
+.subject-nav.nav-tabs{
+    background-color: #282f3a;
+    border-color: #282f3a;
+    padding-bottom: 15px;
+}
+
+.subject-nav.nav-tabs .nav-item .nav-link{
+    color: #bdc3c7;
+}
+
+.subject-nav.nav-tabs .nav-item .nav-link.active{
+    border-bottom: 3px solid #fff;
+    color: #fff;
+}
+
+.subject-accordion .card-header .btn-link,
+.attendence-accordion .card-header .btn-link{
+    font-size: 1.2rem !important;
+    text-decoration: none !important;
+    color: #34495e !important;
+}
+
+.subject-accordion .card-header .btn-link:hover,
+.attendence-accordion .card-header .btn-link:hover{
+    color: #c0392b !important;
+}
+
+.subject-accordion .card-header .btn-link div.title{
+    position: relative;
+}
+
+.form-check .form-check-label input[type="checkbox"]:checked+.input-helper:after{
+    width: 15px !important;
+}
+
+.subject-accordion .card-header .btn-link div.title::after{
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: -4%;
+    top: 30px;
+    background-color: #c0392b;
+    width: 0%;
+    height: 3px;
+    transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -ms-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+}
+
+@media (max-width: 575.98px) {
+    .subject-accordion .card-header .btn-link div.title::after{
+        content: initial;
+    }
+}
+
+.accordion>.card:first-of-type{
+    border: 1px solid #e7eaed !important;
+}
+
+.subject-accordion .subject-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.subject-accordion .subject-data,
+.attendence-accordion .subject-data{
+    background-color: initial !important;
+    user-select: initial !important;
+    color: initial !important;
+    line-height: 20px;
+    width: 100%;
+}
+
+.subject-accordion .subject-title span{
+    line-height: 20px;
+}
+
+.subject-accordion .subject-title {
+    font-size: 0.9rem !important;
+}
+
+.subject-accordion i.green{
+    color: #71c016;
+    font-weight: bolder;
+    font-size: 1.5rem !important;
+    position: relative;
+    top: 3px;
+}
+
+.subject-accordion i.red{
+    color: #c0392b;
+    font-weight: bolder;
+    font-size: 1.5rem !important;
+    position: relative;
+    top: 3px;
+}
+
+.subject-accordion .subject-specific-data{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.attendence-update .form-check{
+    margin-top: 15px !important;
+}
+
+.card{
+    border: 1px solid #e7eaed !important;
+}
+
+.inside-icon{
+    position: relative;
+    top: 1px;
+}
+

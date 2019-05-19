@@ -1,0 +1,217 @@
+
+
+@media (min-width: 768px) {
+
+    .custom-form{
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .custom-form-group{
+        width: 60% !important;
+    }
+}
+
+
+.dataTables_wrapper .dataTable thead th{
+    padding: 1.5rem 0.9375rem !important;
+    text-align: center;
+}
+
+.no-sort::before,
+.no-sort::after{
+    content:'' !important;
+}
+
+table a{
+    cursor: pointer;
+}
+
+table thead{
+    color: #fff;
+    text-transform: capitalize;
+    background-color: #2d3436;
+    text-align: center;
+}
+
+table thead th{
+    text-align: center;
+    padding: 1.5rem 0.9375rem !important;
+    border-bottom-width: 0;
+    border: 1px solid rgba(151, 151, 151, 0.18);
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.dataTables_wrapper  .row:first-of-type div{
+    text-align: center;
+}
+
+.dataTables_wrapper  .row:first-of-type select{
+    width: 100%;
+    border: 1px solid #ccc;
+    direction: ltr;
+    color: #000;
+}
+
+.dataTables_wrapper .dataTable tbody tr td{
+    text-align: center;
+}
+
+.btn i{
+    font-size: 1rem !important;
+}
+
+.dataTables_filter input{
+    margin-right: 5px !important;
+}
+
+.add-button,
+.add-button i{
+    font-size: 0.875rem !important;
+}
+
+.dataTables_length select, .dataTables_filter input{
+   height: 35px !important;
+}
+
+.faculty_logo{
+    border: 1px solid #ccc;
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50% !important;
+    object-fit: cover;
+    padding: 2px;
+    background-color: #fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+#ui-datepicker-div{
+    width: 365px;
+    left: 42%;
+}
+
+.bootstrap-timepicker-widget{
+    right: 34%;
+    width: 30%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    direction: ltr;
+}
+
+.bootstrap-timepicker-widget table td input{
+    width: 40px !important;
+    border: 1px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1) !important;
+    -webkit-transition: all 0.3s cubic-bezier(.25,.8,.25,1) !important;
+    -moz-transition: all 0.3s cubic-bezier(.25,.8,.25,1) !important;
+    -ms-transition: all 0.3s cubic-bezier(.25,.8,.25,1) !important;
+    -o-transition: all 0.3s cubic-bezier(.25,.8,.25,1) !important;
+}
+
+.bootstrap-timepicker-widget table td span{
+    font-size: 22px !important;
+}
+
+
+.bootstrap-timepicker-widget input:focus{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.attendence-update{
+    display: flex;
+    justify-content: flex-start !important;
+    padding: 13px;
+    margin-bottom: 0;
+    background-color: #fbfbfb !important;
+}
+
+.attendence-update * {
+    font-size: 1.3rem !important;
+}
+
+@media screen and (max-width: 767px){
+    .dataTables_length label{
+        text-align: right !important;
+    }
+
+    .dataTables_wrapper  .row:first-of-type div{
+        padding: 0 !important;
+    }
+
+    .dataTables_wrapper .dataTable thead{
+        text-align: left;
+    }
+
+    #ui-datepicker-div{
+        left: 8% !important;
+    }
+}
+
+div.card-header.top-card{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.form-control, .dataTables_wrapper select{
+    border: 1px solid #ccc;
+}
+
+form label{
+    font-weight: bold !important;
+}
+
+.top-card span.name{
+    color:darkblue;
+}
+
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+div.selectize-input  input{
+    line-height: 30px !important;
+}
+
+.selectize-input{
+    min-height: 46px !important;
+}
+
+.table td, .table th{
+    vertical-align: middle !important;
+}
+
+form > .form-group:last-of-type{
+    display: flex;
+    justify-content: center;
+}
+
+.dataTables_wrapper .dataTable .btn{
+    padding: 0.5rem 1rem !important;
+}
+
+
+.alert-success{
+    background-color: #71c016;
+}
+
+a.back-button{
+    text-decoration: none;
+}
+
+a.back-button button{
+    color:#fff;
+}
+
+a.back-button button i{
+    font-size: 0.875rem;
+}

@@ -1,0 +1,32 @@
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:model Council_definition --fillable="['council_name', 'number_of_members','faculty_id']"
+Model created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:model Council_meeting_setup --fillable="['meeting_number', 'meeting_date','meeting_time']"
+Model created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:model Council_meeting_subject --fillable="['council_definition','council_meeting_id','subject_description','number_of_approved','number_of_rejected','comments','additional_subject','subject_type_id','faculty_id','department_id,'final_decision_description','final_decision,'person_redirected','next_council_definition_id']"
+Model created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:model Department --fillable="['department_name']"
+Model created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:model Faculty --fillable="['faculty_name','logo']"
+Model created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:model Faculty_member --fillable="['member_name','rank_id','faculty_id','position_id','department_id']"
+Model created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:model Meeting_attendance --fillable="['meeting_number', 'faculty_member_id', 'attend', 'excuse', 'excuse_description']"
+Model created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:model Position --fillable="['position_name']"
+Model created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:model Rank --fillable="['rank_name']"
+Model created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:model Subject_attachment --fillable="['meeting_number','subject_id','attachment_document']"
+Model created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:model Subject_type --fillable="['subject_type']"
+Model created successfully.

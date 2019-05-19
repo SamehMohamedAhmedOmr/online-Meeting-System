@@ -1,0 +1,110 @@
+.float-left{
+    float: right !important;
+}
+
+.sidebar > .nav > .nav-item > .nav-link{
+    padding: 0.75rem 1.25rem 0.75rem 2.5rem !important;
+}
+
+.navbar .navbar-brand-wrapper .navbar-brand-inner-wrapper .navbar-toggler{
+    padding-right: 20px !important;
+}
+
+.search-icon{
+    margin-left: 10px;
+}
+
+.sidebar .nav .nav-item .nav-link i.menu-icon{
+    margin-right: 0 !important;
+    margin-left: 1.125rem !important;
+}
+
+.sidebar .nav .nav-item.hover-open .nav-link .menu-title,
+.sidebar .nav .nav-item.hover-open .collapse, .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
+    left: auto !important;
+    right: 70px !important;
+    text-align: left !important;
+    box-shadow: -4px 0px 7px 0px rgba(182, 185, 189, 0.25) !important;
+}
+
+.sidebar .nav .nav-item .nav-link i.menu-arrow{
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+.sidebar .nav.sub-menu .nav-item::before{
+    right: 40px;
+}
+
+ul.sub-menu a.nav-link{
+    padding-right: 3.2rem !important;
+}
+
+.navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown .dropdown-item .item-content{
+    padding-left: 0 !important;
+    padding-right: 0.937rem !important;
+}
+
+.navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile.dropdown i{
+    margin-right: 0rem !important;
+    margin-left: .5rem !important;
+}
+
+.mdi-sort-variant:before{
+    transform: scale(-1,1) !important;
+    -webkit-transform: scale(-1,1) !important;
+    -moz-transform: scale(-1,1) !important;
+    -ms-transform: scale(-1,1) !important;
+    -o-transform: scale(-1,1) !important;
+}
+
+@media (min-width: 992px){
+    .sidebar-icon-only .sidebar .nav.sub-menu .nav-item .nav-link {
+        text-align: right !important;
+        padding-left: 20px;
+    }
+}
+
+.navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .count-indicator .count{
+    left: 62% !important;
+}
+
+.specialArabIcon{
+    position: relative !important;
+    left: -2px !important;
+}
+
+.fa-id-badge.specialArabIcon{
+    left: -3px !important;
+}
+
+.fa-handshake.specialArabIcon{
+    left: 2px !important;
+}
+
+#Users_filter input{
+    margin-right: 5px !important;
+    margin-left:0px !important;
+}
+
+div.view-data tr td{
+    text-align: right;
+}
+
+form{
+    text-align: right;
+}
+
+
+.alert li{
+    text-align: right;
+}
+
+.subject-accordion .card-header .btn-link div::after{
+    right: -4% !important;
+    left: initial !important;
+}
+
+#ui-datepicker-div {
+    left: 30% !important;
+}

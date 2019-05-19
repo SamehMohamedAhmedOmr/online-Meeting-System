@@ -1,0 +1,45 @@
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:view council_meeting_subject --fields="council_definition#number;council_meeting_id#number;subject_description#string;number_of_approved#number;number_of_rejected#number;comments#string;additional_subject#boolean;subject_type_id#number;faculty_id#number;department_id#number;final_decision_description#string;final_decision#boolean;person_redirected#number;next_council_definition_id#number" --view-path="admin" --route-group=admin --form-helper=html
+View created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:view faculty --fields="faculty_name#string;logo#file" --view-path="admin" --route-group=admin --form-helper=html
+View created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:view faculty --fields="department_name#string" --view-path="admin" --route-group=admin --form-helper=html
+View created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:view faculty --fields="faculty_name#string;logo#file" --view-path="admin" --route-group=admin --form-helper=html
+View created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:view department --fields="department_name#string" --view-path="admin" --route-group=admin --form-helper=html
+View created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>council_namenumber_of_membersfaculty_id
+'council_namenumber_of_membersfaculty_id' is not recognized as an internal or external command,
+operable program or batch file.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:view council_definition --fields="council_name#string;number_of_members#number;faculty_id#number" --view-path="admin" --route-group=admin --form-helper=html
+View created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:view council_meeting_setup --fields="council_definition_id#number;meeting_date#date;meeting_time#time" --view-path="admin" --route-group=admin --form-helper=html
+View created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:view faculty_member --fields="member_name#string;faculty_id#number;department_id#number;rank#number;position_id#number" --view-path="admin" --route-group=admin --form-helper=html
+View created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:view subject_attachment --fields="meeting_number#number;subject_id#number;attachment_document#file" --view-path="admin" --route-group=admin --form-helper=html
+View created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:view user --fields="name#string;email#email;password#password;council_definition_id#number;faculty_id#number;start_date_member#date;end_date_member#date;list_of_member_order#number;type#number" --view-path="admin" --route-group=admin --form-helper=html
+View created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:view meeting_attendance --fields="meeting_number#number;faculty_member_id#number;attend#boolean;excuse#boolean;excuse_descripition#string" --view-path="admin" --route-group=admin --form-helper=html
+View created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:view rank --fields="rank_name#string" --view-path="admin" --route-group=admin --form-helper=html
+View created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:view position --fields="position_name#string" --view-path="admin" --route-group=admin --form-helper=html
+View created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:view subject_type --fields="subject_type_name#string" --view-path="admin" --route-group=admin --form-helper=html
+View created successfully.

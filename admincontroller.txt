@@ -1,0 +1,36 @@
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:controller FacultyController --crud-name=faculty --model-name=Faculty --view-path="admin" --route-group=admin
+Controller created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:controller FacultyMemberController --crud-name=faculty_member --model-name=Faculty_member --view-path="admin" --route-group=admin
+Controller created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:controller DepartmentController --crud-name=department --model-name=Department --view-path="admin" --route-group=admin
+Controller created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:controller RankController --crud-name=rank --model-name=Rank --view-path="admin" --route-group=admin
+Controller created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:controller PostionController --crud-name=postion --model-name=Postion --view-path="admin" --route-group=admin
+Controller created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:controller SubjectAttachmentController --crud-name=subject_attachment --model-name=Subject_attachment --view-path="admin" --route-group=admin
+Controller created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:controller SubjectTypeController --crud-name=subject_type --model-name=Subject_type --view-path="admin" --route-group=admin
+Controller created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:controller UserController --crud-name=user --model-name=User --view-path="admin" --route-group=admin
+Controller created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:controller MeetingAttendanceController --crud-name=meeting_attendance --model-name=Meeting_attendance --view-path="admin" --route-group=admin
+Controller created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:controller CouncilMeetingSubjectController --crud-name=council_meeting_subject --model-name=Council_meeting_subject --view-path="admin" --route-group=admin
+Controller created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:controller CouncilMeetingSetupController --crud-name=council_meeting_setup --model-name=Council_meeting_setup --view-path="admin" --route-group=admin
+Controller created successfully.
+
+E:\College\xampp\htdocs\online_meeting_cp>php artisan crud:controller CouncilDefinitionController --crud-name=council_definition --model-name=Council_definition --view-path="admin" --route-group=admin
+Controller created successfully.
+
