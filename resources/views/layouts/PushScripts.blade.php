@@ -5,8 +5,27 @@
 <script type="text/javascript" data-id="{{ Auth::user()->id }}" id='toPushID'>
     function zero() {
         var bell = document.getElementById('number');
-        bell.style.display = 'none';
-        bell.innerHTML = 0;
+        var text = bell.innerHTML;
+
+        if(text != 0){
+            bell.style.display = 'none';
+            bell.innerHTML = 0;
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                url: 'watchNotification',
+                data:{},
+                success: function (response) {
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            });
+        }
+
     }
 
     // Enable pusher logging - don't include this in production
@@ -46,7 +65,9 @@
         var a = document.createElement('a');
         a.setAttribute("style", "background-color: #e0e2e8;");
         a.setAttribute("id", "max" + data.d);
+
         a.setAttribute("href", data.page);
+
         a.setAttribute("value", data.d);
         a.className = 'dropdown-item';
         var p = document.createElement('p');
@@ -63,10 +84,10 @@
         thum.className = 'item-thumbnail';
 
         var item = document.createElement('div');
-        item.className = 'item-icon bg-warning';
+        item.className = 'item-icon '+data.color;
 
         var i = document.createElement('i');
-        i.className = 'mdi mdi-information mx-0';
+        i.className = data.icon +' mx-0';
 
         item.appendChild(i);
         thum.appendChild(item);
@@ -79,7 +100,28 @@
         li.appendChild(p2);
         a.appendChild(thum);
         a.appendChild(li);
-        ul.insertBefore(a, ul.childNodes[0]);
+        var notificationHeader = document.getElementById("notificationHeader");
+        notificationHeader.parentNode.insertBefore(a, notificationHeader.nextSibling);
+
+        var noNotification = document.getElementById("no-notification");
+        if(noNotification != null){
+            noNotification.remove();
+        }
+
+        $('#max'+ data.d).on('click', function () {
+            $value = $(this).attr('value');
+            $.ajax({
+                type: 'get',
+                url: '/updateseen',
+                data: {
+                    'seen': $value
+                },
+                success: function (data) {
+                    $('nav').html(data);
+                }
+            });
+        });
+
     });
 </script>
 

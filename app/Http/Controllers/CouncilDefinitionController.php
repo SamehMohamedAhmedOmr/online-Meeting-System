@@ -92,6 +92,11 @@ class CouncilDefinitionController extends Controller
         if(!$council_definition){ return redirect()->back();}
         $councilmember=$council_definition->CouncilMember;
 
+        if(Auth::user()->type != 0){
+            $council_member = Auth::user()->Faculty_member->CouncilMember->where('council_definition_id',$council_definition->id)->first();
+            if(!$council_member){return redirect()->back();}
+        }
+
         $members = $councilmember->count();
         $originalMembers = $council_definition->number_of_members -1;
         $allowMembers = $originalMembers - $members;

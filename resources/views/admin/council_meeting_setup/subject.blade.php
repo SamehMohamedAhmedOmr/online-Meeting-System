@@ -14,7 +14,7 @@
             <h2 class="mb-0 row">
 
                 <div aria-label="header"
-                    class="col-md-6 col-12 {{ (App::getLocale() == 'ar')?'text-md-right':'text-md-left' }} text-center d-flex justify-content-md-start justify-content-center">
+                    class="col-md-10 col-12 {{ (App::getLocale() == 'ar')?'text-md-right':'text-md-left' }} text-center d-flex justify-content-md-start justify-content-center">
                     <button class="btn btn-link" type="button" data-toggle="collapse"
                         data-target="#collapse{{ $subject->id }}" aria-expanded="true" aria-controls="collapseOne"
                         style="text-align: right; line-height: 25px;">
@@ -30,40 +30,17 @@
                 </div>
 
                 <div aria-label="Buttons"
-                    class="col-md-6 col-12 mt-md-0 mt-3 {{ (App::getLocale() == 'ar')?'text-md-left':'text-md-right' }} text-center">
+                    class="buttons-holders justify-content-md-end justify-content-center col-md-2 col-12 mt-md-0 mt-3 {{ (App::getLocale() == 'ar')?'text-md-left':'text-md-right' }} text-center">
 
-                    @if (Auth::user()->type == 1) <!-- Staff -->
-                        @if ($council_meeting_setup->close == 0)
-                            <a href="#" class="btn btn-danger mb-2" data-toggle="modal" aria-label="deleteSubject"
-                                data-target="#deleteSubjectModal{{ $subject->id }}"
-                                data-id="{{ $council_meeting_setup->id }}">
-                                Delete <i class="mdi mdi-delete-forever inside-icon"></i>
-                            </a>
-
-                            <a href="{{ url('meetingSubject/edit/'.$subject->id.'') }}" class="btn btn-behance mb-2">
-                                Edit <i class="mdi mdi-pencil-box"></i>
-                            </a>
-
-                            <a href="{{ url('meetingSubject/finalDesicion/'.$subject->id.'') }}"  class="btn btn-behance mb-2">
-                                Add final Descision <i class="mdi mdi-plus inside-icon"></i>
-                            </a>
-                        @endif
-                    @else
-                        @if ($council_meeting_setup->close == 0)
-                            <a href="#" class="btn btn-google mb-2" data-toggle="modal" data-target="#singleVote{{ $subject->id }}"
-                                data-id="{{ $council_meeting_setup->id }}">
-                                Vote <i class="mdi mdi-plus-one inside-icon"></i>
-                            </a>
-                        @endif
-
-                        @if ($council_member->type == 0) <!-- Chairman -->
-                            <a href="#" id='openVotes' class="btn btn-github mb-2 voteslist" data-toggle="modal"
-                                data-target="#votes{{ $subject->id }}" data-id="{{ $subject->id }}" style="cursor: pointer;">
-                                Votes <i class="mdi mdi-view-list"></i>
-                            </a>
-                        @endif
-
-                    @endif
+                    <!-- Default dropright button -->
+                    <div class="btn-group subject-dropdown">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="mdi mdi-dots-vertical" style="font-size:1.4rem !important;"></i>
+                        </button>
+                        <div class="dropdown-menu" style="width:230px; padding:5px">
+                            @include('admin.council_meeting_setup.subjectButtons')
+                        </div>
+                    </div>
                 </div>
             </h2>
         </div>

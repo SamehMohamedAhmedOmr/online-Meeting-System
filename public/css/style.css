@@ -23678,7 +23678,13 @@ span.menu-title {
         top: 60px;
         width: calc(100% - 40px);
     }
+
+    .dropdown-item p{
+        white-space: initial;
+    }
 }
+
+
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .count-indicator {
     position: relative;

@@ -13,7 +13,7 @@ use App\Council_meeting_setup;
 use App\Council_definition;
 use App\Votes;
 use App\User;
-
+use App\Events\Councilcreated;
 use Auth;
 
 use Illuminate\Http\Request;
@@ -60,9 +60,18 @@ class CouncilMeetingSubjectController extends Controller
             foreach ($members as $member) {
                 if(isset($member->Faculty_member->User)){
                     $userType = $member->Faculty_member->User->type;
+                    $userID = $member->Faculty_member->User->id;
                     if($userType !=2){
                         continue;
                     }
+                    // add event of the new Notification
+                    $msg = 'New Subject Was added to Meeting Number '.$council_meeting->meeting_number;
+                    $councilName = $definition->council_name;
+                    $title = 'New Subject at '.$councilName;
+                    $page = 'meeting/'.$request->council_meeting_id;
+                    $icon = 'mdi mdi-file-document-box';
+                    $color = 'bg-warning';
+                    event(new Councilcreated($councilName,$userID,$title,$msg,$page,$icon,$color));
                 }
                 else{
                     continue;
@@ -167,6 +176,17 @@ class CouncilMeetingSubjectController extends Controller
         $council_meeting_subject->next_council_definition_id = $request->next_council_definition_id;
 
         $council_meeting_subject->save();
+
+        // add event of the new Notification
+       // $userID = $member->Faculty_member->User->id;
+        $userID = 1;
+        $councilName = $council_meeting_subject->Council_definition->council_name;
+        $msg = 'New Subject redirect from '.$councilName;
+        $title = 'New Subject redirection ';
+        $page = 'meeting';
+        $icon = 'fas fa-clipboard-list';
+        $color = 'bg-danger';
+        event(new Councilcreated($councilName,$userID,$title,$msg,$page,$icon,$color));
 
         return redirect('meeting/'.$council_meeting_subject->council_meeting_id.'')->with('flash_message', 'Final Decision Added!');
     }

@@ -23,7 +23,23 @@ class Controller extends BaseController
         $data=Notification::where('id',$request->seen)->first();
         $data->seen=1;
         $data->update();
+    }
 
+    public function watchNotification()
+    {
+        try{
+            $notifications =Notification::where('user_id', Auth::user()->id)->get();
+            foreach ($notifications as $notification) {
+                $notification->watch=1;
+                $notification->save();
+            }
+
+            return response()->json(['data' => $notifications]);
+
+            return $notifications;
+        }catch(\Exception $e){
+            return response()->json(['error' => $e->getMessage()]);
+        }
     }
 
     public function files()

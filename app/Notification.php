@@ -25,7 +25,7 @@ class Notification extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'notify','title','seen','page'];
+    protected $fillable = ['user_id', 'notify','title','seen','page','icon','watch','color'];
     public function User()
     {
       return $this->belongsTo('App\User');

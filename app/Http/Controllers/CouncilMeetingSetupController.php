@@ -10,6 +10,7 @@ use App\Council_meeting_setup;
 use App\Council_definition;
 use App\Meeting_attendance;
 use App\Council_meeting_subject;
+use App\Events\Councilcreated;
 
 use Auth;
 use Illuminate\Http\Request;
@@ -94,6 +95,16 @@ class CouncilMeetingSetupController extends Controller
                 $attendence->faculty_member_id = $member->Faculty_member->id;
                 $attendence->attend = 1;
                 $attendence->save();
+
+                // add event of the new Notification
+                $userID = $member->Faculty_member->User->id;
+                $councilName = $definition->council_name;
+                $msg = 'New Meeting at '.$councilName.' on '.$check->meeting_date.' at '.$check->meeting_time;
+                $title = 'New Meeting at '.$councilName;
+                $page = 'meeting/'.$check->id;
+                $icon = 'fas fa-handshake';
+                $color = 'bg-primary';
+                event(new Councilcreated($councilName,$userID,$title,$msg,$page,$icon,$color));
             }
         }
         return redirect('meeting')->with('flash_message', 'Council Meeting added!');
@@ -111,6 +122,7 @@ class CouncilMeetingSetupController extends Controller
         $council_meeting_setup = Council_meeting_setup::find($id);
         if(!$council_meeting_setup){return redirect('meeting');}
         $council_member = Auth::user()->Faculty_member->CouncilMember->where('council_definition_id',$council_meeting_setup->council_definition_id)->first();
+        if(!$council_member){return redirect('meeting');}
         $subjects = Council_meeting_subject::where('council_meeting_id', $council_meeting_setup->id)->orderBy('subject_type_id', 'DESC')->get();
 
         return view('admin.council_meeting_setup.show', compact('council_meeting_setup','council_member','subjects'));

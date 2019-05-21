@@ -21,26 +21,34 @@ class Councilcreated implements ShouldBroadcast
     public $d;
     public $message;
     public $page;
+    public $icon;
+    public $color;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($councilname,$id,$title,$page)
+    public function __construct($councilname,$id,$title,$message,$page,$icon,$color)
     {
          $d=0;
         $this->councilname = $councilname;
         $this->id = $id;
         $this->title = $title;
-        $this->message  = $councilname;
-        $this->page  = $page;
+        $this->message  = $message;
+        $this->page = url($page);
+        $this->icon  = $icon;
+        $this->color = $color;
+
         $data= new Notification();
         $data->title= $this->title;
         $data->notify= $this->message;
         $data->user_id=$this->id;
         $data->page=$this->page;
         $data->seen=0;
+        $data->icon = $icon;
+        $data->color = $this->color;
+
         $data->save();
         $this->d=$data->id;
 

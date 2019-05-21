@@ -106,13 +106,14 @@ Route::middleware('auth')->group(function () {
         Route::post('meetingAttachment/delete/{id}/{type}','SubjectAttachmentController@destroy');
         Route::get('meetingSubject/edit/{id}','CouncilMeetingSubjectController@edit');
         Route::post('updateMeetingSubject','CouncilMeetingSubjectController@update');
+
+        Route::get('meetingSubject/finalDesicion/{id}','CouncilMeetingSubjectController@finalDecisionPage');
+        Route::post('addFinalDecision','CouncilMeetingSubjectController@addFinalDecision');
     });
 
 
     // members
     Route::middleware('members')->group(function () { // members , type = 2
-        Route::get('meetingSubject/finalDesicion/{id}','CouncilMeetingSubjectController@finalDecisionPage');
-        Route::post('addFinalDecision','CouncilMeetingSubjectController@addFinalDecision');
 
         Route::get('addVote', 'VotesController@store');
     });
@@ -134,6 +135,8 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('updateseen', 'Controller@updateseen');
+    Route::post('watchNotification', 'Controller@watchNotification');
+
     Route::get('pdf', 'Controller@files');
 
 });
@@ -165,9 +168,9 @@ Route::get('dashboard', function () {
 //     return view('Pages.forms.basic_elements');
 // });
 
-// Route::get('mdi', function () {
-//     return view('Pages.icons.mdi');
-// });
+Route::get('mdi', function () {
+    return view('Pages.icons.mdi');
+});
 
 // Route::get('basic-table', function () {
 //     return view('Pages.tables.basic-table');

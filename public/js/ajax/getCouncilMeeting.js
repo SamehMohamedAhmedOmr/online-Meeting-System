@@ -48,7 +48,7 @@ $(function () {
                     var arr = data.split('-');
                     // arr[0] = id
                     // arr[1] = close
-                    unlock = '<a data-toggle="modal" title="un-lock data-target="#closeMeetingModal" onclick="CloseMeetingModal(' + arr[0] + ')" class="btn btn-sm text-white ml-2" style="background-color:#57c7d4;"><i class="fas fa-lock-open"></i> </a>';
+                    unlock = '<a data-toggle="modal" title="un-lock" data-target="#closeMeetingModal" onclick="CloseMeetingModal(' + arr[0] + ')" class="btn btn-sm text-white ml-2" style="background-color:#57c7d4;"><i class="fas fa-lock-open"></i> </a>';
                     lock = '<a class="btn btn-sm text-white ml-2" style="background-color:#f96868; cursor: initial;" title="lock"><i class="fas fa-lock"></i> </a>';
 
                     unlockFoCustomer = '<a class="btn btn-sm text-white ml-2" title="un-lock" style="background-color:#57c7d4; cursor: initial;"><i class="fas fa-lock-open"></i> </a>';

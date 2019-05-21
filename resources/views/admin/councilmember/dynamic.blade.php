@@ -71,7 +71,7 @@
     <div class="form-group d-flex justify-content-center mb-5">
     <button type="button" name="add" id="add" class="btn btn-success">Add More</button>
     </div>
-    <div class="form-group">
+    <div class="form-group d-flex justify-content-center">
         <input class="btn btn-primary w-50" type="submit" value="Create">
     </div>
 </div>

@@ -183,6 +183,7 @@ div.selectize-input  input{
 }
 
 .selectize-input{
+    line-height: 30px !important;
     min-height: 46px !important;
 }
 
