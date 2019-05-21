@@ -33,10 +33,8 @@
                         <div class="content" id="out">
 
                             <div class="contact-profile">
-                                <img src="{{ URL::asset('storage/user_pic/'.Auth::user()->id.'/'.Auth::user()->image) }}"
-                                    alt="profile">
+
                                 <span class="nav-profile-name">
-                                    {{ \App\Council_definition::where(['id' => $id])->pluck('council_name')->first() }}
                                 </span>
                             </div>
 
@@ -104,54 +102,25 @@
             }
             pdate.setAttribute("style", "text-align: center;  font-weight: bold; color: #bec3c9; font-size: 11px;");
             pdate.appendChild(document.createTextNode(item.date));
-            pall.innerHTML = item.message;
+            pall.innerHTML = item.user_id+':'+item.message;
             li.appendChild(pall);
             ul.appendChild(pdate);
             ul.appendChild(li);
-            //console.log(childSnapshot.val());
         });
         $(".messages").scrollTop($('.messages').prop("scrollHeight"));
 
-        // console.log(snapshot.val());
     }, function (error) {
         console.log("Error: " + error.code);
     });
-    // $(".messages").animate({
-    //     scrollTop: $(document).height()
-    // }, "fast");
-    $(".messages").scrollTop($(document).height());
+
 
 
 </script>
 
 <script type="text/javascript" data-id="{{ Auth::user()->name }}" data-i="{{ Auth::user()->id }}" id='toPush'
     data-def="{{ $id }}">
-    var currentDate = new Date();
-    var date = currentDate.getDate();
-    var month = currentDate.getMonth(); //Be careful! January is 0 not 1
-    var year = currentDate.getFullYear();
-    var hour = currentDate.getHours();
-    var mintues = currentDate.getMinutes(); //Be careful! January is 0 not 1
-    var seconds = currentDate.getSeconds();
-
-    $value = $('#message').val();
-    $user = $('#toPush').data('id');
-    $dateString = year + "-" + (month + 1) + "-" + date + " " + hour + ":" + mintues + ":" + seconds;
-    $def = $('#toPush').data('def');
-    $i = $('#toPush').data('i');
-    if ($value) {
-        $.ajax({
-            type: 'get',
-            url: '/firebase/' + $def,
-            data: {
-                'message': $value,
-                'user_id': $user,
-                'date': $dateString,
-                'id': $i
-
-            },
-            success: function (data) {
-                var ref = firebase.database().ref($def);
+              $def = $('#toPush').data('def');
+              var ref = firebase.database().ref($def);
                 ref.limitToLast(1).on("value", function (snapshot) {
                     snapshot.forEach(function (childSnapshot) {
 
@@ -172,137 +141,25 @@
                             li.appendChild(pall);
                             ul.appendChild(pdate);
                             ul.appendChild(li);
-
-                        } else {
-                            newMessage();
+                            $(".messages").scrollTop($('.messages').prop("scrollHeight"));
 
                         }
+                        $(".messages").scrollTop($('.messages').prop("scrollHeight"));
 
-                        console.log(snapshot.val());
                     });
                 }, function (error) {
                     console.log("Error: " + error.code);
                 });
-                // newMessage();
 
-            }
-        })
-    };
+
+
     $('.submit').click(function () {
-        $value = $('#message').val();
-        $user = $('#toPush').data('id');
-        $dateString = year + "-" + (month + 1) + "-" + date + " " + hour + ":" + mintues + ":" + seconds;
-        $def = $('#toPush').data('def');
-        $i = $('#toPush').data('i');
-        if ($value) {
-            $.ajax({
-                type: 'get',
-                url: '/firebase/' + $def,
-                data: {
-                    'message': $value,
-                    'user_id': $user,
-                    'date': $dateString,
-                    'id': $i
-
-                },
-                success: function (data) {
-                    var ref = firebase.database().ref($def);
-                    ref.limitToLast(1).on("value", function (snapshot) {
-                        snapshot.forEach(function (childSnapshot) {
-
-                            var ul = document.getElementById("show");
-                            var li = document.createElement('li');
-                            var pdate = document.createElement('p');
-                            var pall = document.createElement('p');
-                            if (String(childSnapshot.val().id) != String($i) &&
-                                String(childSnapshot.val().message) != String(
-                                    'undefined')) {
-                                li.className = 'replies';
-
-                                pdate.setAttribute("style",
-                                    "text-align: center;  font-weight: bold;");
-                                pdate.appendChild(document.createTextNode(
-                                    childSnapshot.val().date));
-                                pall.innerHTML = childSnapshot.val().user_id + ':' +
-                                    childSnapshot.val().message;
-                                li.appendChild(pall);
-                                ul.appendChild(pdate);
-                                ul.appendChild(li);
-
-                            } else {
-                                newMessage();
-
-                            }
-
-                            console.log(snapshot.val());
-                        });
-                    }, function (error) {
-                        console.log("Error: " + error.code);
-                    });
-                    // newMessage();
-
-                }
-            })
-        };
+        newMessage();
     })
     $(window).on('keydown', function (e) {
         if (e.which == 13) {
-            $value = $('#message').val();
-            $user = $('#toPush').data('id');
-            $dateString = year + "-" + (month + 1) + "-" + date + " " + hour + ":" + mintues + ":" + seconds;
-            $def = $('#toPush').data('def');
-            $i = $('#toPush').data('i');
-            if ($value) {
-                $.ajax({
-                    type: 'get',
-                    url: '/firebase/' + $def,
-                    data: {
-                        'message': $value,
-                        'user_id': $user,
-                        'date': $dateString,
-                        'id': $i
+            newMessage();
 
-                    },
-                    success: function (data) {
-                        var ref = firebase.database().ref($def);
-                        ref.limitToLast(1).on("value", function (snapshot) {
-                            snapshot.forEach(function (childSnapshot) {
-
-                                var ul = document.getElementById("show");
-                                var li = document.createElement('li');
-                                var pdate = document.createElement('p');
-                                var pall = document.createElement('p');
-                                if (String(childSnapshot.val().id) != String($i) &&
-                                    String(childSnapshot.val().message) != String(
-                                        'undefined')) {
-                                    li.className = 'replies';
-
-                                    pdate.setAttribute("style",
-                                        "text-align: center;  font-weight: bold;"
-                                    );
-                                    pdate.appendChild(document.createTextNode(
-                                        childSnapshot.val().date));
-                                    pall.innerHTML = childSnapshot.val().user_id +
-                                        ':' + childSnapshot.val().message;
-                                    li.appendChild(pall);
-                                    ul.appendChild(pdate);
-                                    ul.appendChild(li);
-
-                                } else {
-                                    newMessage();
-
-                                }
-
-                                console.log(snapshot.val());
-                            });
-                        }, function (error) {
-                            console.log("Error: " + error.code);
-                        });
-                        // newMessage();
-
-                    }
-                })
-            };
         }
     })
 

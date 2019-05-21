@@ -35,19 +35,49 @@ $("#status-options ul li").click(function() {
 });
 
 function newMessage() {
-	message = $(".message-input input").val();
-	if($.trim(message) == '') {
-		return false;
-	}
-	$('<li class="sent"><p>' + message + '</p></li>').appendTo($('.messages ul'));
-	$('.message-input input').val(null);
-	$('.contact.active .preview').html('<span>You: </span>' + message);
-	$(".messages").animate({ scrollTop: $(document).height() }, "fast");
-};
+    var currentDate = new Date();
+    var date = currentDate.getDate();
+    var month = currentDate.getMonth(); //Be careful! January is 0 not 1
+    var year = currentDate.getFullYear();
+    var hour = currentDate.getHours();
+    var mintues = currentDate.getMinutes(); //Be careful! January is 0 not 1
+    var seconds = currentDate.getSeconds();
+    $value = $('#message').val();
+    $('.message-input input').val(null);
+
+    $user = $('#toPush').data('id');
+    $dateString = year + "-" + (month + 1) + "-" + date + " " + hour + ":" + mintues + ":" + seconds;
+    $def = $('#toPush').data('def');
+    $i = $('#toPush').data('i');
+
+    if ($value!=null) {
+        $.ajax({
+            type: 'get',
+            url: '/firebase/' + $def,
+            data: {
+                'message': $value,
+                'user_id': $user,
+                'date': $dateString,
+                'id': $i
+
+            },
+
+            success: function (data) {
+
+                    $('<li class="sent"><p>' + $value + '</p></li>').appendTo($('.messages ul'));
+
+                    $('.contact.active .preview').html('<span>You: </span>' + message);
+                    $(".messages").scrollTop($('.messages').prop("scrollHeight"));
+                },
+                 function (error) {
+                    console.log("Error: " + error.code);
+                }});
 
 
+        }
+    };
 
-//# sourceURL=pen.js
+
 
 
 
