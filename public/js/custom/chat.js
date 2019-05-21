@@ -43,7 +43,6 @@ function newMessage() {
     var mintues = currentDate.getMinutes(); //Be careful! January is 0 not 1
     var seconds = currentDate.getSeconds();
     $value = $('#message').val();
-    $('.message-input input').val(null);
 
     $user = $('#toPush').data('id');
     $dateString = year + "-" + (month + 1) + "-" + date + " " + hour + ":" + mintues + ":" + seconds;
@@ -65,6 +64,7 @@ function newMessage() {
             success: function (data) {
 
                     $('<li class="sent"><p>' + $value + '</p></li>').appendTo($('.messages ul'));
+                    $('.message-input input').val(null);
 
                     $('.contact.active .preview').html('<span>You: </span>' + message);
                     $(".messages").scrollTop($('.messages').prop("scrollHeight"));
