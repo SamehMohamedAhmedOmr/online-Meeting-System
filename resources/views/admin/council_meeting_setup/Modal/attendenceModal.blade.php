@@ -5,7 +5,8 @@
         <div class="modal-content">
             <div class="modal-header align-items-center justify-content-center">
                 <h5 class="modal-title" id="attendenceLabel" style="font-size: 1.8rem; color: #2d4278;">
-                    Update Attendance List
+                    {{__("Staff.UpdateAttendance")}}
+
                 </h5>
             </div>
             <div class="modal-body">
@@ -18,7 +19,7 @@
                         <div class="col-lg-6 col-md-8 col-10">
                             <h3 style="color:#34495e;">
                                 <span class="badge badge-dark" style="font-size: 1.5rem; padding: 15px;">
-                                    Council members
+                                    {{__("Staff.Councilmembers")}}
                                 </span>
                             </h3>
                         </div>
@@ -57,7 +58,7 @@
                 </form>
                 @else
                 <div class="d-flex justify-content-center m-3">
-                    No Council Member for this Council
+                    {{__("Staff.No Council Member for this Council")}}
                 </div>
                 @endif
             </div>

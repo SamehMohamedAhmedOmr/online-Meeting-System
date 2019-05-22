@@ -26,4 +26,10 @@ return array (
   'end' => 'ُEnd Date Of',
   'Chairman' => 'Chairman Of Council',
   'order' => 'Order',
+  'VotersList' => 'Voters List',
+  'Members who Voted' => 'Members who Voted',
+  'Members who didn\'t vote' => 'Members who didn\'t vote',
+  'No Votes Yet' => 'No Votes Yet',
+  'Vote Status' => 'Vote Status',
+  'Number of Voters' => 'Number of Voters',
 );

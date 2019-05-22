@@ -7,10 +7,10 @@
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Votes</div>
+                    <div class="card-header"> {{ __('Staff.Votes') }}</div>
                     <div class="card-body">
                         <a href="{{ url('/admin/votes/create') }}" class="btn btn-success btn-sm" title="Add New vote">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> {{ __('home.add') }}
                         </a>
 
                         <form method="GET" action="{{ url('/admin/votes') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
@@ -30,7 +30,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Council Member Id</th><th>Vote</th><th>Subject Type Id</th><th>Actions</th>
+                                        <th>#</th><th>{{ __('Staff.Councilmembers') }}</th><th>{{ __('Staff.Votes') }}</th><th>{{ __('Staff.Subject') }}</th><th>{{ __('home.Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -39,13 +39,13 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->council_member_id }}</td><td>{{ $item->vote }}</td><td>{{ $item->subject_type_id }}</td>
                                         <td>
-                                            <a href="{{ url('/admin/votes/' . $item->id) }}" title="View vote"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/admin/votes/' . $item->id . '/edit') }}" title="Edit vote"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/admin/votes/' . $item->id) }}" title="View vote"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> {{ __('home.View') }}</button></a>
+                                            <a href="{{ url('/admin/votes/' . $item->id . '/edit') }}" title="Edit vote"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{ __('home.Edit') }}</button></a>
 
                                             <form method="POST" action="{{ url('/admin/votes' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete vote" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete vote" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> {{ __('home.Delete') }}</button>
                                             </form>
                                         </td>
                                     </tr>

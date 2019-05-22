@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header align-items-center justify-content-center">
                 <h5 class="modal-title" id="votesTitle" style="font-size: 1.8rem; color: #2d4278;">
-                    Voters List
+                    {{__("admin.VotersList")}}
                 </h5>
             </div>
             <div class="modal-body">
@@ -15,26 +15,26 @@
 
                 <div class="row mb-4 pb-3" style="border-bottom: 1px solid #ccc;">
                     <div class="col-lg-3 col-6 text-center mb-lg-0 mb-3" style="color:#2D4278;">
-                        <h4>Total</h4>
+                        <h4>{{__("home.total")}}</h4>
                         <h4 class='totalVotes{{ $subject->id }}'>{{ $subject->Votes->count() }}</h4>
                     </div>
                     <div class="col-lg-3 col-6 text-center mb-lg-0 mb-3" style="color:#71C016;">
-                        <h4>Accepted</h4>
+                    <h4>{{__("home.Accepted")}}</h4>
                         <h4 class="acceptedVotes{{ $subject->id }}">{{ $subject->Votes->where('vote', 1)->count() }}</h4>
                     </div>
                     <div class="col-lg-3 col-6 text-center" style="color:#FF2121;">
-                        <h4>Rejected</h4>
+                        <h4>{{__("home.Rejected")}}</h4>
                         <h4 class="rejectedVotes{{ $subject->id }}">{{ $subject->Votes->where('vote', 0)->count() }}</h4>
                     </div>
                     <div class="col-lg-3 col-6 text-center" style="color:#555555;">
-                        <h4>Not Voted</h4>
+                        <h4>{{__("home.NotVoted")}}</h4>
                         <h4 class="notVotedVotes{{ $subject->id }}">{{ $subject->Votes->where('vote', 2)->count() }}</h4>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-6 d-flex flex-column align-items-center">
-                        <h4 class="pb-3 mb-2" style="border-bottom: 1px solid #ccc;">Members who Voted</h4>
+                        <h4 class="pb-3 mb-2" style="border-bottom: 1px solid #ccc;">{{__("admin.Members who Voted")}}</h4>
                         @foreach ($subject->Votes as $vote)
                             @if ($vote->vote != 2)
                                 <div class="m-3 pb-3 w-100" style="border-bottom: 1px solid #ccc;">
@@ -43,9 +43,9 @@
                                     </div>
                                     <div class="d-flex justify-content-center">
                                         @if ($vote->vote == 0)
-                                            <span class="badge badge-danger">Rejected</span>
+                                            <span class="badge badge-danger">{{__("home.Rejected")}}</span>
                                         @else
-                                            <span class="badge badge-success">Accepted</span>
+                                            <span class="badge badge-success">{{__("home.Accepted")}}</span>
                                         @endif
                                     </div>
                                     @if($vote->commet)
@@ -59,7 +59,7 @@
                         @endforeach
                     </div>
                     <div class="col-6 d-flex flex-column align-items-center">
-                        <h4 class="pb-3 mb-2" style="border-bottom: 1px solid #ccc;">Members who didn't vote</h4>
+                        <h4 class="pb-3 mb-2" style="border-bottom: 1px solid #ccc;">{{__("admin.Members who didn't vote")}}</h4>
                         @foreach ($subject->Votes as $vote)
 
                             @if ($vote->vote == 2)
@@ -68,7 +68,7 @@
                                         <h6>{{ $vote->CouncilMember->Faculty_member->User->name }}</h6>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <span class="badge badge-secondary">Not Voted</span>
+                                        <span class="badge badge-secondary">{{__("home.NotVoted")}}</span>
                                     </div>
                                 </div>
                             @endif
@@ -79,7 +79,7 @@
 
                 @if (count($subject->Votes)==0)
                 <div class="text-center" style="color:#555555;">
-                    <h4>No Votes Yet</h4>
+                    <h4>{{__("home.No Votes Yet")}}</h4>
                 </div>
                 @endif
             </div>
@@ -129,12 +129,12 @@
                 type: 'bar',
                 data: {
                     labels: [
-                        'Accepted'+acceptedLabel,
-                        'Rejected'+rejectedLabel,
-                        'Not Voted'+notVoteLabel
+                        '{{__("home.Accepted")}}'+acceptedLabel,
+                        '{{__("home.Rejected")}}'+rejectedLabel,
+                        '{{__("home.NotVoted")}}'+notVoteLabel
                         ],
                     datasets: [{
-                        label: 'Votes',
+                        label: '{{__("Staff.Votes")}}',
                         data: [acceptedVotes, rejectedVotes, notVotedVotes],
                         backgroundColor: [
                             'rgba(113,192,22, 0.2)',
@@ -158,7 +158,7 @@
                             },
                             scaleLabel: {
                                 display: true,
-                                labelString: "Number of Voters"
+                                labelString: '{{__("admin.Number of Voters")}}'
                             }
 
                         }],
@@ -166,7 +166,7 @@
                             barThickness: 30,
                             scaleLabel: {
                                 display: true,
-                                labelString: "Vote Status"
+                                labelString:'{{__("admin.Vote Status")}}'
                             }
                         }]
                     },

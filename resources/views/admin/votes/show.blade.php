@@ -7,16 +7,16 @@
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">vote {{ $vote->id }}</div>
+                    <div class="card-header">{{ __('Staff.Votes') }} {{ $vote->id }}</div>
                     <div class="card-body">
 
-                        <a href="{{ url('/admin/votes') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <a href="{{ url('/admin/votes/' . $vote->id . '/edit') }}" title="Edit vote"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        <a href="{{ url('/admin/votes') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i>  {{ __('home.Back') }}</button></a>
+                        <a href="{{ url('/admin/votes/' . $vote->id . '/edit') }}" title="Edit vote"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Ed {{ __('home.Edit') }}it</button></a>
 
                         <form method="POST" action="{{ url('admin/votes' . '/' . $vote->id) }}" accept-charset="UTF-8" style="display:inline">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger btn-sm" title="Delete vote" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                            <button type="submit" class="btn btn-danger btn-sm" title="Delete vote" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i>  {{ __('home.Delete') }}</button>
                         </form>
                         <br/>
                         <br/>
@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $vote->id }}</td>
                                     </tr>
-                                    <tr><th> Council Member Id </th><td> {{ $vote->council_member_id }} </td></tr><tr><th> Vote </th><td> {{ $vote->vote }} </td></tr><tr><th> Subject Type Id </th><td> {{ $vote->subject_type_id }} </td></tr>
+                                    <tr><th> {{ __('Staff.Councilmembers') }}</th><td> {{ $vote->council_member_id }} </td></tr><tr><th> {{ __('Staff.Votes') }} </th><td> {{ $vote->vote }} </td></tr><tr><th> {{ __('Staff.Subject') }} </th><td> {{ $vote->subject_type_id }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

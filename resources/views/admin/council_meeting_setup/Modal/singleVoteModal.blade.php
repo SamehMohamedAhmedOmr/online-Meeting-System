@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header align-items-center justify-content-center">
                 <h5 class="modal-title" id="votesTitle" style="font-size: 1.8rem; color: #2d4278;">
-                    Add Vote
+                    {{__("Staff.addvote")}}
                 </h5>
             </div>
             <div class="modal-body">
@@ -32,7 +32,8 @@
                                             @if ($check)
                                             {{ ($check->vote != 0) ? 'checked' : '' }}
                                             @endif >
-                                        Accept
+                                            {{__("Staff.accept")}}
+
                                     </label>
                                 </div>
                             </div>
@@ -44,7 +45,8 @@
                                             @if ($check)
                                                 {{ ($check->vote == 0) ? 'checked' : '' }}
                                             @endif>
-                                        Reject
+                                            {{__("Staff.reject")}}
+
                                     </label>
                                 </div>
                             </div>
@@ -52,13 +54,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="voteComment" class="d-block">Comment</label>
+                        <label for="voteComment" class="d-block">{{__("Staff.comment")}}
+</label>
                         <textarea class="form-control" id="voteComment" rows="4"
                             name='commet'>@if ($check){{ $check->commet }}@endif</textarea>
                     </div>
 
                     <div class="form-group mt-4">
-                        <input class="btn btn-primary" type="submit" value="Save">
+                        <input class="btn btn-primary" type="submit" value="{{__("home.Save")}}">
                     </div>
                 </form>
             </div>

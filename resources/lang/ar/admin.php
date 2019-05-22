@@ -26,4 +26,10 @@ return array (
   'start' => 'بدايه',
   'Chairman' => 'رئيس الجلسه',
   'order' => 'ترتيب',
+  'VotersList' => 'قائمه المصوتين',
+  'Members who Voted' => 'الذي صوت',
+  'Members who didn\'t vote' => 'الذي لم يصوت',
+  'No Votes Yet' => 'لم يصوت احد',
+  'Vote Status' => 'احصائيات المصويتن',
+  'Number of Voters' => 'عدد المصوتين',
 );

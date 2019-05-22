@@ -11,14 +11,14 @@
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card">
-                    <div class="card-header top-card">Edit position
+                    <div class="card-header top-card">{{ __('Staff.Edit position') }}
                         <span class="name">{{ $position->position_name }}</span>
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
                             <a class='back-button' href="{{ url('position') }}" title="Back">
                                 <button class="btn btn-warning btn-sm" >
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>{{ __('home.Back') }}
                                 </button>
                             </a>
                         </div>

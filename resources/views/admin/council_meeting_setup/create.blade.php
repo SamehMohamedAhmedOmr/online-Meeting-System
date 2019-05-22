@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card">
-                    <div class="card-header top-card">Create New Meeting</div>
+                    <div class="card-header top-card">{{__("home.Add New")}} {{__("Staff.Meeting")}}</div>
                     <div class="card-body">
                         <div class="p-3">
                             <a class='back-button' href="{{ url('meeting') }}" title="Back">

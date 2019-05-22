@@ -11,20 +11,20 @@
         <div id="SuccessDelete" class="flash-message "
             style="display: none;width: 50%; margin: auto;box-shadow: 1px 1px 2px #fff , -1px -1px 1px #fff;">
             <p class="alert alert-success text-white" style="text-align: center;"> &nbsp;
-                Meeting Deleted Successfully <i class="fas fa-check-double"></i></p>
+                  <i class="fas fa-check-double"></i></p>
         </div>
 
         <div id="SuccessClose" class="flash-message "
         style="display: none;width: 50%; margin: auto;box-shadow: 1px 1px 2px #fff , -1px -1px 1px #fff;">
         <p class="alert alert-success text-white" style="text-align: center;"> &nbsp;
-            Meeting Closed Successfully <i class="fas fa-check-double"></i></p>
+            {{__("Staff.Meeting Closed Successfully")}}  <i class="fas fa-check-double"></i></p>
         </div>
 
         <div class="row">
             <div class="col-md-12 grid-margin">
                 @include('messages')
                 <div class="card">
-                    <div class="card-header top-card">Meetings</div>
+                    <div class="card-header top-card">{{__("Staff.Meetings")}}</div>
                     <div class="card-body">
 
                         @if (Auth::user()->type == 1)
@@ -32,7 +32,7 @@
                         <div class="p-3">
                             <a href="{{ url('meeting/create') }}" class="btn btn-success btn-sm"
                                 title="Add New position">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                                <i class="fa fa-plus" aria-hidden="true"></i> {{__("home.AddNew")}}
                             </a>
                         </div>
                         @endif
@@ -43,17 +43,17 @@
                             <table class="table col-11 m-auto p-0 table-hover" id="get-data">
                                 <thead>
                                     <tr>
-                                        <th class="no-sort">Meeting Number</th>
-                                        <th>Council Name</th>
-                                        <th class="no-sort">Meeting Date</th>
+                                        <th class="no-sort">{{__("Staff.Meetingnumber")}}</th>
+                                        <th>{{__("Staff.Meetingname")}}</th>
+                                        <th class="no-sort">{{__("Staff.Meetingdate")}}</th>
 
-                                        <th class="no-sort">Meeting Time</th>
+                                        <th class="no-sort">{{__("Staff.Meetingtime")}}</th>
 
-                                        <th>Number of Subjects</th>
+                                        <th>{{__("Staff.Numberofsubjects")}}</th>
 
-                                        <th class="no-sort">Status</th>
+                                        <th class="no-sort">{{__("Staff.Status")}}</th>
 
-                                        <th class="no-sort">options</th>
+                                        <th class="no-sort">{{__("home.Options")}}</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -67,14 +67,14 @@
                                     <div class="modal-header d-flex justify-content-center">
                                         <h5 class="modal-title text-sm-center text-secondary" style="font-size: 14px;"
                                             id="exampleModalLabel">
-                                            Meeting will Delete Permanently , Are you sure ?
+                                            {{__("Staff.Meeting will Delete Permanently , Are you sure ?")}}
                                         </h5>
                                         <input type="hidden" value="" id="RemoveItem">
                                     </div>
                                     <div class="modal-footer d-flex justify-content-center" style="border:none">
-                                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-info" data-dismiss="modal">{{__("home.Close")}}</button>
                                         <button type="button" class="btn btn-danger" data-dismiss="modal"
-                                            data-backdrop="false" onclick="DeleteItem()">Delete</button>
+                                            data-backdrop="false" onclick="DeleteItem()">{{__("home.Delete")}}</button>
                                     </div>
                                 </div>
                             </div>
@@ -88,14 +88,14 @@
                                     <div class="modal-header d-flex justify-content-center">
                                         <h5 class="modal-title text-sm-center text-secondary" style="font-size: 14px;"
                                             id="exampleModalLabel">
-                                            Meeting will Close Permanently , Are you sure ?
+                                            {{__("Staff.Meeting will Close Permanently , Are you sure ?")}}
                                         </h5>
                                         <input type="hidden" value="" id="closeModal">
                                     </div>
                                     <div class="modal-footer d-flex justify-content-center" style="border:none">
-                                        <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
+                                        <button type="button" class="btn btn-info" data-dismiss="modal">{{__("home.No")}}</button>
                                         <button type="button" class="btn btn-warning" data-dismiss="modal"
-                                            data-backdrop="false" onclick="CloseMeeting()">Yes</button>
+                                            data-backdrop="false" onclick="CloseMeeting()">{{__("home.Yes")}}</button>
                                     </div>
                                 </div>
                             </div>

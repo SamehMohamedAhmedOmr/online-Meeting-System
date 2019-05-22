@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header d-flex justify-content-center">
                 <h5 class="modal-title text-sm-center text-secondary" style="font-size: 14px;" id="exampleModalLabel">
-                    Subject will Delete Permanently , Are you sure ?
+                {{__("Staff.Subject will Delete Permanently , Are you sure ?")}}
                 </h5>
                 <input type="hidden" value="" id="RemoveItem">
             </div>
@@ -13,7 +13,8 @@
                 <form action="{{ url('meetingSubject/delete') }}" method="POST">
                     @csrf
                     <input id="" type="hidden" value="{{ $subject->id }}" name='id'>
-                    <button type="submit" class="btn btn-danger mx-2">Delete</button>
+                    <button type="submit" class="btn btn-danger mx-2">{{__("home.Delete")}}
+                        </button>
                 </form>
 
             </div>
