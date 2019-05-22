@@ -6,13 +6,19 @@ use Illuminate\Http\Request;
 use Kreait\Firebase;
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
+use App\Council_meeting_subject;
+use Auth;
 use Validator;
 class FirebaseController extends Controller
 {
     public function chat($id)
     {
+        $subject = Council_meeting_subject::find($id);
+        if(!$subject){return redirect()->back();}
+        $council_member = Auth::user()->Faculty_member->CouncilMember->where('council_definition_id',$subject->council_definition)->first();
+        if(!$council_member){return redirect()->back();}
 
-        return view('admin.council_definition.test',compact('id'));
+        return view('admin.council_definition.chatPage',compact('id','subject'));
 
     }
     /**

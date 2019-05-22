@@ -130,9 +130,9 @@ Route::middleware('auth')->group(function () {
     Route::get('firebase/{id}','FirebaseController@index');
     Route::get('chat/{id}','FirebaseController@chat');
 
-    Route::get('test', function () {
-        return event(new App\Events\Councilcreated('Someone has added u to group',101,'Event','home'));
-    });
+    // Route::get('test', function () {
+    //     return event(new App\Events\Councilcreated('Someone has added u to group',101,'Event','home'));
+    // });
 
     Route::get('updateseen', 'Controller@updateseen');
     Route::post('watchNotification', 'Controller@watchNotification');

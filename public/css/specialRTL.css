@@ -14,6 +14,10 @@
     margin-left: 10px;
 }
 
+#frame .content .message-input .wrap input{
+    text-align: right !important;
+}
+
 .sidebar .nav .nav-item .nav-link i.menu-icon{
     margin-right: 0 !important;
     margin-left: 1.125rem !important;

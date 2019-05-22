@@ -63,7 +63,7 @@ function newMessage() {
 
             success: function (data) {
 
-                    $('<li class="sent"><p>' + $value + '</p></li>').appendTo($('.messages ul'));
+                    $('<li class="sent"><p style="direction:ltr;">' + $value + '</p></li>').appendTo($('.messages ul'));
                     $('.message-input input').val(null);
 
                     $('.contact.active .preview').html('<span>You: </span>' + message);
