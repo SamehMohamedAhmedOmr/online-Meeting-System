@@ -1,0 +1,25 @@
+<?php
+
+return array (
+  'Ranks' => 'المرتبات',
+  'Councildefinitions' => 'مجالس الاقسام',
+  'Meeting' => 'الاجتماعات',
+  'Positions' => 'المناصب',
+  'Type' => 'نوع',
+  'Subject' => 'نوعيه الموضوع',
+  'Status' => 'الحاله',
+  'Attendence' => 'الحضور',
+  'Additionalsubject' => 'موضوع اضافي',
+  'Finaldecision' => 'القرار النهائي',
+  'Personredirected' => 'الشخص المحول له القرار',
+  'Nextcouncildefinition' => 'المجلس القادم',
+  'Noattachment' => 'لا يوجد مرفقات',
+  'Meetingnumber' => 'رقم الاجتماع',
+  'Numberofsubjects' => 'عدد المواضيع',
+  'Councilmembers' => 'اعضاء المجلس',
+  'Addnewsubject' => 'اضف موضوع جديد',
+  'Addfinaldescision' => 'اضف القرار النهائي',
+  'AddExtraAttachment' => 'اضف مرفق جديد',
+  'Votes' => 'التصويت',
+  'Chat' => 'غرف التحدث',
+);

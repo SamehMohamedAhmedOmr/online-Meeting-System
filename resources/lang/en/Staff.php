@@ -1,0 +1,25 @@
+<?php
+
+return array (
+  'Ranks' => 'Ranks',
+  'Positions' => 'Positions',
+  'Subject' => 'Subject Type',
+  'Type' => 'Type',
+  'Councildefinitions' => 'Council Definitions',
+  'Meeting' => 'Meeting',
+  'Status' => 'Status',
+  'Attendence' => 'Attendence',
+  'Additionalsubject' => 'Additional Subject',
+  'Finaldecision' => 'Final Decision',
+  'Personredirected' => 'Person Redirected',
+  'Nextcouncildefinition' => 'Next Council Definition',
+  'Noattachment' => 'No Attachments',
+  'Meetingnumber' => 'Meeting Number',
+  'Numberofsubjects' => 'Number Of Subjects',
+  'Councilmembers' => 'Council members',
+  'Addnewsubject' => 'Add New Subject',
+  'Addfinaldescision' => 'Add Final Descision',
+  'AddExtraAttachment' => 'Add Extra Attachment',
+  'Votes' => 'Votes',
+  'Chat' => 'Chat',
+);
