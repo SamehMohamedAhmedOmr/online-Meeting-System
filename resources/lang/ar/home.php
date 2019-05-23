@@ -29,7 +29,6 @@ return [
     'Next'=>'التالي',
 
 ];
-=======
 return array (
   'Meeting' => 'الاجتماعات',
   'Dashboard' => 'لوحه التحكم',
@@ -71,4 +70,3 @@ return array (
   'yes' => 'نعم',
   'Name' => 'الاسم',
 );
->>>>>>> 4d52967608dbe7b72314cadc8ad418f0b77b9418

@@ -26,7 +26,7 @@ return [
     'entries '=>'صفوف',
 
 ];
-=======
+
 return array (
   'Users' => 'الأشخاص',
   'faculties' => 'الكليات',
@@ -60,4 +60,3 @@ return array (
   'Vote Status' => 'احصائيات المصويتن',
   'Number of Voters' => 'عدد المصوتين',
 );
->>>>>>> 4d52967608dbe7b72314cadc8ad418f0b77b9418

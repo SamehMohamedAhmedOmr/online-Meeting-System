@@ -33,7 +33,7 @@ return [
 
 
 ];
-=======
+
 return array (
   'Meeting' => 'Meeting',
   'Dashboard' => 'Dashboard',
@@ -75,4 +75,3 @@ return array (
   'yes' => 'Yes',
   'Name' => 'Name',
 );
->>>>>>> 4d52967608dbe7b72314cadc8ad418f0b77b9418

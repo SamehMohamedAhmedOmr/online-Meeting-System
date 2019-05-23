@@ -27,7 +27,7 @@ return [
 
 
 ];
-=======
+
 return array (
   'Users' => 'Users',
   'faculties' => 'faculties',
@@ -61,4 +61,3 @@ return array (
   'Vote Status' => 'Vote Status',
   'Number of Voters' => 'Number of Voters',
 );
->>>>>>> 4d52967608dbe7b72314cadc8ad418f0b77b9418
