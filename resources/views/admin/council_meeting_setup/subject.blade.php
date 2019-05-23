@@ -3,7 +3,7 @@
     @if (Auth::user()->type == 1 && $council_meeting_setup->close == 0) <!-- Staff -->
         <div class="d-flex justify-content-center align-items-center my-4">
             <a class="btn btn-facebook" href="{{ url('meetingSubject/create/'.$council_meeting_setup->id.'') }}">
-                Add new Subject
+                {{__("Staff.Addnewsubject")}}
             </a>
         </div>
     @endif
@@ -20,7 +20,7 @@
                         style="text-align: right; line-height: 25px;">
                         <div class="title">
                             <i class="mdi mdi-library-plus"></i>
-                            <span> Subject {{ ++$indexKey }} -
+                            <span>  {{__("Staff.Subject")}} {{ ++$indexKey }} -
                                 <span style="color: #E91E63; !important">
                                     {{ $subject->Subject_type->subject_type_name }}
                                 </span>
@@ -53,7 +53,7 @@
                     <div class="col-md-4 subject-specific-data">
                         <label class="btn btn-dark subject-title">
                             <i class="fas fa-graduation-cap menu-icon"></i>
-                            <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">Faculty</span>
+                            <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("admin.faculty")}}</span>
                         </label>
                     </div>
                     <div class="col-md-8 subject-specific-data">
@@ -67,7 +67,7 @@
                     <div class="col-md-4 subject-specific-data">
                         <label class="btn btn-dark subject-title">
                             <i class="fas fa-server menu-icon"></i>
-                            <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">Department</span>
+                            <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("admin.Department")}}</span>
                         </label>
                     </div>
                     <div class="col-md-8 subject-specific-data">
@@ -81,7 +81,7 @@
                     <div class="col-md-4 subject-specific-data">
                         <label class="btn btn-dark subject-title">
                             <i class="mdi mdi-book-open-page-variant menu-icon"></i>
-                            <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">Subject Type</span>
+                            <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("Staff.Subject")}}</span>
                         </label>
                     </div>
                     <div class="col-md-8 subject-specific-data">
@@ -95,7 +95,7 @@
                     <div class="col-md-4 subject-specific-data">
                         <label class="btn btn-dark subject-title">
                             <i class="fas fa-edit menu-icon"></i>
-                            <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">Description</span>
+                            <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("home.Description")}}</span>
                         </label>
                     </div>
                     <div class="col-md-8 subject-specific-data">
@@ -109,7 +109,7 @@
                     <div class="col-md-4 subject-specific-data">
                         <label class="btn btn-dark subject-title">
                             <i class="fas-fa-project-diagram menu-icon"></i>
-                            <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">Additional Subject</span>
+                            <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("Staff.Additionalsubject")}}</span>
                         </label>
                     </div>
                     <div class="col-md-8 subject-specific-data">
@@ -128,7 +128,7 @@
                         <label class="btn btn-dribbble subject-title">
                             <i class="mdi mdi-attachment menu-icon" style="font-size: 1.3rem !important;"></i>
                             <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">
-                                Attachment
+                                {{__("home.Attachment")}}
                             </span>
                         </label>
                     </div>
@@ -141,7 +141,7 @@
                                         style="color:#fff !important; cursor: pointer;"
                                         data-target="#extraAttachment{{ $subject->id }}"
                                         data-id="{{ $council_meeting_setup->id }}">
-                                        Add Extra Attachment <i class="mdi mdi-plus inside-icon"></i>
+                                        {{__("Staff.AddExtraAttachment")}} <i class="mdi mdi-plus inside-icon"></i>
                                     </a>
                                 </div>
                             @endif
@@ -182,7 +182,7 @@
 
                                 @if (count($subject->Subject_attachment) == 0)
                                 <li>
-                                    No Attachment
+                                    {{__("Staff.Noattachment")}}
                                 </li>
                                 @endif
                             </ul>
@@ -199,7 +199,7 @@
                             <div class="col-md-4 subject-specific-data">
                                 <label class="btn btn-info subject-title">
                                     <i class="fas-fa-project-diagram menu-icon"></i>
-                                    <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">My Vote</span>
+                                    <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("Staff.My Vote")}}</span>
                                 </label>
                             </div>
                             <div class="col-md-8 subject-specific-data">
@@ -230,7 +230,7 @@
                                     @endif">
 
                                 <i class="fas fa-balance-scale menu-icon"></i>
-                                <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">Final Decision</span>
+                                <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("Staff.Finaldecision")}}</span>
                             </label>
                         </div>
                         <div class="col-md-8 subject-specific-data">
@@ -260,8 +260,8 @@
                                         @endif">
 
                                 <i class="fas fa-edit menu-icon"></i>
-                                <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">Final Decision
-                                    Description</span>
+                                <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("Staff.Finaldecision")}}
+                                    {{__("home.Description")}}</span>
                             </label>
                         </div>
                         <div class="col-md-8 subject-specific-data">
@@ -277,7 +277,7 @@
                         <div class="col-md-4 subject-specific-data">
                             <label class="btn btn-primary subject-title">
                                 <i class="fas fa-user-tie  menu-icon"></i>
-                                <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">Person Redirected</span>
+                                <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("Staff.Personredirected")}}</span>
                             </label>
                         </div>
                         <div class="col-md-8 subject-specific-data">
@@ -291,7 +291,7 @@
                         <div class="col-md-4 subject-specific-data">
                             <label class="btn btn-primary subject-title">
                                 <i class="fas fa-clipboard-list menu-icon"></i>
-                                <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">Next Council Definition</span>
+                                <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("Staff.Nextcouncildefinition")}}</span>
                             </label>
                         </div>
                         <div class="col-md-8 subject-specific-data">

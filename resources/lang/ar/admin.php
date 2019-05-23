@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 return [
 
     /*
@@ -26,3 +27,38 @@ return [
     'entries '=>'صفوف',
 
 ];
+=======
+return array (
+  'Users' => 'الأشخاص',
+  'faculties' => 'الكليات',
+  'Departments' => 'الاقسام',
+  'Council Definitions' => 'مجالس الاقسام',
+  'Image' => 'الصوره',
+  'options' => 'العمليات',
+  'Name' => 'الاسم',
+  'Email' => 'العنوان البريدي',
+  'Position' => 'المنصب',
+  'Show ' => 'عرض',
+  'entries ' => 'صفوف',
+  'data' => 'معلومات',
+  'type' => 'النوع',
+  'faculty' => 'الكليه',
+  'Department' => 'القسم',
+  'Rank' => 'المرتبه',
+  'Logo' => 'الشعار',
+  'noofmembers' => 'عدد الاعضاء',
+  'noofmeetings' => 'عدد الاجتماعات',
+  'member' => 'عضو',
+  'membership' => 'العضويه',
+  'end' => 'نهايه',
+  'start' => 'بدايه',
+  'Chairman' => 'رئيس الجلسه',
+  'order' => 'ترتيب',
+  'VotersList' => 'قائمه المصوتين',
+  'Members who Voted' => 'الذي صوت',
+  'Members who didn\'t vote' => 'الذي لم يصوت',
+  'No Votes Yet' => 'لم يصوت احد',
+  'Vote Status' => 'احصائيات المصويتن',
+  'Number of Voters' => 'عدد المصوتين',
+);
+>>>>>>> 4d52967608dbe7b72314cadc8ad418f0b77b9418

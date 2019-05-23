@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <div class="p-3">
                             <a href="{{ url('rank/create') }}" class="btn btn-success btn-sm" title="Add New rank">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                                <i class="fa fa-plus" aria-hidden="true"></i> {{ __('home.Add New') }}
                             </a>
                         </div>
 
@@ -31,8 +31,8 @@
                             <table class="table col-11 m-auto p-0 table-hover" id="Ranks">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th class="no-sort">options</th>
+                                        <th>{{ __('home.Name') }}</th>
+                                        <th class="no-sort">{{ __('home.Options') }}</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -46,14 +46,14 @@
                                     <div class="modal-header d-flex justify-content-center">
                                         <h5 class="modal-title text-sm-center text-secondary" style="font-size: 14px;"
                                             id="exampleModalLabel">
-                                            Rank will Delete Permanently , Are you sure ?
+                                            {{ __('Staff.Rank will Delete Permanently , Are you sure ?') }}
                                         </h5>
                                         <input type="hidden" value="" id="RemoveItem">
                                     </div>
                                     <div class="modal-footer d-flex justify-content-center" style="border:none">
-                                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-info" data-dismiss="modal">{{ __('home.Close') }}</button>
                                         <button type="button" class="btn btn-danger" data-dismiss="modal"
-                                            data-backdrop="false" onclick="DeleteItem()">Delete</button>
+                                            data-backdrop="false" onclick="DeleteItem()">{{ __('home.Delete') }}</button>
                                     </div>
                                 </div>
                             </div>

@@ -5,7 +5,8 @@
         <div class="modal-content">
             <div class="modal-header d-flex justify-content-center">
                 <h5 class="modal-title text-sm-center text-secondary" style="font-size: 14px;" id="exampleModalLabel">
-                    Attachment will Delete Permanently , Are you sure ?
+                    {{__("Staff.  Attachment will Delete Permanently , Are you sure ?")}}
+
                 </h5>
                 <input type="hidden" value="" id="RemoveItem">
             </div>
@@ -14,7 +15,7 @@
                 <form action="{{ url('meetingAttachment/delete/'.$attachment->id.'/0') }}" method="POST">
                     @csrf
                     <input id="" type="hidden" value="{{ $attachment->id }}" name='id'>
-                    <button type="submit" class="btn btn-danger mx-2">Delete</button>
+                    <button type="submit" class="btn btn-danger mx-2">{{__("home.Delete")}}</button>
                 </form>
             </div>
         </div>

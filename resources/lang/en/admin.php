@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 return [
 
     /*
@@ -27,3 +28,38 @@ return [
 
 
 ];
+=======
+return array (
+  'Users' => 'Users',
+  'faculties' => 'faculties',
+  'Departments' => 'Departments',
+  'Council Definitions' => 'Council Definitions',
+  'Image' => 'Image',
+  'options' => 'Options',
+  'Name' => 'Name',
+  'Email' => 'Email',
+  'Position' => 'Position',
+  'Show ' => 'Show',
+  'entries ' => 'entries',
+  'data' => 'Data',
+  'type' => 'Type',
+  'faculty' => 'Faculty',
+  'Department' => 'Department',
+  'Rank' => 'Rank',
+  'Logo' => 'Logo',
+  'noofmembers' => 'Number Of Members',
+  'noofmeetings' => 'Number of Meetings',
+  'member' => 'Member',
+  'membership' => 'Membership',
+  'start' => 'Start Date Of',
+  'end' => 'ُEnd Date Of',
+  'Chairman' => 'Chairman Of Council',
+  'order' => 'Order',
+  'VotersList' => 'Voters List',
+  'Members who Voted' => 'Members who Voted',
+  'Members who didn\'t vote' => 'Members who didn\'t vote',
+  'No Votes Yet' => 'No Votes Yet',
+  'Vote Status' => 'Vote Status',
+  'Number of Voters' => 'Number of Voters',
+);
+>>>>>>> 4d52967608dbe7b72314cadc8ad418f0b77b9418

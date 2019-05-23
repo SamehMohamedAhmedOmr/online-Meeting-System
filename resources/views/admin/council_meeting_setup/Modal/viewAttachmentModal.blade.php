@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header align-items-center justify-content-center">
                 <h5 class="modal-title" id="votesTitle" style="font-size: 1.8rem; color: #2d4278;">
-                   Attachment View {{ $attachment->id }}
+                    {{__("Staff.Attachment View")}}  {{ $attachment->id }}
                 </h5>
             </div>
             <div class="modal-body">

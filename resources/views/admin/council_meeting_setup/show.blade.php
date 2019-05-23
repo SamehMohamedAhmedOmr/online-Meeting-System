@@ -25,16 +25,16 @@
 
                 <div class="card">
                     <div class="card-header top-card">
-                        <span>Meeting</span>
-                        <span class="name">Number {{ $council_meeting_setup->meeting_number }}</span>
-                        <span>details</span>
+                        <span>{{__("Staff.Meeting")}}</span>
+                        <span class="name">{{__("home.Number")}} {{ $council_meeting_setup->meeting_number }}</span>
+                        <span>{{__("home.details")}}</span>
                     </div>
 
                     <div class="card-body">
                         <div class="mb-3">
                             <a style='text-decoration:none;' href="{{ url('meeting') }}" title="Back">
                                 <button class="btn btn-warning btn-sm" style="color:#fff;">
-                                    <i class="fa fa-arrow-left" style="font-size: 0.875rem" aria-hidden="true"></i> Back
+                                    <i class="fa fa-arrow-left" style="font-size: 0.875rem" aria-hidden="true"></i> {{__("home.Back")}}
                                 </button>
                             </a>
                         </div>
@@ -43,15 +43,15 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th style="width: 30%; line-height: 20px;"> Council Name </th>
+                                        <th style="width: 30%; line-height: 20px;">{{__("Staff.CouncilName")}}</th>
                                         <td> {{ $council_meeting_setup->Council_definition->council_name }} </td>
                                     </tr>
                                     <tr>
-                                        <th style="width: 30%; line-height: 20px;"> Date </th>
+                                        <th style="width: 30%; line-height: 20px;"> {{__("home.Date")}} </th>
                                         <td> {{ $council_meeting_setup->meeting_date }} </td>
                                     </tr>
                                     <tr>
-                                        <th style="width: 30%; line-height: 20px;"> Time </th>
+                                        <th style="width: 30%; line-height: 20px;"> {{__("home.Time")}} </th>
                                         <td> {{ $council_meeting_setup->meeting_time }} </td>
                                     </tr>
                                 </tbody>
@@ -64,7 +64,7 @@
                                     role="tab" aria-controls="subject"
                                     aria-selected="true" style="font-size: 1.2rem !important;">
                                     <i class="mdi mdi-file-document-box"></i>
-                                    <span>Subjects</span>
+                                    <span>{{__("home.Subject")}}</span>
                                 </a>
                             </li>
                             @if (Auth::user()->type == 1)
@@ -73,7 +73,7 @@
                                         aria-controls="attendence" style="font-size: 1.2rem !important;"
                                         aria-selected="false">
                                         <i class="mdi mdi-account-check"></i>
-                                        <span>Attendence</span>
+                                        <span>{{__("Staff.Attendence")}}</span>
                                     </a>
                                 </li>
                             @endif
