@@ -18,7 +18,7 @@
                         <div class="mb-3">
                             <a class='back-button' href="{{ url('department') }}" title="Back">
                                 <button class="btn btn-warning btn-sm" >
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> {{ __('home.Back') }}
                                 </button>
                             </a>
                         </div>

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('pageTitle')
+    {{ __('pageTitle.home Page') }}
+@endsection
+
 @section('content')
       <!-- partial -->
       <div class="main-panel">

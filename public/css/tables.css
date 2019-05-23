@@ -213,6 +213,9 @@ a.back-button button{
     color:#fff;
 }
 
-a.back-button button i{
+a.back-button button i,
+div.add-new a i{
     font-size: 0.875rem;
+    position: relative;
+    top: 2px;
 }

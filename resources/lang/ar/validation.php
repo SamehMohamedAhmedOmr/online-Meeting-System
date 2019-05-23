@@ -43,13 +43,13 @@ return [
     'gt'                   => [
         'numeric' => 'يجب أن تكون قيمة :attribute أكبر من :value.',
         'file'    => 'يجب أن يكون حجم الملف :attribute أكبر من :value كيلوبايت.',
-        'string'  => 'يجب أن يكون طول النّص :attribute أكثر من :value حروفٍ/حرفًا.',
+        'string'  => 'يجب أن يكون طول نص :attribute أكثر من :value حروفٍ/حرفًا.',
         'array'   => 'يجب أن يحتوي :attribute على أكثر من :value عناصر/عنصر.',
     ],
     'gte'                  => [
         'numeric' => 'يجب أن تكون قيمة :attribute مساوية أو أكبر من :value.',
         'file'    => 'يجب أن يكون حجم الملف :attribute على الأقل :value كيلوبايت.',
-        'string'  => 'يجب أن يكون طول النص :attribute على الأقل :value حروفٍ/حرفًا.',
+        'string'  => 'يجب أن يكون طول نص :attribute على الأقل :value حروفٍ/حرفًا.',
         'array'   => 'يجب أن يحتوي :attribute على الأقل على :value عُنصرًا/عناصر.',
     ],
     'image'                => 'يجب أن يكون :attribute صورةً.',
@@ -83,7 +83,7 @@ return [
     'min'                  => [
         'numeric' => 'يجب أن تكون قيمة :attribute مساوية أو أكبر من :min.',
         'file'    => 'يجب أن يكون حجم الملف :attribute على الأقل :min كيلوبايت.',
-        'string'  => 'يجب أن يكون طول النص :attribute على الأقل :min حروفٍ/حرفًا.',
+        'string'  => 'يجب أن يكون طول نص :attribute على الأقل :min حروفٍ/حرفًا.',
         'array'   => 'يجب أن يحتوي :attribute على الأقل على :min عُنصرًا/عناصر.',
     ],
     'not_in'               => ':attribute موجود.',
@@ -102,13 +102,13 @@ return [
     'size'                 => [
         'numeric' => 'يجب أن تكون قيمة :attribute مساوية لـ :size.',
         'file'    => 'يجب أن يكون حجم الملف :attribute :size كيلوبايت.',
-        'string'  => 'يجب أن يحتوي النص :attribute على :size حروفٍ/حرفًا بالضبط.',
+        'string'  => 'يجب أن يحتوي نص :attribute على :size حروفٍ/حرفًا بالضبط.',
         'array'   => 'يجب أن يحتوي :attribute على :size عنصرٍ/عناصر بالضبط.',
     ],
     'starts_with'          => 'يجب أن يبدأ :attribute بأحد القيم التالية: :values',
     'string'               => 'يجب أن يكون :attribute نصًا.',
     'timezone'             => 'يجب أن يكون :attribute نطاقًا زمنيًا صحيحًا.',
-    'unique'               => 'قيمة :attribute مُستخدمة من قبل.',
+    'unique'               => ':attribute مُستخدم من قبل.',
     'uploaded'             => 'فشل في تحميل الـ :attribute.',
     'url'                  => 'صيغة الرابط :attribute غير صحيحة.',
     'uuid'                 => ':attribute يجب أن يكون بصيغة UUID سليمة.',
@@ -138,12 +138,10 @@ return [
     |
     */
     'attributes' => [
-        'name'                  => 'الاسم',
+        // default
         'username'              => 'اسم المُستخدم',
-        'email'                 => 'البريد الالكتروني',
         'first_name'            => 'الاسم الأول',
         'last_name'             => 'اسم العائلة',
-        'password'              => 'كلمة المرور',
         'password_confirmation' => 'تأكيد كلمة المرور',
         'city'                  => 'المدينة',
         'country'               => 'الدولة',
@@ -167,6 +165,24 @@ return [
         'time'                  => 'الوقت',
         'available'             => 'مُتاح',
         'size'                  => 'الحجم',
+
+        // User input
+        'name'                  => 'الاسم',
+        'type'                  => 'نوع المستخدم',
+        'email'                 => 'البريد الالكتروني',
+        'password'              => 'كلمة السر',
+        'faculty_id'            => 'الكلية',
+        'department_id'         => 'القسم',
+        'rank_id'               => 'المرتبة',
+        'position_id'           => 'المنصب',
+        'image'                 => 'الصورة',
+
+        // Faculty input
+        'faculty_name'          => 'اسم الكلية',
+        'logo'                  => 'الشعار',
+
+        //rank input
+
         'meeting_number'        => 'رقم الاجتماع'
     ],
 ];

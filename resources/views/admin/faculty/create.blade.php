@@ -5,6 +5,10 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/specialFileInput.css') }}" />
 @endsection
 
+@section('pageTitle')
+{{ __('admin.faculties') }} | {{ __('admin.Add new Faculty') }}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -12,12 +16,12 @@
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card">
-                    <div class="card-header top-card">Create New faculty</div>
+                    <div class="card-header top-card">{{ __('admin.Add new Faculty') }}</div>
                     <div class="card-body">
                         <div class="p-3">
                             <a class='back-button' href="{{ url('faculty') }}" title="Back">
                                 <button class="btn btn-warning btn-sm">
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> {{ __('home.Back') }}
                                 </button>
                             </a>
                         </div>

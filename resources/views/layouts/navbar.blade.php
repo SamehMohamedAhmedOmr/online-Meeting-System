@@ -54,27 +54,28 @@
                                 <i class="mdi mdi-magnify"></i>
                             </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Search now" aria-label="search"
+                        <input type="text" class="form-control" placeholder="{{ __('home.Search now') }}" aria-label="search"
                             aria-describedby="search">
                     </div>
                 </li>
             </ul>
 
             <ul class="navbar-nav navbar-nav-right">
+
                 <li class="nav-item dropdown mr-4">
                     <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
                         id="langDropDown" href="#" data-toggle="dropdown">
                         <i class="mdi mdi-earth mx-0"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="langDropDown">
-                        <p class="mb-0 font-weight-normal float-left dropdown-header">Langauge</p>
+                        <p class="mb-0 font-weight-normal float-left dropdown-header">{{ __('home.Langauge') }}</p>
                         <a class="dropdown-item" href="{{ url('setlocale/ar') }}">
                             <div class="item-thumbnail">
                                 <img src="{{ URL::asset('images/flags/arabic.png') }}" alt="image" class="profile-pic">
                             </div>
                             <div class="item-content flex-grow">
                                 <h6 class="font-weight-normal" style="margin-top: 0.5rem;">
-                                    Arabic
+                                    {{ __('home.Arabic') }}
                                 </h6>
                             </div>
                         </a>
@@ -84,7 +85,7 @@
                             </div>
                             <div class="item-content flex-grow">
                                 <h6 class="font-weight-normal" style="margin-top: 0.5rem;">
-                                    English
+                                    {{ __('home.English') }}
                                 </h6>
                             </div>
                         </a>
@@ -98,7 +99,9 @@
                         <span class="count"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="messageDropdown">
-                        <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
+                        <p class="mb-0 font-weight-normal float-left dropdown-header">
+                            {{ __('home.Messages') }}
+                        </p>
                         <a class="dropdown-item">
                             <div class="item-thumbnail">
                                 <img src="{{ URL::asset('images/faces/face4.jpg') }}" alt="image" class="profile-pic">
@@ -154,7 +157,9 @@
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                         aria-labelledby="notificationDropdown" id="maxy"
                         style="right: auto; left: 0 !important; overflow-y: auto; max-height: 480px;">
-                        <p class="mb-0 font-weight-normal float-left dropdown-header" id='notificationHeader'>Notification</p>
+                        <p class="mb-0 font-weight-normal float-left dropdown-header" id='notificationHeader'>
+                            {{ __('home.Notification') }}
+                        </p>
 
                         @foreach ($data as $item)
                         @if($item->seen=='0')
@@ -225,16 +230,16 @@
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                         <a class="dropdown-item">
                             <i class="mdi mdi-account-circle text-primary account-icons"></i>
-                            Profile
+                            {{ __('home.profile') }}
                         </a>
                         <a class="dropdown-item">
                             <i class="mdi mdi-settings text-primary account-icons"></i>
-                            Settings
+                            {{ __('home.setting') }}
                         </a>
                         <a class="dropdown-item" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             <i class="mdi mdi-logout text-primary account-icons"></i>
-                            Logout
+                            {{ __('home.Logout') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf

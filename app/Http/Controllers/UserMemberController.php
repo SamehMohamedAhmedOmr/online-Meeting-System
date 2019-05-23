@@ -92,7 +92,7 @@ class UserMemberController extends Controller
 
                 $requestData['image']=$user->id.'_'.$request->file('image')->getClientOriginalName();
                 $user->update($requestData);
-                return redirect('users')->with('flash_message', 'User added!');
+                return redirect('users')->with('flash_message', __('flash_message.User added'));
             }
         } else {
             $requestData['password'] = Hash::make($request->password);
@@ -101,7 +101,7 @@ class UserMemberController extends Controller
             $requestData['member_name']=$user->name;
             Faculty_member::create($requestData + ['user_id'=>$user->id]);
 
-            return redirect('users')->with('flash_message', 'User added!');
+            return redirect('users')->with('flash_message', __('flash_message.User added'));
         }
     }
 
@@ -120,16 +120,16 @@ class UserMemberController extends Controller
         $cas = 'CEO';
         switch ($member->type) {
             case '0':
-            $cas = 'Admin';
+            $cas = __('home.admin');
                 break;
             case '1':
-            $cas = 'Staff';
+            $cas = __('home.Staff');
                 break;
             case '2':
-            $cas = 'Faculty Member';
+            $cas = __('home.Council Member');
                 break;
             default:
-            $cas = 'Undefined';
+            $cas = __('home.Undefined');
                 break;
         }
 
@@ -168,7 +168,6 @@ class UserMemberController extends Controller
 
             'name' => 'required|string|max:25',
             'email' => 'required|email',
-            'password' => 'max:25',
             'type' => 'required|alphanum',
             'image' => 'mimes:jpeg,jpg,png,gif|max:10000',
             'rank_id' => 'required|numeric|exists:rank,id',
@@ -178,13 +177,14 @@ class UserMemberController extends Controller
         ])->validate();
 
         $requestData = $request->all();
-
-        if($request->password == null){
-            unset($requestData['password']);
-        }
-        else{
-            $requestData['password'] = Hash::make($request->password);
-        }
+        unset($requestData['password']);
+        
+        // if($request->password == null){
+        //     unset($requestData['password']);
+        // }
+        // else{
+        //     $requestData['password'] = Hash::make($request->password);
+        // }
 
         if ($request->image) {
             $user = User::find($id);
@@ -198,7 +198,7 @@ class UserMemberController extends Controller
                 $requestData['member_name']=$user->name;
                 $faculty_member = Faculty_member::where('user_id',$id)->first();
                 $faculty_member->update($requestData);
-                return redirect('users')->with('flash_message', 'User updated!');
+                return redirect('users')->with('flash_message', __('flash_message.User Updated'));
             }
         } else {
             $user = User::find($id);
@@ -208,7 +208,7 @@ class UserMemberController extends Controller
             $faculty_member = Faculty_member::where('user_id',$id)->first();
 
             $faculty_member->update($requestData);
-            return redirect('users')->with('flash_message', 'User updated!');
+            return redirect('users')->with('flash_message', __('flash_message.User Updated'));
         }
     }
 

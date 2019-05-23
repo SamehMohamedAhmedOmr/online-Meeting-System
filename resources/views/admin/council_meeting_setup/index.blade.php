@@ -112,6 +112,6 @@
 @section('scripts')
 
 <script type="text/javascript" src="{{ URL::asset('js/ajax/getCouncilMeeting.js') }}" id='scriptMeeting'
-    data-type="{{ Auth::user()->type }}"></script>
+    data-type="{{ Auth::user()->type }}" data-lang="{{ App::getLocale() }}"></script>
 
 @endsection

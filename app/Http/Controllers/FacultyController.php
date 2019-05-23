@@ -50,8 +50,8 @@ class FacultyController extends Controller
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'faculty_name' => 'required|string|max:100',
-            'logo' => 'image|mimes:jpeg,jpg,png,gif|max:10000',
+            'faculty_name' => 'required|string|min:3|max:100',
+            'logo' => 'required|image|mimes:jpeg,jpg,png,gif|max:10000',
         ])->validate();
 
         $requestData = $request->all();
@@ -61,13 +61,13 @@ class FacultyController extends Controller
             $faculty->update($requestData);
 
             if ($this->storeimage($request->file('logo'), $faculty->id)) {
-                return redirect('faculty')->with('flash_message', 'Faculty added!');
+                return redirect('faculty')->with('flash_message', __('flash_message.Faculty added'));
             }
         } else {
             $requestData['logo']='default_default.png';
 
             Faculty::create($requestData);
-            return redirect('faculty')->with('flash_message', 'Faculty added!');
+            return redirect('faculty')->with('flash_message', __('flash_message.Faculty added'));
         }
     }
 
@@ -121,7 +121,7 @@ class FacultyController extends Controller
             $requestData['logo'] = $id.'_'.$request->file('logo')->getClientOriginalName();
             $faculty->update($requestData);
             if ($this->storeimage($request->file('logo'), $id)) {
-                return redirect('faculty')->with('flash_message', 'Faculty updated!');
+                return redirect('faculty')->with('flash_message',  __('flash_message.Faculty Updated'));
             }
         } else {
             $faculty = Faculty::find($id);
@@ -130,7 +130,7 @@ class FacultyController extends Controller
             }
             $faculty->update($requestData);
 
-            return redirect('faculty')->with('flash_message', 'Faculty updated!');
+            return redirect('faculty')->with('flash_message',  __('flash_message.Faculty Updated'));
         }
     }
 

@@ -1,9 +1,8 @@
 <?php
 
-
 return array (
   'Users' => 'Users',
-  'faculties' => 'faculties',
+  'faculties' => 'Faculties',
   'Departments' => 'Departments',
   'Council Definitions' => 'Council Definitions',
   'Image' => 'Image',
@@ -33,4 +32,18 @@ return array (
   'No Votes Yet' => 'No Votes Yet',
   'Vote Status' => 'Vote Status',
   'Number of Voters' => 'Number of Voters',
+  'password' => 'Password',
+  'Edit User' => 'Edit user Data',
+  'Add new Faculty' => 'Add new Faculty',
+  'delete User' => 'User will Delete Permanently , Are you sure ?',
+  'User Deleted Successfully' => 'User Deleted Successfully',
+  'logo' => 'Logo',
+  'Faculty Deleted Successfully' => 'Faculty Deleted Successfully',
+  'Department Deleted Successfully' => 'Department Deleted Successfully',
+  'Council Deleted Successfully' => 'Council Deleted Successfully',
+  'delete Council' => 'Council will Delete Permanently , Are you sure ?',
+  'delete Department' => 'Department will Delete Permanently , Are you sure ?',
+  'delete Faculty' => 'Faculty will Delete Permanently , Are you sure ?',
+  'Faculty Name' => 'Faculty Name',
+  'Edit Faculty' => 'Edit faculty Data',
 );

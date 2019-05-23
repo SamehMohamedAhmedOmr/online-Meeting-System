@@ -4,7 +4,7 @@
            <li class="nav-item">
                <a class="nav-link" href="{{ url('dashboard') }}">
                    <i class="mdi mdi-home menu-icon"></i>
-                   <span class="menu-title">Dashboard</span>
+                   <span class="menu-title">{{ __('home.Dashboard') }}</span>
                </a>
            </li>
 

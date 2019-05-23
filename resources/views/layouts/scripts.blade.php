@@ -35,7 +35,7 @@
 <!-- optionally if you need a theme like font awesome theme you can include it as mentioned below -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.2/themes/fas/theme.js"></script>
 <!-- optionally if you need translation for your language then include  locale file as mentioned below -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.2/js/locales/ar.js"></script>
+<script src="{{ URL::asset('js/custom/dataTable-ar.js') }}"></script>
 
 
 @yield('scripts')

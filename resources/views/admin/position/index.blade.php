@@ -69,6 +69,6 @@
 
 @section('scripts')
 
-<script src="{{ URL::asset('js/ajax/getposition.js') }}"></script>
+<script src="{{ URL::asset('js/ajax/getposition.js') }}" data-lang="{{ App::getLocale() }}" id='dataTableAjaxScript'></script>
 
 @endsection

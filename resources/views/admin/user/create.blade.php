@@ -6,6 +6,10 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/specialFileInput.css') }}" />
 @endsection
 
+@section('pageTitle')
+    {{ __('admin.Users') }} | {{ __('pageTitle.Create New User') }}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -13,12 +17,12 @@
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card">
-                    <div class="card-header top-card">Create New user</div>
+                    <div class="card-header top-card">{{ __('pageTitle.Create New User') }}</div>
                     <div class="card-body">
                         <div class="mb-3">
                             <a class='back-button' href="{{ url('users') }}" title="Back">
                                 <button class="btn btn-warning btn-sm">
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> {{ __('home.Back') }}
                                 </button>
                             </a>
                         </div>

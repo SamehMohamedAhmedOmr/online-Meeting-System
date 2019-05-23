@@ -51,9 +51,34 @@
         </div>
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-        <script>
+        <script data-lang="{{ App::getLocale() }}" id='dataTableAjaxScript'>
             $(function () {
-                $('#dataTables-example').dataTable();
+                var lang = $('#dataTableAjaxScript').data('lang');
+                if(lang == 'ar'){
+                    var arabicLanguage = {
+                        "sProcessing": "جارٍ التحميل...",
+                        "sLengthMenu": "أظهر _MENU_ مدخلات",
+                        "sZeroRecords": "لم يعثر على أية سجلات",
+                        "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+                        "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
+                        "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+                        "sInfoPostFix": "",
+                        "sSearch": "ابحث:",
+                        "sUrl": "",
+                        "oPaginate": {
+                        "sFirst": "الأول",
+                        "sPrevious": "السابق",
+                        "sNext": "التالي",
+                        "sLast": "الأخير"
+                        }
+                    };
+                }
+                else{
+                    var arabicLanguage = {};
+                }
+                $('#dataTables-example').dataTable({
+                    "language": arabicLanguage,
+                });
             });
 
         </script>
