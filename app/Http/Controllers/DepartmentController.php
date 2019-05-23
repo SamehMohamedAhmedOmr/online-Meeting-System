@@ -47,14 +47,14 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'department_name' => 'required|string|max:40',
+            'department_name' => 'required|string|min:3|max:40',
         ])->validate();
 
         $requestData = $request->all();
 
         Department::create($requestData);
 
-        return redirect('department')->with('flash_message', 'Department added!');
+        return redirect('department')->with('flash_message', __('flash_message.Department Added'));
     }
 
     /**
@@ -94,7 +94,7 @@ class DepartmentController extends Controller
     public function update(Request $request, $id)
     {
         $validate = Validator::make($request->all(), [
-            'department_name' => 'required|string|max:40',
+            'department_name' => 'required|string|min:3|max:40',
         ])->validate();
 
         $requestData = $request->all();
@@ -102,7 +102,7 @@ class DepartmentController extends Controller
         $department = Department::findOrFail($id);
         $department->update($requestData);
 
-        return redirect('department')->with('flash_message', 'Department updated!');
+        return redirect('department')->with('flash_message', __('flash_message.Department Updated'));
     }
 
     /**

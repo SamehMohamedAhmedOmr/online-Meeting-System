@@ -55,9 +55,9 @@
                                         <input type="hidden" value="" id="RemoveItem">
                                     </div>
                                     <div class="modal-footer d-flex justify-content-center" style="border:none">
-                                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-info" data-dismiss="modal">{{ __('home.Close') }}</button>
                                         <button type="button" class="btn btn-danger" data-dismiss="modal"
-                                            data-backdrop="false" onclick="DeleteItem()">Delete</button>
+                                            data-backdrop="false" onclick="DeleteItem()">{{ __('home.Delete') }}</button>
                                     </div>
                                 </div>
                             </div>

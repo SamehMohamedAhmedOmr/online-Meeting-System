@@ -5,6 +5,10 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/tables.css') }}" />
 @endsection
 
+@section('pageTitle')
+    {{ __('admin.Council Definitions') }} | {{ __('admin.Edit Council') }}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -12,7 +16,7 @@
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card">
-                    <div class="card-header top-card">Edit position
+                    <div class="card-header top-card">{{ __('admin.Edit Council') }}
                         <span class="name">{{ $council_definition->council_name }}</span>
                     </div>
                     <div class="card-body">

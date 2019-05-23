@@ -4,6 +4,10 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/tables.css') }}" />
 @endsection
 
+@section('pageTitle')
+    {{ __('admin.Council Definitions') }} | {{ __('pageTitle.Council Data Details') }}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -13,15 +17,20 @@
                 @include('messages')
                 <div class="card">
                     <div class="card-header top-card">
+                        @if (App::getLocale() == 'ar')
+                            <span>{{ __('home.data') }}</span>
+                        @endif
                         <span class="name">{{ $council_definition->council_name }}</span>
-                        <span>Data</span>
+                        @if (App::getLocale() == 'en')
+                            <span>{{ __('home.data') }}</span>
+                        @endif
                     </div>
 
                     <div class="card-body">
                         <div class="mb-3">
                             <a style='text-decoration:none;' href="{{ url('councilDefinition') }}" title="Back">
                                 <button class="btn btn-warning btn-sm" style="color:#fff;">
-                                    <i class="fa fa-arrow-left" style="font-size: 0.875rem" aria-hidden="true"></i> Back
+                                    <i class="fa fa-arrow-left" style="font-size: 0.875rem" aria-hidden="true"></i> {{ __('home.Back') }}
                                 </button>
                             </a>
                         </div>
@@ -30,15 +39,15 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th> Council Name </th>
+                                        <th> {{ __('admin.Council Name') }} </th>
                                         <td> {{ $council_definition->council_name }} </td>
                                     </tr>
                                     <tr>
-                                        <th> Number Of Members </th>
+                                        <th> {{ __('admin.Number of Members') }} </th>
                                         <td> {{ $council_definition->number_of_members }} </td>
                                     </tr>
                                     <tr>
-                                        <th> Faculty </th>
+                                        <th> {{ __('admin.Faculty Name') }} </th>
                                         <td> {{ $council_definition->Faculty->faculty_name }} </td>
                                     </tr>
                                 </tbody>
@@ -49,54 +58,21 @@
                 </div>
             </div>
         </div>
-        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-        <script data-lang="{{ App::getLocale() }}" id='dataTableAjaxScript'>
-            $(function () {
-                var lang = $('#dataTableAjaxScript').data('lang');
-                if(lang == 'ar'){
-                    var arabicLanguage = {
-                        "sProcessing": "جارٍ التحميل...",
-                        "sLengthMenu": "أظهر _MENU_ مدخلات",
-                        "sZeroRecords": "لم يعثر على أية سجلات",
-                        "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
-                        "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
-                        "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
-                        "sInfoPostFix": "",
-                        "sSearch": "ابحث:",
-                        "sUrl": "",
-                        "oPaginate": {
-                        "sFirst": "الأول",
-                        "sPrevious": "السابق",
-                        "sNext": "التالي",
-                        "sLast": "الأخير"
-                        }
-                    };
-                }
-                else{
-                    var arabicLanguage = {};
-                }
-                $('#dataTables-example').dataTable({
-                    "language": arabicLanguage,
-                });
-            });
-
-        </script>
 
         <div class="row">
 
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header top-card">Council Member</div>
+                    <div class="card-header top-card">{{ __('Staff.Councilmembers') }}</div>
                     <div class="card-body">
                         @if (Auth::user()->type == 0)
                         <div class="row">
                             @if ($allowMembers != 0)
                                 <div class="col-6 d-flex">
                                     <a href="{{ url('councilmember/create/'.$council_definition->id) }}"
-                                        class="btn btn-success btn-sm" title="Add New councilmember"
+                                        class="btn btn-success btn-sm" title="{{ __('admin.Add New Council Member') }}"
                                         style="line-height:20px">
-                                        <i class="fa fa-plus" aria-hidden="true"></i> Add New Council Member
+                                        <i class="fa fa-plus" aria-hidden="true" style="position: relative; top: 2px;"></i> {{ __('admin.Add New Council Member') }}
                                     </a>
                                 </div>
                             @endif
@@ -104,9 +80,9 @@
                             @if ($chairman < 1 && $chairman >=0)
                                 <div class="col-6 d-flex">
                                     <a href="{{ url('councilChairman/create/'.$council_definition->id) }}"
-                                        class="btn btn-success btn-sm" title="Add Chairman of Council"
+                                        class="btn btn-success btn-sm" title="{{ __('admin.Add Chairman of Council') }}"
                                         style="line-height:20px">
-                                        <i class="fa fa-plus" aria-hidden="true"></i> Add Chairman of Council
+                                        <i class="fa fa-plus" aria-hidden="true" style="position: relative; top: 2px;"></i> {{ __('admin.Add Chairman of Council') }}
                                     </a>
                                 </div>
                             @endif
@@ -120,12 +96,12 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Faculty Member</th>
-                                        <th>Type</th>
-                                        <th>Start Date Of Membership</th>
-                                        <th>End Date Of Membership</th>
+                                        <th>{{ __('admin.Member Name') }}</th>
+                                        <th>{{ __('admin.type') }}</th>
+                                        <th>{{ __('admin.Start Date Of Membership') }}</th>
+                                        <th>{{ __('admin.End Date Of Membership') }}</th>
                                         @if (Auth::user()->type == 0)
-                                        <th>Actions</th>
+                                        <th>{{ __('home.Options') }}</th>
                                         @endif
                                     </tr>
                                 </thead>
@@ -138,9 +114,9 @@
                                         </td>
                                         <td>
                                             @if ($item->type == 0 )
-                                                Chairman
+                                                {{ __('admin.Chairman') }}
                                             @else
-                                                Member
+                                                {{ __('admin.member') }}
                                             @endif
                                         </td>
                                         <td>
@@ -177,4 +153,38 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script data-lang="{{ App::getLocale() }}" id='dataTableAjaxScript'>
+        $(function () {
+            var lang = $('#dataTableAjaxScript').data('lang');
+            if(lang == 'ar'){
+                var arabicLanguage = {
+                    "sProcessing": "جارٍ التحميل...",
+                    "sLengthMenu": "أظهر _MENU_ مدخلات",
+                    "sZeroRecords": "لم يعثر على أية سجلات",
+                    "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+                    "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
+                    "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+                    "sInfoPostFix": "",
+                    "sSearch": "ابحث:",
+                    "sUrl": "",
+                    "oPaginate": {
+                    "sFirst": "الأول",
+                    "sPrevious": "السابق",
+                    "sNext": "التالي",
+                    "sLast": "الأخير"
+                    }
+                };
+            }
+            else{
+                var arabicLanguage = {};
+            }
+            $('#dataTables-example').dataTable({
+                "language": arabicLanguage,
+            });
+        });
+
+    </script>
 @endsection

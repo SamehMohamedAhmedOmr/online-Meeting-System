@@ -4,6 +4,10 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/tables.css') }}" />
 @endsection
 
+@section('pageTitle')
+    {{ __('admin.Departments') }} | {{ __('admin.Edit Department') }}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -11,7 +15,7 @@
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card">
-                    <div class="card-header top-card">Edit department
+                    <div class="card-header top-card">{{ __('admin.Edit Department') }}
                         <span class="name">{{ $department->department_name }}</span>
                     </div>
                     <div class="card-body">

@@ -5,6 +5,10 @@
 
 @endsection
 
+@section('pageTitle')
+    {{ __('admin.Council Definitions') }}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -18,12 +22,12 @@
             <div class="col-md-12 grid-margin">
                 @include('messages')
                 <div class="card">
-                    <div class="card-header top-card">Council Definition</div>
+                    <div class="card-header top-card">{{ __('admin.Council Definitions') }}</div>
                     <div class="card-body">
                         @if (Auth::user()->type == 0)
                             <div class="p-3">
-                                <a href="{{ url('createCouncilDefinition') }}" class="btn btn-success btn-sm" title="Add New Council Definition">
-                                    <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                                <a href="{{ url('createCouncilDefinition') }}" class="btn btn-success btn-sm" title="{{ __('admin.Add new Council') }}">
+                                    <i class="fa fa-plus" aria-hidden="true"></i> {{ __('admin.Add new Council') }}
                                 </a>
                             </div>
                         @endif
@@ -34,11 +38,11 @@
                             <table class="table col-11 m-auto p-0 table-hover" id="get-data">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Faculty</th>
-                                        <th>Number of Members</th>
-                                        <th>Number of Meeting</th>
-                                        <th class="no-sort">options</th>
+                                        <th>{{ __('admin.Council Name') }}</th>
+                                        <th>{{ __('admin.Faculty Name') }}</th>
+                                        <th>{{ __('admin.Number of Members') }}</th>
+                                        <th>{{ __('admin.Number of Meeting') }}</th>
+                                        <th class="no-sort">{{ __('home.Options') }}</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -57,9 +61,9 @@
                                         <input type="hidden" value="" id="RemoveItem">
                                     </div>
                                     <div class="modal-footer d-flex justify-content-center" style="border:none">
-                                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-info" data-dismiss="modal">{{ __('home.Close') }}</button>
                                         <button type="button" class="btn btn-danger" data-dismiss="modal"
-                                            data-backdrop="false" onclick="DeleteItem()">Delete</button>
+                                            data-backdrop="false" onclick="DeleteItem()">{{ __('home.Delete') }}</button>
                                     </div>
                                 </div>
                             </div>

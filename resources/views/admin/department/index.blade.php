@@ -5,6 +5,10 @@
 
 @endsection
 
+@section('pageTitle')
+    {{ __('admin.Departments') }}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -18,11 +22,11 @@
             <div class="col-md-12 grid-margin">
                 @include('messages')
                 <div class="card">
-                    <div class="card-header top-card">department</div>
+                    <div class="card-header top-card">{{ __('admin.Departments') }}</div>
                     <div class="card-body">
                         <div class="p-3">
-                            <a href="{{ url('department/create') }}" class="btn btn-success btn-sm" title="Add New department">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <a href="{{ url('department/create') }}" class="btn btn-success btn-sm" title="{{ __('admin.Add new Department') }}">
+                                <i class="fa fa-plus" aria-hidden="true"></i> {{ __('admin.Add new Department') }}
                             </a>
                         </div>
 
@@ -31,8 +35,8 @@
                             <table class="table col-11 m-auto p-0 table-hover" id="get-data">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th class="no-sort">options</th>
+                                        <th>{{ __('admin.Department') }}</th>
+                                        <th class="no-sort">{{ __('home.Options') }}</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -51,9 +55,9 @@
                                         <input type="hidden" value="" id="RemoveItem">
                                     </div>
                                     <div class="modal-footer d-flex justify-content-center" style="border:none">
-                                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-info" data-dismiss="modal">{{ __('home.Close') }}</button>
                                         <button type="button" class="btn btn-danger" data-dismiss="modal"
-                                            data-backdrop="false" onclick="DeleteItem()">Delete</button>
+                                            data-backdrop="false" onclick="DeleteItem()">{{ __('home.Delete') }}</button>
                                     </div>
                                 </div>
                             </div>

@@ -176,6 +176,6 @@ Route::get('mdi', function () {
 //     return view('Pages.tables.basic-table');
 // });
 
-// Route::get('translations', function () {
-//     return view('vendor.translation-manager.index');
-// });
+Route::get('translations', function () {
+    return view('vendor.translation-manager.index');
+});

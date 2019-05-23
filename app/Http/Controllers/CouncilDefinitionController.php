@@ -68,7 +68,7 @@ class CouncilDefinitionController extends Controller
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'council_name' => 'required|string|max:30',
+            'council_name' => 'required|string|min:3|max:30',
             'faculty_id' => 'required|numeric|exists:faculty,id',
         ])->validate();
 
@@ -76,7 +76,7 @@ class CouncilDefinitionController extends Controller
 
         Council_definition::create($requestData);
 
-        return redirect('councilDefinition')->with('flash_message', 'Council Definition added!');
+        return redirect('councilDefinition')->with('flash_message', __('flash_message.Council Added'));
     }
 
     /**
@@ -132,16 +132,17 @@ class CouncilDefinitionController extends Controller
     public function update(Request $request, $id)
     {
         $validate = Validator::make($request->all(), [
-            'council_name' => 'required|string|max:30',
+            'council_name' => 'required|string|min:3|max:30',
             'faculty_id' => 'required|numeric|exists:faculty,id',
         ])->validate();
 
         $requestData = $request->all();
 
-        $council_definition = Council_definition::findOrFail($id);
+        $council_definition = Council_definition::find($id);
+        if(!$council_definition){return redirect('councilDefinition');}
         $council_definition->update($requestData);
 
-        return redirect('councilDefinition')->with('flash_message', 'Council Definition updated!');
+        return redirect('councilDefinition')->with('flash_message', __('flash_message.Council Updated'));
     }
 
     /**

@@ -5,6 +5,10 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/tables.css') }}" />
 @endsection
 
+@section('pageTitle')
+    {{ __('admin.Council Definitions') }} | {{ __('admin.Add new Council') }}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -12,7 +16,7 @@
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card">
-                    <div class="card-header top-card">Create New Council Defintion</div>
+                    <div class="card-header top-card">{{ __('admin.Add new Council') }}</div>
                     <div class="card-body">
                         <div class="p-3">
                             <a class='back-button' href="{{ url('councilDefinition') }}" title="Back">

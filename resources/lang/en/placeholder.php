@@ -11,4 +11,7 @@ return array (
   'Select Position' => 'Select Position',
   'Select Rank' => 'Select Rank',
   'enter Faculty Name' => 'Please enter Faculty Name',
+  'enter Department Name' => 'Please enter Department Name',
+  'enter Number of Members' => 'Please enter Number of Members',
+  'enter Council Name' => 'Please enter Council Name',
 );

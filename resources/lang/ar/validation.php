@@ -181,6 +181,21 @@ return [
         'faculty_name'          => 'اسم الكلية',
         'logo'                  => 'الشعار',
 
+        // Department input
+        'department_name'       => 'اسم القسم',
+
+        // Council input
+        'council_name'          => 'اسم المجلس',
+        'faculty_id'            => 'اسم الكلية',
+        'number_of_members'     => 'عدد الأعضاء',
+
+        // Council Member input
+        'faculty_member_id'          => 'اسم العضو',
+        'council_definition_id'      => 'اسم المجلس',
+        'list_of_membership_order'   => 'ترتيب العضوية',
+        'start_date_of_membership'   => 'تاريخ بداية العضوية',
+        'end_date_of_membership'     => 'تاريخ نهاية العضوية',
+
         //rank input
 
         'meeting_number'        => 'رقم الاجتماع'

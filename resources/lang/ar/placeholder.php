@@ -11,4 +11,7 @@ return array (
   'Select Department' => 'اختار القسم',
   'Select Position' => 'اختار المنصب',
   'enter Faculty Name' => 'من فضلك ادخل اسم الكلية',
+  'enter Department Name' => 'من فضلك ادخل اسم القسم',
+  'enter Council Name' => 'من فضلك ادخل اسم القسم',
+  'enter Number of Members' => 'من فضلك ادخل عدد اعضاء القسم',
 );

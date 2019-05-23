@@ -81,7 +81,8 @@ class CouncilmemberController extends Controller
 
         $numberOfRequestedMembers = count($request->input('faculty_member_id'));
         if($numberOfRequestedMembers > $allowMembers){
-            return redirect()->back()->withErrors('Number of Member is large than '.$allowMembers.' Members');
+            $msg = __('flash_message.Number of Member is large than').' '.$allowMembers.' '.__('flash_message.Members');
+            return redirect()->back()->withErrors($msg);
         }
 
         foreach($request->input('council_definition_id') as $key => $value) {
@@ -96,8 +97,10 @@ class CouncilmemberController extends Controller
             $call->save();
         }
 
-
-        return redirect('councilDefinition/'.$request->council_definition_id[0])->with('flash_message', 'Council Member added!');
+        if($numberOfRequestedMembers > 1){
+            return redirect('councilDefinition/'.$request->council_definition_id[0])->with('flash_message',  __('flash_message.Council Members Added'));
+        }
+        return redirect('councilDefinition/'.$request->council_definition_id[0])->with('flash_message',  __('flash_message.Council Member Added'));
     }
 
     public function StoreChairman(Request $request,$id)
@@ -120,7 +123,7 @@ class CouncilmemberController extends Controller
             $call->type = 0;
             $call->save();
 
-        return redirect('councilDefinition/'.$request->council_definition_id)->with('flash_message', 'Council Chairman added!');
+        return redirect('councilDefinition/'.$request->council_definition_id)->with('flash_message', __('flash_message.Council Chairman Added'));
     }
 
     /**
@@ -173,11 +176,11 @@ class CouncilmemberController extends Controller
 
         $requestData = $request->all();
 
-        $councilmember = CouncilMember::findOrFail($id);
+        $councilmember = CouncilMember::find($id);
         if(!$councilmember){return redirect()->back();}
         $check = $councilmember->update($requestData);
 
-        return redirect('councilDefinition/'.$councilmember->council_definition_id)->with('flash_message', 'Council Member updated!');
+        return redirect('councilDefinition/'.$councilmember->council_definition_id)->with('flash_message', __('flash_message.Council Member Updated'));
     }
 
     /**
@@ -197,7 +200,7 @@ class CouncilmemberController extends Controller
 
         CouncilMember::destroy($request->id);
 
-        return redirect('councilDefinition/'.$councilmember->council_definition_id)->with('flash_message', 'Council Member Deleted!');
+        return redirect('councilDefinition/'.$councilmember->council_definition_id)->with('flash_message', __('flash_message.Council Member Deleted'));
     }
 
 }
