@@ -11,13 +11,12 @@
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card">
-                    <div class="card-header top-card">Create New Subject Type</div>
+                <div class="card-header top-card">{{__("Staff.Create New Subject Type")}}</div>
                     <div class="card-body">
                         <div class="p-3">
                             <a class='back-button' href="{{ url('subjectType') }}" title="Back">
                                 <button class="btn btn-warning btn-sm">
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
-                                </button>
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>{{__("home.Back")}}</button>
                             </a>
                         </div>
 

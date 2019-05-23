@@ -48,4 +48,5 @@ return array (
   'Council Member' => 'Faculty Member',
   'data' => 'data',
   'Undefined' => 'Undefined',
+  'Yes' => 'yes',
 );

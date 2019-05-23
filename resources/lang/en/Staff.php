@@ -51,6 +51,11 @@ return array (
   'Edit position' => 'Edit position',
   'Position Name' => 'Position Name',
   'Position' => 'Position',
-  'Position will Delete Permanently , Are you sure ?' => 'Position will Delete Permanently , Are you sure ?',
+  'Position will Delete Permanently , Are you sure ?' => 'Position will Delete Permanently , Are you sure?',
   'Position Deleted Successfully' => 'Position Deleted Successfully',
+  'Meetings' => 'Meetings',
+  'Create New Subject Type' => 'Create New Subject Type',
+  'Subject Type Name' => 'Subject Type Name',
+  'Subject Type' => 'Subject Type',
+  'Subject Type will Delete Permanently , Are you sure ?' => 'Subject Type will Delete Permanently , Are you sure ?',
 );

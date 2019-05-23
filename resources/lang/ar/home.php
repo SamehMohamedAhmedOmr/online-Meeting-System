@@ -48,4 +48,5 @@ return array (
   'Council Member' => 'عضو هيئة تدريس',
   'data' => 'بيانات',
   'Undefined' => 'غير محدد',
+  'Yes' => 'نعم',
 );

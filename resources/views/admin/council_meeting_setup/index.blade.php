@@ -32,7 +32,7 @@
                         <div class="p-3">
                             <a href="{{ url('meeting/create') }}" class="btn btn-success btn-sm"
                                 title="Add New position">
-                                <i class="fa fa-plus" aria-hidden="true"></i> {{__("home.AddNew")}}
+                                <i class="fa fa-plus" aria-hidden="true"></i> {{__("home.Add New")}}
                             </a>
                         </div>
                         @endif

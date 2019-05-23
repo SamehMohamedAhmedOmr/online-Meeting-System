@@ -51,6 +51,11 @@ return array (
   'Edit position' => 'تعديل منصب',
   'Position Name' => 'اسم المنصب',
   'Position' => 'المنصب',
-  'Position will Delete Permanently , Are you sure ?' => 'سيتم مسح المنصب تماما ,هل انت واثق؟',
+  'Position will Delete Permanently , Are you sure ?' => 'سيتم مسح المنصب ,هل انت متاكد؟',
   'Position Deleted Successfully' => 'تم مسح المنصب بنجاح',
+  'Meetings' => 'اجتماعات',
+  'Create New Subject Type' => 'عمل موضوع جديد',
+  'Subject Type Name' => 'اسم الموضوع',
+  'Subject Type' => 'نوع الموضوع',
+  'Subject Type will Delete Permanently , Are you sure ?' => 'سيتم مسح الموضوع ,هل انت واثق؟',
 );
