@@ -49,4 +49,5 @@ return array (
   'data' => 'data',
   'Undefined' => 'Undefined',
   'Yes' => 'yes',
+  'Subject Type Deleted Successfully' => 'Subject Type Deleted Successfully',
 );

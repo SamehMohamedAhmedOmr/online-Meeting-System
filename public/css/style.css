@@ -23485,9 +23485,10 @@ dl li {
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group {
-    background: #ececec;
+    background: #fff;
     border-radius: 4px;
     padding: 0 .75rem;
+    border: 1px solid #ccc;
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .form-control,

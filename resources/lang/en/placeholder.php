@@ -14,4 +14,8 @@ return array (
   'enter Department Name' => 'Please enter Department Name',
   'enter Number of Members' => 'Please enter Number of Members',
   'enter Council Name' => 'Please enter Council Name',
+  'enter start_date_of_membership' => 'Please enter start date of Membership',
+  'enter end_date_of_membership' => 'Please enter end date of membership',
+  'Select Council Member' => 'Select Council Member',
+  'Select Membership Order' => 'Select Membership Order',
 );

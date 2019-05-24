@@ -7,9 +7,9 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group {{ $errors->has('faculty_member_id') ? 'has-error' : ''}}  ">
-            <label for="faculty_member_id" class="control-label">{{ __('admin.Number of Members') }} <span style="color:red !important;">*</span></label>
+            <label for="faculty_member_id" class="control-label">{{ __('admin.Member Name') }} <span style="color:red !important;">*</span></label>
             <select class="form-control specialSelect" name="faculty_member_id" required>
-                <option selected hidden value="">Select Faculty member</option>
+                <option selected hidden value="">{{ __('placeholder.Select Council Member') }}</option>
 
                 @foreach ($member as $obj)
                 @if (isset($councilmember))
@@ -32,9 +32,9 @@
 
     <div class="col-md-6">
         <div class="form-group {{ $errors->has('list_of_membership_order') ? 'has-error' : ''}}  ">
-            <label for="list_of_membership_order" class="control-label">{{ __('admin.Number of Members') }} <span style="color:red !important;">*</span></label>
+            <label for="list_of_membership_order" class="control-label">{{ __('admin.list_of_membership_order') }} <span style="color:red !important;">*</span></label>
             <select class="form-control specialSelect" name="list_of_membership_order" required>
-                <option selected hidden value="">Select Membership Order</option>
+                <option selected hidden value="">{{ __('placeholder.Select Membership Order') }}</option>
 
                 @foreach ($positions as $obj)
                 @if (isset($councilmember))
@@ -56,8 +56,9 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group {{ $errors->has('start_date_of_membership') ? 'has-error' : ''}}  ">
-            <label for="start_date_of_membership" class="control-label">{{ __('admin.Number of Members') }} <span style="color:red !important;">*</span></label>
-            <input class="form-control" name="start_date_of_membership" type="text" id="datepicker"
+            <label for="start_date_of_membership" class="control-label">{{ __('admin.Start Date Of Membership') }} <span style="color:red !important;">*</span></label>
+            <input class="form-control" name="start_date_of_membership" type="text" id="datepicker" required
+                placeholder="{{ __('placeholder.enter start_date_of_membership') }}"
                 value="{{ isset($councilmember->start_date_of_membership) ? $councilmember->start_date_of_membership : ''}}">
             {!! $errors->first('start_date_of_membership', '<p class="help-block">:message</p>') !!}
         </div>
@@ -65,8 +66,9 @@
 
     <div class="col-md-6">
         <div class="form-group {{ $errors->has('end_date_of_membership') ? 'has-error' : ''}}  ">
-            <label for="end_date_of_membership" class="control-label">{{ __('admin.Number of Members') }} <span style="color:red !important;">*</span></label>
-            <input class="form-control" name="end_date_of_membership" type="text" id="datepicker2"
+            <label for="end_date_of_membership" class="control-label">{{ __('admin.End Date Of Membership') }} <span style="color:red !important;">*</span></label>
+            <input class="form-control" name="end_date_of_membership" type="text" id="datepicker2" required
+                placeholder="{{ __('placeholder.enter end_date_of_membership') }}"
                 value="{{ isset($councilmember->end_date_of_membership) ? $councilmember->end_date_of_membership : ''}}">
             {!! $errors->first('end_date_of_membership', '<p class="help-block">:message</p>') !!}
         </div>

@@ -11,65 +11,79 @@
     {!! $errors->first('council_definition_id', '<p class="help-block">:message</p>') !!}
 </div>
 
-<div class="form-group {{ $errors->has('faculty_member_id') ? 'has-error' : ''}} custom-form-group">
-    <label for="faculty_member_id" class="control-label">{{ 'Member' }}</label>
-    <select class="form-control specialSelect" name="faculty_member_id" required>
-        <option selected hidden value="">Select Faculty member</option>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group {{ $errors->has('faculty_member_id') ? 'has-error' : ''}}  ">
+            <label for="faculty_member_id" class="control-label">{{ __('admin.Member Name') }} <span style="color:red !important;">*</span></label>
+            <select class="form-control specialSelect" name="faculty_member_id" required>
+                <option selected hidden value="">{{ __('placeholder.Select Council Member') }}</option>
 
-        @foreach ($member as $obj)
-        @if (isset($councilmember))
-        <option value="{{ $obj->id}}" {{ ($obj->id == $councilmember->faculty_member_id)?'selected':'' }}>
-            @if (isset($obj->User))
-            {{ $obj->User->name }}
-            @endif
-        </option>
-        @else
-        <option value="{{ $obj->id}}">
-            @if (isset($obj->User))
-            {{ $obj->User->name }}
-            @endif
-        </option>
-        @endif
-        @endforeach
-    </select> {!! $errors->first('faculty_member_id', '<p class="help-block">:message</p>') !!}
+                @foreach ($member as $obj)
+                    @if (old('faculty_member_id') != null && old('faculty_member_id') == $obj->id)
+                        <option value="{{ $obj->id}}" selected>
+                            @if (isset($obj->User))
+                            {{ $obj->User->name }}
+                            @endif
+                        </option>
+                    @else
+                        <option value="{{ $obj->id}}">
+                            @if (isset($obj->User))
+                            {{ $obj->User->name }}
+                            @endif
+                        </option>
+                    @endif
+                @endforeach
+            </select> {!! $errors->first('faculty_member_id', '<p class="help-block">:message</p>') !!}
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group {{ $errors->has('list_of_membership_order') ? 'has-error' : ''}}  ">
+            <label for="list_of_membership_order" class="control-label">{{ __('admin.list_of_membership_order') }} <span style="color:red !important;">*</span></label>
+            <select class="form-control specialSelect" name="list_of_membership_order" required>
+                <option selected hidden value="">{{ __('placeholder.Select Membership Order') }}</option>
+
+                @foreach ($positions as $obj)
+                    @if (old('list_of_membership_order') != null && old('list_of_membership_order') == $obj->id)
+                        <option value="{{ $obj->id}}" selected>
+                            {{ $obj->position_name }}
+                        </option>
+                    @else
+                        <option value="{{ $obj->id}}">
+                            {{ $obj->position_name }}
+                        </option>
+                    @endif
+                @endforeach
+            </select> {!! $errors->first('faculty_member_id', '<p class="help-block">:message</p>') !!}
+        </div>
+    </div>
 </div>
 
-<div class="form-group {{ $errors->has('list_of_membership_order') ? 'has-error' : ''}} custom-form-group">
-    <label for="list_of_membership_order" class="control-label">{{ 'Membership Order' }}</label>
-    <select class="form-control specialSelect" name="list_of_membership_order" required>
-        <option selected hidden value="">Select Membership Order</option>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group {{ $errors->has('start_date_of_membership') ? 'has-error' : ''}}  ">
+            <label for="start_date_of_membership" class="control-label">{{ __('admin.Start Date Of Membership') }} <span style="color:red !important;">*</span></label>
+            <input class="form-control" name="start_date_of_membership" type="text" id="datepicker" required
+                placeholder="{{ __('placeholder.enter start_date_of_membership') }}"
+                value="{{ old('start_date_of_membership') }}">
+            {!! $errors->first('start_date_of_membership', '<p class="help-block">:message</p>') !!}
+        </div>
+    </div>
 
-        @foreach ($positions as $obj)
-        @if (isset($councilmember))
-        <option value="{{ $obj->id}}" {{ ($obj->id == $councilmember->list_of_membership_order)?'selected':'' }}>
-            {{ $obj->position_name }}
-        </option>
-        @else
-        <option value="{{ $obj->id}}">
-            {{ $obj->position_name }}
-        </option>
-        @endif
-        @endforeach
-    </select> {!! $errors->first('faculty_member_id', '<p class="help-block">:message</p>') !!}
-</div>
-
-<div class="form-group {{ $errors->has('start_date_of_membership') ? 'has-error' : ''}} custom-form-group">
-    <label for="start_date_of_membership" class="control-label">{{ 'Start Date Of Membership' }}</label>
-    <input class="form-control" name="start_date_of_membership" type="text" id="datepicker"
-        value="{{ isset($councilmember->start_date_of_membership) ? $councilmember->start_date_of_membership : ''}}">
-    {!! $errors->first('start_date_of_membership', '<p class="help-block">:message</p>') !!}
-</div>
-
-<div class="form-group {{ $errors->has('end_date_of_membership') ? 'has-error' : ''}} custom-form-group">
-    <label for="end_date_of_membership" class="control-label">{{ 'End Date Of Membership' }}</label>
-    <input class="form-control" name="end_date_of_membership" type="text" id="datepicker2"
-        value="{{ isset($councilmember->end_date_of_membership) ? $councilmember->end_date_of_membership : ''}}">
-    {!! $errors->first('end_date_of_membership', '<p class="help-block">:message</p>') !!}
+    <div class="col-md-6">
+        <div class="form-group {{ $errors->has('end_date_of_membership') ? 'has-error' : ''}}  ">
+            <label for="end_date_of_membership" class="control-label">{{ __('admin.End Date Of Membership') }} <span style="color:red !important;">*</span></label>
+            <input class="form-control" name="end_date_of_membership" type="text" id="datepicker2" required
+                placeholder="{{ __('placeholder.enter end_date_of_membership') }}"
+                value="{{ old('end_date_of_membership') }}">
+            {!! $errors->first('end_date_of_membership', '<p class="help-block">:message</p>') !!}
+        </div>
+    </div>
 </div>
 
 
 <div class="form-group">
-    <input class="btn btn-primary" type="submit" value="Create">
+    <input class="btn btn-primary" type="submit" value="{{ __('home.Save') }}">
 </div>
 
 

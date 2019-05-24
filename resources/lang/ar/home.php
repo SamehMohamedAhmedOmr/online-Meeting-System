@@ -49,4 +49,5 @@ return array (
   'data' => 'بيانات',
   'Undefined' => 'غير محدد',
   'Yes' => 'نعم',
+  'Subject Type Deleted Successfully' => 'تم مسح الموضوع بنجاح',
 );

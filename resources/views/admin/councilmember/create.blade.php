@@ -8,6 +8,10 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" />
 @endsection
 
+@section('pageTitle')
+    {{ __('admin.Council Definitions') }} | {{ __('admin.Add New Council Member') }}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -16,13 +20,13 @@
             <div class="col-md-12 grid-margin">
                 @include('messages')
                 <div class="card">
-                    <div class="card-header top-card">Add Council Members
+                    <div class="card-header top-card">{{ __('admin.Add New Council Member') }}
                     </div>
                     <div class="card-body">
                         <div class="p-3">
                             <a class='back-button' href="{{ url('councilDefinition/'.$id) }}" title="Back">
                                <button class="btn btn-warning btn-sm">
-                                   <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+                                   <i class="fa fa-arrow-left" aria-hidden="true"></i> {{ __('home.Back') }}
                                 </button>
                             </a>
                        </div>

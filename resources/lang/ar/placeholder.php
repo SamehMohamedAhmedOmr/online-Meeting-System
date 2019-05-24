@@ -14,4 +14,8 @@ return array (
   'enter Department Name' => 'من فضلك ادخل اسم القسم',
   'enter Council Name' => 'من فضلك ادخل اسم القسم',
   'enter Number of Members' => 'من فضلك ادخل عدد اعضاء القسم',
+  'enter start_date_of_membership' => 'من فضلك ادخل تاريخ بداية العضوية',
+  'enter end_date_of_membership' => 'من فضلك ادخل تاريخ نهاية العضوية',
+  'Select Council Member' => 'اختار عضو المجلس',
+  'Select Membership Order' => 'اختر ترتيب العضوية',
 );

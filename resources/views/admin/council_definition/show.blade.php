@@ -80,9 +80,9 @@
                             @if ($chairman < 1 && $chairman >=0)
                                 <div class="col-6 d-flex">
                                     <a href="{{ url('councilChairman/create/'.$council_definition->id) }}"
-                                        class="btn btn-success btn-sm" title="{{ __('admin.Add Chairman of Council') }}"
+                                        class="btn btn-success btn-sm" title="{{ __('admin.Add Council Chairman') }}"
                                         style="line-height:20px">
-                                        <i class="fa fa-plus" aria-hidden="true" style="position: relative; top: 2px;"></i> {{ __('admin.Add Chairman of Council') }}
+                                        <i class="fa fa-plus" aria-hidden="true" style="position: relative; top: 2px;"></i> {{ __('admin.Add Council Chairman') }}
                                     </a>
                                 </div>
                             @endif
