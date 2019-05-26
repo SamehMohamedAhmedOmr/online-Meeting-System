@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header align-items-center justify-content-center">
                 <h5 class="modal-title" id="votesTitle" style="font-size: 1.8rem; color: #2d4278;">
-                    Add Extra Attachment
+                    {{ __('Staff.AddExtraAttachment') }}
                 </h5>
             </div>
             <div class="modal-body">
@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="form-group mt-4">
-                        <input class="btn btn-primary" type="submit" value="Save">
+                        <input class="btn btn-primary" type="submit" value="{{ __('home.Save') }}">
                     </div>
                 </form>
             </div>

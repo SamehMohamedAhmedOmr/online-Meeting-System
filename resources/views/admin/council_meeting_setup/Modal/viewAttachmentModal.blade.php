@@ -5,18 +5,22 @@
         <div class="modal-content">
             <div class="modal-header align-items-center justify-content-center">
                 <h5 class="modal-title" id="votesTitle" style="font-size: 1.8rem; color: #2d4278;">
-                    {{__("Staff.Attachment View")}}  {{ $attachment->id }}
+                     {{ __('Staff.Attachment Number') }} {{ $index+1 }}
+                    @if( strpos($attachment->attachment_document, '.png') !== false||strpos($attachment->attachment_document, '.jpg') !== false||strpos($attachment->attachment_document, '.jpeg') !== false)
+                       | {{ __('Staff.Image') }}
+                    @else
+                       | {{ __('Staff.File') }}
+                    @endif
                 </h5>
             </div>
             <div class="modal-body">
-
-            @if( strpos($attachment->attachment_document, '.png') !== false||strpos($attachment->attachment_document, '.jpg') !== false||strpos($attachment->attachment_document, '.jpeg') !== false)
-            <img src ="{{ asset('/storage/subject_att/'.$attachment->id.'/'.$attachment->attachment_document) }}" ></img>
-            @elseif( strpos($attachment->attachment_document, '.pdf') !== false)
-            <iframe src ="{{ asset('/storage/subject_att/'.$attachment->id.'/'.$attachment->attachment_document) }}" width="1000px" height="600px"></iframe>
-            @else
-            <iframe src ="{{ asset('/storage/subject_att/'.$attachment->id.'/'.$attachment->attachment_document) }}"></iframe>
-            @endif
+                @if( strpos($attachment->attachment_document, '.png') !== false||strpos($attachment->attachment_document, '.jpg') !== false||strpos($attachment->attachment_document, '.jpeg') !== false)
+                    <img src ="{{ URL::asset('/storage/subject_att/'.$attachment->id.'/'.$attachment->attachment_document) }}" >
+                @elseif( strpos($attachment->attachment_document, '.pdf') !== false)
+                    <iframe src ="{{ URL::asset('/storage/subject_att/'.$attachment->id.'/'.$attachment->attachment_document) }}" width="1000px" height="600px"></iframe>
+                @else
+                    <iframe src ="{{ URL::asset('/storage/subject_att/'.$attachment->id.'/'.$attachment->attachment_document) }}"></iframe>
+                @endif
             </div>
         </div>
     </div>

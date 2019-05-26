@@ -5,18 +5,22 @@
 
 @endsection
 
+@section('pageTitle')
+    {{__("home.Meeting")}}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
         <div id="SuccessDelete" class="flash-message "
             style="display: none;width: 50%; margin: auto;box-shadow: 1px 1px 2px #fff , -1px -1px 1px #fff;">
             <p class="alert alert-success text-white" style="text-align: center;"> &nbsp;
-                  <i class="fas fa-check-double"></i></p>
+                {{__("Staff.Meeting Deleted Successfully")}}  <i class="fas fa-check-double"></i></p>
         </div>
 
         <div id="SuccessClose" class="flash-message "
-        style="display: none;width: 50%; margin: auto;box-shadow: 1px 1px 2px #fff , -1px -1px 1px #fff;">
-        <p class="alert alert-success text-white" style="text-align: center;"> &nbsp;
+            style="display: none;width: 50%; margin: auto;box-shadow: 1px 1px 2px #fff , -1px -1px 1px #fff;">
+            <p class="alert alert-success text-white" style="text-align: center;"> &nbsp;
             {{__("Staff.Meeting Closed Successfully")}}  <i class="fas fa-check-double"></i></p>
         </div>
 
@@ -24,7 +28,7 @@
             <div class="col-md-12 grid-margin">
                 @include('messages')
                 <div class="card">
-                    <div class="card-header top-card">{{__("Staff.Meetings")}}</div>
+                    <div class="card-header top-card">{{__("home.Meeting")}}</div>
                     <div class="card-body">
 
                         @if (Auth::user()->type == 1)
@@ -32,7 +36,7 @@
                         <div class="p-3">
                             <a href="{{ url('meeting/create') }}" class="btn btn-success btn-sm"
                                 title="Add New position">
-                                <i class="fa fa-plus" aria-hidden="true"></i> {{__("home.Add New")}}
+                                <i class="fa fa-plus" aria-hidden="true" style="position:relative; top:2px;"></i> {{__("Staff.Add New Meeting")}}
                             </a>
                         </div>
                         @endif
@@ -44,7 +48,7 @@
                                 <thead>
                                     <tr>
                                         <th class="no-sort">{{__("Staff.Meetingnumber")}}</th>
-                                        <th>{{__("Staff.Meetingname")}}</th>
+                                        <th>{{__("Staff.Definition Name")}}</th>
                                         <th class="no-sort">{{__("Staff.Meetingdate")}}</th>
 
                                         <th class="no-sort">{{__("Staff.Meetingtime")}}</th>
@@ -62,7 +66,7 @@
                         <!-- Delete Modal -->
                         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
                             aria-labelledby="deleteModal" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header d-flex justify-content-center">
                                         <h5 class="modal-title text-sm-center text-secondary" style="font-size: 14px;"
@@ -83,7 +87,7 @@
                         <!-- Clos Meeting Modal -->
                         <div class="modal fade" id="closeMeetingModal" tabindex="-1" role="dialog"
                             aria-labelledby="deleteModal" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header d-flex justify-content-center">
                                         <h5 class="modal-title text-sm-center text-secondary" style="font-size: 14px;"

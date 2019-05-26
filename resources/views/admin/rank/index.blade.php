@@ -5,24 +5,29 @@
 
 @endsection
 
+@section('pageTitle')
+    {{ __('Staff.Ranks') }}
+@endsection
+
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
         <div id="SuccessDelete" class="flash-message "
             style="display: none;width: 50%; margin: auto;box-shadow: 1px 1px 2px #fff , -1px -1px 1px #fff;">
             <p class="alert alert-success text-white" style="text-align: center;"> &nbsp;
-                Rank Deleted Successfully <i class="fas fa-check-double"></i></p>
+                {{ __('Staff.Rank Deleted Successfully') }} <i class="fas fa-check-double"></i></p>
         </div>
 
         <div class="row">
             <div class="col-md-12 grid-margin">
                 @include('messages')
                 <div class="card">
-                    <div class="card-header top-card">Rank</div>
+                    <div class="card-header top-card">{{__('Staff.Ranks')}}</div>
                     <div class="card-body">
                         <div class="p-3">
-                            <a href="{{ url('rank/create') }}" class="btn btn-success btn-sm" title="Add New rank">
-                                <i class="fa fa-plus" aria-hidden="true"></i> {{ __('home.Add New') }}
+                            <a href="{{ url('rank/create') }}" class="btn btn-success btn-sm" title="{{ __('Staff.Create New rank') }}">
+                                <i class="fa fa-plus" aria-hidden="true" style="position:relative; top:2px;"></i> {{ __('Staff.Create New rank') }}
                             </a>
                         </div>
 
@@ -41,7 +46,7 @@
                         <!-- Delete Modal -->
                         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
                             aria-labelledby="deleteModal" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header d-flex justify-content-center">
                                         <h5 class="modal-title text-sm-center text-secondary" style="font-size: 14px;"

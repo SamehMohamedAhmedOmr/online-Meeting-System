@@ -28,7 +28,7 @@ class Controller extends BaseController
     public function watchNotification()
     {
         try{
-            $notifications =Notification::where('user_id', Auth::user()->id)->get();
+            $notifications = Notification::where('user_id', Auth::user()->id)->get();
             foreach ($notifications as $notification) {
                 $notification->watch=1;
                 $notification->save();

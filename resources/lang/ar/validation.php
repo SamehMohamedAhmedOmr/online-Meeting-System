@@ -196,8 +196,45 @@ return [
         'start_date_of_membership'   => 'تاريخ بداية العضوية',
         'end_date_of_membership'     => 'تاريخ نهاية العضوية',
 
-        //rank input
+        'faculty_member_id.*'          => 'اسم العضو',
+        'council_definition_id.*'      => 'اسم المجلس',
+        'list_of_membership_order.*'   => 'ترتيب العضوية',
+        'start_date_of_membership.*'   => 'تاريخ بداية العضوية',
+        'end_date_of_membership.*'     => 'تاريخ نهاية العضوية',
 
-        'meeting_number'        => 'رقم الاجتماع'
+        //rank input
+        'rank_name'                    => 'اسم المرتبة',
+
+        //position input
+        'position_name'                => 'اسم المنصب',
+
+        //subject Type input
+        'subject_type_name'            => 'نوع الموضوع',
+
+        //Meeting input
+        'meeting_number'        => 'رقم الاجتماع',
+        'meeting_date'          => 'تاريخ الاجتماع',
+        'meeting_time'          => 'توقيت الاجتماع',
+
+        //Subject input
+        'subject_type_id'        => 'نوع الموضوع',
+        'subject_description'    => 'وصف الموضوع',
+        'additional_subject'     => 'موضوع اضافي',
+        'council_meeting_id'     => 'الاجتماع',
+        'attachment_document'    => 'المرفقات',
+
+        'final_decision'                 => 'القرار النهائي',
+        'person_redirected'              => 'الشخص المحول اليه',
+        'final_decision_description'     => 'وصف القرار النهائي',
+        'next_council_definition_id'     => 'المجلس المحول اليه',
+        'council_meeting_subject'        => 'موضوع الاجتماع',
+
+        //Vote input
+        'Council_meeting_subject_id'     => 'اسم الموضوع',
+        'vote'                           => 'التصويت',
+        'commet'                         => 'التعليق',
+
+        //Attendence input
+        'excuse_description'             => 'العذر',
     ],
 ];

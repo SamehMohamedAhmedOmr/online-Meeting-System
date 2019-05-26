@@ -46,14 +46,14 @@ class PositionController extends Controller
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'position_name' => 'required|string|max:100',
+            'position_name' => 'required|string|min:3|max:100',
         ])->validate();
 
         $requestData = $request->all();
 
         Position::create($requestData);
 
-        return redirect('position')->with('flash_message', 'Position added!');
+        return redirect('position')->with('flash_message', __('flash_message.Position Added'));
     }
 
     /**
@@ -93,7 +93,7 @@ class PositionController extends Controller
     public function update(Request $request, $id)
     {
         $validate = Validator::make($request->all(), [
-            'position_name' => 'required|string|max:100',
+            'position_name' => 'required|string|min:3|max:100',
         ])->validate();
 
         $requestData = $request->all();
@@ -101,7 +101,7 @@ class PositionController extends Controller
         $position = Position::findOrFail($id);
         $position->update($requestData);
 
-        return redirect('position')->with('flash_message', 'Position updated!');
+        return redirect('position')->with('flash_message', __('flash_message.Position Updated'));
     }
 
     /**

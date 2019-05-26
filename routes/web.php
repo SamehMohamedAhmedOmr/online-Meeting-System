@@ -135,7 +135,7 @@ Route::middleware('auth')->group(function () {
     // });
 
     Route::get('updateseen', 'Controller@updateseen');
-    Route::post('watchNotification', 'Controller@watchNotification');
+    Route::get('watchNotification', 'Controller@watchNotification');
 
     Route::get('pdf', 'Controller@files');
 

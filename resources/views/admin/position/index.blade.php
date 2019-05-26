@@ -5,6 +5,11 @@
 
 @endsection
 
+@section('pageTitle')
+    {{ __('Staff.Positions') }}
+@endsection
+
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -21,8 +26,8 @@
                     <div class="card-header top-card">{{__('Staff.Positions') }}</div>
                     <div class="card-body">
                         <div class="p-3">
-                            <a href="{{ url('position/create') }}" class="btn btn-success btn-sm" title="Add New position">
-                                <i class="fa fa-plus" aria-hidden="true"></i>{{__('home.Add New') }}
+                            <a href="{{ url('position/create') }}" class="btn btn-success btn-sm" title="{{ __('Staff.Create New position') }}">
+                                <i class="fa fa-plus" aria-hidden="true" style="position:relative; top:2px;"></i> {{ __('Staff.Create New position') }}
                             </a>
                         </div>
 
@@ -41,12 +46,12 @@
                         <!-- Delete Modal -->
                         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
                             aria-labelledby="deleteModal" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header d-flex justify-content-center">
                                         <h5 class="modal-title text-sm-center text-secondary" style="font-size: 14px;"
                                             id="exampleModalLabel">
-                                            {{__('Staff.Position will Delete Permanently , Are you sure ?	') }}
+                                            {{__('Staff.Position will Delete Permanently , Are you sure ?') }}
                                         </h5>
                                         <input type="hidden" value="" id="RemoveItem">
                                     </div>

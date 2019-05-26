@@ -2,7 +2,7 @@
 
 <script type="text/javascript" src="https://js.pusher.com/3.1/pusher.min.js"></script>
 
-<script type="text/javascript" data-id="{{ Auth::user()->id }}" id='toPushID'>
+<script type="text/javascript" data-id="{{ Auth::user()->id }}" id='toPushID' data-lang="{{ App::getLocale() }}">
     function zero() {
         var bell = document.getElementById('number');
         var text = bell.innerHTML;
@@ -11,19 +11,16 @@
             bell.style.display = 'none';
             bell.innerHTML = 0;
 
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: 'POST',
-                url: 'watchNotification',
-                data:{},
-                success: function (response) {
-                },
-                error: function(error){
-                    console.log(error);
-                }
-            });
+                $.ajax({
+                    type: 'GET',
+                    url: '/watchNotification',
+                    data:{},
+                    success: function (response) {
+                    },
+                    error: function(error){
+                        console.log(error);
+                    }
+                });
         }
 
     }
@@ -37,6 +34,8 @@
     });
 
     var user = $('#toPushID').data('id');
+    var lang = $('#toPushID').data('lang');
+
     // Subscribe to the channel we specified in our Laravel Event
     var channel = pusher.subscribe('council' + user);
 
@@ -91,10 +90,19 @@
 
         item.appendChild(i);
         thum.appendChild(item);
-
-        p.appendChild(document.createTextNode(data.message));
+        if(lang == 'ar'){
+            p.appendChild(document.createTextNode(data.message_ar));
+        }
+        else if(lang == 'en'){
+            p.appendChild(document.createTextNode(data.message));
+        }
         p2.innerHTML = dateString;
-        h.appendChild(document.createTextNode(data.title));
+        if(lang == 'ar'){
+            h.appendChild(document.createTextNode(data.title_ar));
+        }
+        else if(lang == 'en'){
+            h.appendChild(document.createTextNode(data.title));
+        }
         li.appendChild(h);
         li.appendChild(p);
         li.appendChild(p2);

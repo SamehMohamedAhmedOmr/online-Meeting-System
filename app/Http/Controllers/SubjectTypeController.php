@@ -47,14 +47,14 @@ class SubjectTypeController extends Controller
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'subject_type_name' => 'required|string|max:50',
+            'subject_type_name' => 'required|string|min:3|max:50',
         ])->validate();
 
         $requestData = $request->all();
 
         Subject_type::create($requestData);
 
-        return redirect('subjectType')->with('flash_message', 'Subject Type added!');
+        return redirect('subjectType')->with('flash_message', __('flash_message.Subject Type Added'));
     }
 
     /**
@@ -94,7 +94,7 @@ class SubjectTypeController extends Controller
     public function update(Request $request, $id)
     {
         $validate = Validator::make($request->all(), [
-            'subject_type_name' => 'required|string|max:50',
+            'subject_type_name' => 'required|string|min:3|max:50',
         ])->validate();
 
         $requestData = $request->all();
@@ -102,7 +102,7 @@ class SubjectTypeController extends Controller
         $subject_type = Subject_type::findOrFail($id);
         $subject_type->update($requestData);
 
-        return redirect('subjectType')->with('flash_message', 'Subject Type updated!');
+        return redirect('subjectType')->with('flash_message', __('flash_message.Subject Type Updated'));
     }
 
     /**

@@ -55,8 +55,16 @@
                                     @endif
                                 </div>
                             @endif
-
                         @endforeach
+
+                        @if ($subject->Votes->where('vote','!=', 2)->count() == 0)
+                        <div class="m-3 pb-3 w-100" style="color:#555555;">
+                            <div class="d-flex justify-content-center mb-2">
+                                <h4>{{ __('Staff.NoOne') }}</h4>
+                            </div>
+                        </div>
+                    @endif
+
                     </div>
                     <div class="col-6 d-flex flex-column align-items-center">
                         <h4 class="pb-3 mb-2" style="border-bottom: 1px solid #ccc;">{{__("admin.Members who didn't vote")}}</h4>
@@ -74,6 +82,13 @@
                             @endif
 
                         @endforeach
+                        @if ($subject->Votes->where('vote', 2)->count() == 0)
+                            <div class="m-3 pb-3 w-100" style="color:#555555;">
+                                <div class="d-flex justify-content-center mb-2">
+                                    <h4>{{ __('Staff.NoOne') }}</h4>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
 

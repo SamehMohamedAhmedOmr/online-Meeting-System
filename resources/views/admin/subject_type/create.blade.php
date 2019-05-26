@@ -4,6 +4,10 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/tables.css') }}" />
 @endsection
 
+@section('pageTitle')
+    {{ __('home.Subject') }} | {{__("Staff.Create New Subject Type")}}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -16,7 +20,7 @@
                         <div class="p-3">
                             <a class='back-button' href="{{ url('subjectType') }}" title="Back">
                                 <button class="btn btn-warning btn-sm">
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>{{__("home.Back")}}</button>
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> {{__("home.Back")}}</button>
                             </a>
                         </div>
 

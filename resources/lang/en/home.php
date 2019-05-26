@@ -25,7 +25,7 @@ return array (
   'Time' => 'Time',
   'Subject' => 'Subject Types',
   'Description' => 'Description',
-  'Attachment' => 'Attachment',
+  'Attachment' => 'Attachments',
   'Delete' => 'Delete',
   'Edit' => 'Edit',
   'Editvote' => 'Edit Vote',

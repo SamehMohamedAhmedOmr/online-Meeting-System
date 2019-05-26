@@ -4,6 +4,11 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/tables.css') }}" />
 @endsection
 
+
+@section('pageTitle')
+    {{ __('Staff.Positions') }} | {{ __('Staff.Edit position') }}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -18,7 +23,7 @@
                         <div class="mb-3">
                             <a class='back-button' href="{{ url('position') }}" title="Back">
                                 <button class="btn btn-warning btn-sm" >
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>{{ __('home.Back') }}
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> {{ __('home.Back') }}
                                 </button>
                             </a>
                         </div>

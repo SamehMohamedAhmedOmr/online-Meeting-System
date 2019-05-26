@@ -92,7 +92,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown mr-4">
+                {{-- <li class="nav-item dropdown mr-4">
                     <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
                         id="messageDropdown" href="#" data-toggle="dropdown">
                         <i class="mdi mdi-message-text mx-0"></i>
@@ -139,7 +139,7 @@
                             </div>
                         </a>
                     </div>
-                </li>
+                </li> --}}
 
 
                 <li class="nav-item dropdown mr-4">
@@ -171,9 +171,19 @@
                                 </div>
                             </div>
                             <div class="item-content">
-                                <h6 class="font-weight-normal">{{$item->title}}</h6>
+                                <h6 class="font-weight-normal">
+                                    @if (App::getLocale() == 'ar')
+                                        {{$item->title_ar}}
+                                    @else
+                                        {{$item->title}}
+                                    @endif
+                                </h6>
                                 <p class="font-weight-light small-text mb-0 text-muted">
-                                    {{$item->notify}}
+                                    @if (App::getLocale() == 'ar')
+                                        {{$item->notify_ar}}
+                                    @else
+                                        {{$item->notify}}
+                                    @endif
                                 </p>
                                 <p class="font-weight-light small-text mb-0 text-muted" style="font-size:0.8em;">
                                     {{$item->created_at}}
@@ -232,10 +242,10 @@
                             <i class="mdi mdi-account-circle text-primary account-icons"></i>
                             {{ __('home.profile') }}
                         </a>
-                        <a class="dropdown-item">
+                        {{-- <a class="dropdown-item">
                             <i class="mdi mdi-settings text-primary account-icons"></i>
                             {{ __('home.setting') }}
-                        </a>
+                        </a> --}}
                         <a class="dropdown-item" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             <i class="mdi mdi-logout text-primary account-icons"></i>

@@ -101,13 +101,17 @@ class CouncilMeetingSetupController extends Controller
                 $councilName = $definition->council_name;
                 $msg = 'New Meeting at '.$councilName.' on '.$check->meeting_date.' at '.$check->meeting_time;
                 $title = 'New Meeting at '.$councilName;
+
+                $msg_ar = 'اجتماع جديد لـ '.$councilName.' يوم '.$check->meeting_date.' الساعة '.$check->meeting_time;
+                $title_ar = 'اجتماع جديد لـ  '.$councilName;
+
                 $page = 'meeting/'.$check->id;
                 $icon = 'fas fa-handshake';
                 $color = 'bg-primary';
-                event(new Councilcreated($councilName,$userID,$title,$msg,$page,$icon,$color));
+                event(new Councilcreated($councilName,$userID,$title,$msg,$title_ar,$msg_ar,$page,$icon,$color));
             }
         }
-        return redirect('meeting')->with('flash_message', 'Council Meeting added!');
+        return redirect('meeting')->with('flash_message', __('flash_message.Meeting Added'));
     }
 
     /**
@@ -172,11 +176,11 @@ class CouncilMeetingSetupController extends Controller
 
         $council_meeting_setup = Council_meeting_setup::find($id);
         if(!$council_meeting_setup){
-            return redirect('meeting')->with('errors', 'Council_meeting_setup updated!');
+            return redirect('meeting')->with('errors', __('flash_message.Meeting Updated'));
         }
         $council_meeting_setup->update($requestData);
 
-        return redirect('meeting')->with('flash_message', 'Council_meeting_setup updated!');
+        return redirect('meeting')->with('flash_message', __('flash_message.Meeting Updated'));
     }
 
     /**
@@ -222,7 +226,7 @@ class CouncilMeetingSetupController extends Controller
                 $attendance->save();
             }
         }
-        return redirect('meeting/'.$id)->with('flash_message', 'Attendence Updated Successfully updated!');
+        return redirect('meeting/'.$id)->with('flash_message', __('flash_message.Attendance Updated Successfully'));
     }
 
     public function closeMeeing($id)

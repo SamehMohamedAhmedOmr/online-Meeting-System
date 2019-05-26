@@ -6,6 +6,9 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/tables.css') }}" />
 @endsection
 
+@section('pageTitle')
+    {{ __('Staff.Meeting Number') }} {{ $meeting->meeting_number }} | {{ __('Staff.Edit Subject') }}
+@endsection
 
 @section('content')
 <div class="main-panel">
@@ -14,12 +17,12 @@
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card">
-                    <div class="card-header top-card">Edit Subject</div>
+                    <div class="card-header top-card">{{ __('Staff.Edit Subject') }}</div>
                     <div class="card-body">
                         <div class="mb-3">
-                            <a class='back-button' href="{{ url('meeting/'.$meeting->id.'') }}" title="Back">
+                            <a class='back-button' href="{{ url('meeting/'.$meeting->id.'') }}" title="{{__("home.Back")}}">
                                 <button class="btn btn-warning btn-sm">
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> {{__("home.Back")}}
                                 </button>
                             </a>
                         </div>

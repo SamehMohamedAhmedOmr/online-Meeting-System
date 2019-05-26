@@ -4,6 +4,11 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/tables.css') }}" />
 @endsection
 
+@section('pageTitle')
+    {{ __('home.Subject') }} | {{__("Staff.Edit Subject Type")}}
+@endsection
+
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -11,7 +16,7 @@
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card">
-                    <div class="card-header top-card">{{__("home.Edit")}}
+                    <div class="card-header top-card">{{__("Staff.Edit Subject Type")}}
                         <span class="name">{{ $subjectType->subject_type_name }}</span>
                     </div>
                     <div class="card-body">

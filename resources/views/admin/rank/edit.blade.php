@@ -4,6 +4,10 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/tables.css') }}" />
 @endsection
 
+@section('pageTitle')
+    {{ __('Staff.Ranks') }} | {{ __('Staff.Edit Rank') }}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -16,8 +20,8 @@
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
-                            <a class='back-button' href="{{ url('rank') }}" title="Back">
-                                <button class="btn btn-warning btn-sm" >
+                            <a class='back-button' href="{{ url('rank') }}" title="{{ __('home.Back') }}">
+                                <button class="btn btn-warning btn-sm">
                                     <i class="fa fa-arrow-left" aria-hidden="true"></i> {{ __('home.Back') }}
                                 </button>
                             </a>

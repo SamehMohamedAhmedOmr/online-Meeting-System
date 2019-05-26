@@ -48,14 +48,14 @@ class RankController extends Controller
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'rank_name' => 'required|string|max:35',
+            'rank_name' => 'required|string|min:3|max:35',
         ])->validate();
 
         $requestData = $request->all();
 
         Rank::create($requestData);
 
-        return redirect('rank')->with('flash_message', 'Rank added!');
+        return redirect('rank')->with('flash_message',  __('flash_message.Rank Added'));
     }
 
     public function show($id)
@@ -88,7 +88,7 @@ class RankController extends Controller
     public function update(Request $request, $id)
     {
         $validate = Validator::make($request->all(), [
-            'rank_name' => 'required|string|max:35',
+            'rank_name' => 'required|string|min:3|max:35',
         ])->validate();;
 
         $requestData = $request->all();
@@ -96,7 +96,7 @@ class RankController extends Controller
         $rank = Rank::findOrFail($id);
         $rank->update($requestData);
 
-        return redirect('rank')->with('flash_message', 'Rank updated!');
+        return redirect('rank')->with('flash_message',  __('flash_message.Rank Updated'));
     }
 
     /**

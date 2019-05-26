@@ -93,9 +93,9 @@ class SubjectAttachmentController extends Controller
                 $this->destroyfile($subject->id, $subject->attachment_document);
             }
             $subject->delete();
-            return ($type ==1)? 1 : redirect()->back()->with('flash_message', 'Subject Attachment deleted!');
+            return ($type ==1)? 1 : redirect()->back()->with('flash_message', __('flash_message.Attachment deleted'));
         }
-        return ($type ==1)? 0 : redirect()->back()->withErrors('Faild!');
+        return ($type ==1)? 0 : redirect()->back()->withErrors( __('flash_message.faild'));
     }
     /**
      * add the specified resource to storage.

@@ -45,10 +45,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group excuse_description{{ $attendance->id }} {{ ($attendance->attend == 1) ? 'd-none' : ''}}">
-                            <textarea class="form-control" id="Execusedescription" rows="4"
-                                name='excuse_description[]' placeholder="Execuse Reason">{{ $attendance->excuse_description }}
-                            </textarea>
+                        <div
+                            class="form-group excuse_description{{ $attendance->id }} {{ ($attendance->attend == 1) ? 'd-none' : ''}}">
+                            <textarea class="form-control" id="Execusedescription" rows="4" name='excuse_description[]'
+                                placeholder="{{ __('placeholder.Execuse Reason') }}">{{ $attendance->excuse_description }}</textarea>
                         </div>
                     </div>
                     @endforeach
@@ -65,6 +65,3 @@
         </div>
     </div>
 </div>
-
-
-

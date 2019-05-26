@@ -8,6 +8,10 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" />
 @endsection
 
+@section('pageTitle')
+    {{ __('Staff.Meeting Number') }} {{ $meeting->meeting_number }} | {{ __('Staff.Addnewsubject') }}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -16,13 +20,13 @@
             <div class="col-md-12 grid-margin">
                 <div class="card">
                     <div class="card-header top-card">
-                        Add New Subject for <span class="name"> meeting Number {{ $meeting->meeting_number }}</span>
+                        {{ __('Staff.Add New Subject For') }} <span class="name"> {{ $meeting->meeting_number }}</span>
                     </div>
                     <div class="card-body">
                         <div class="p-3">
-                            <a class='back-button' href="{{ url('meeting') }}" title="Back">
+                            <a class='back-button' href="{{ url('meeting/'.$meeting->id) }}" title="{{__("home.Back")}}">
                                 <button class="btn btn-warning btn-sm">
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> {{__("home.Back")}}
                                 </button>
                             </a>
                         </div>

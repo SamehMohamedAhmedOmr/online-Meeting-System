@@ -3,7 +3,7 @@
     @if ($council_meeting_setup->close == 0)
         <div class="d-flex justify-content-center align-items-center my-4">
             <button type='button' class="btn btn-facebook" data-toggle="modal" data-target="#memberAttendence">
-              {{__("Staff. UpdateAttendance")}}
+              {{__("Staff.UpdateAttendance")}}
             </button>
         </div>
     @endif

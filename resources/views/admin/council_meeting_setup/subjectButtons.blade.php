@@ -1,17 +1,18 @@
 @if (Auth::user()->type == 1)
     <!-- Staff -->
     @if ($council_meeting_setup->close == 0)
-        <a href="#" class="btn btn-danger mb-2" data-toggle="modal" aria-label="deleteSubject"
-            data-target="#deleteSubjectModal{{ $subject->id }}" data-id="{{ $council_meeting_setup->id }}">
-            {{__("home.Delete")}}  <i class="mdi mdi-delete-forever inside-icon"></i>
+
+        <a href="{{ url('meetingSubject/finalDesicion/'.$subject->id.'') }}" class="btn btn-github mb-2">
+            {{ ($subject->final_decision != 2) ? __("Staff.edit Final Decision") : __("Staff.Addfinaldescision") }}  <i class="mdi mdi-plus inside-icon"></i>
         </a>
 
-        <a href="{{ url('meetingSubject/edit/'.$subject->id.'') }}" class="btn btn-behance mb-2">
+        <a href="{{ url('meetingSubject/edit/'.$subject->id.'') }}" class="btn btn-linkedin mb-2">
             {{__("home.Edit")}}  <i class="mdi mdi-pencil-box"></i>
         </a>
 
-        <a href="{{ url('meetingSubject/finalDesicion/'.$subject->id.'') }}" class="btn btn-behance">
-            {{__("Staff.Addfinaldescision")}}  <i class="mdi mdi-plus inside-icon"></i>
+        <a href="#" class="btn btn-danger" data-toggle="modal" aria-label="deleteSubject"
+            data-target="#deleteSubjectModal{{ $subject->id }}" data-id="{{ $council_meeting_setup->id }}">
+            {{__("home.Delete")}}  <i class="mdi mdi-delete-forever inside-icon"></i>
         </a>
     @endif
 
@@ -31,7 +32,7 @@
 
         <a href="#" class="btn btn-linkedin mb-2" data-toggle="modal" data-target="#singleVote{{ $subject->id }}"
             data-id="{{ $council_meeting_setup->id }}">
-            Video Conference <i class="mdi mdi-message-video inside-icon"></i>
+            {{ __('Staff.video conference') }} <i class="mdi mdi-message-video inside-icon" style="position: relative; top:2px;"></i>
         </a>
 
         <a href="#" class="btn btn-google" data-toggle="modal" data-target="#singleVote{{ $subject->id }}"

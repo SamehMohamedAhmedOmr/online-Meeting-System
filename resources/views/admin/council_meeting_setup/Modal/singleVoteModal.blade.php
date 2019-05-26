@@ -16,23 +16,21 @@
 
                     <div class="form-group">
                         @php
-                           if($council_member){
-                                $check = $subject->Votes->where('council_member_id',$council_member->id)->first();
-                            }
-                           else{
-                               $check = null;
-                            }
+                        if($council_member){
+                        $check = $subject->Votes->where('council_member_id',$council_member->id)->first();
+                        }
+                        else{
+                        $check = null;
+                        }
                         @endphp
                         <div class="row">
                             <div class="col-sm-3 {{ (App::getLocale() == 'ar')?'mr-sm-3 ml-sm-5':'ml-sm-3 mr-sm-5' }}">
                                 <div class="form-check d-sm-flex text-sm-center ">
                                     <label class="form-check-label w-100">
-                                        <input type="radio" class="form-check-input" name="vote"
-                                            id="membershipRadios1" value="1" required
-                                            @if ($check)
-                                            {{ ($check->vote != 0) ? 'checked' : '' }}
-                                            @endif >
-                                            {{__("Staff.accept")}}
+                                        <input type="radio" class="form-check-input" name="vote" id="membershipRadios1"
+                                            value="1" required @if ($check) {{ ($check->vote != 0) ? 'checked' : '' }}
+                                            @endif>
+                                        {{__("Staff.accept")}}
 
                                     </label>
                                 </div>
@@ -40,12 +38,10 @@
                             <div class="col-sm-3">
                                 <div class="form-check d-sm-flex text-sm-center">
                                     <label class="form-check-label w-100">
-                                        <input type="radio" class="form-check-input" name="vote"
-                                            id="membershipRadios2" value="0" required
-                                            @if ($check)
-                                                {{ ($check->vote == 0) ? 'checked' : '' }}
+                                        <input type="radio" class="form-check-input" name="vote" id="membershipRadios2"
+                                            value="0" required @if ($check) {{ ($check->vote == 0) ? 'checked' : '' }}
                                             @endif>
-                                            {{__("Staff.reject")}}
+                                        {{__("Staff.reject")}}
 
                                     </label>
                                 </div>
@@ -55,7 +51,7 @@
 
                     <div class="form-group">
                         <label for="voteComment" class="d-block">{{__("Staff.comment")}}
-</label>
+                        </label>
                         <textarea class="form-control" id="voteComment" rows="4"
                             name='commet'>@if ($check){{ $check->commet }}@endif</textarea>
                     </div>

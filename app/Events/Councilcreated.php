@@ -18,8 +18,12 @@ class Councilcreated implements ShouldBroadcast
     public $councilname;
     public $id;
     public $title;
+    public $title_ar;
+
     public $d;
     public $message;
+    public $message_ar;
+
     public $page;
     public $icon;
     public $color;
@@ -29,20 +33,29 @@ class Councilcreated implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($councilname,$id,$title,$message,$page,$icon,$color)
+    public function __construct($councilname,$id,$title,$message,$title_ar,$message_ar,$page,$icon,$color)
     {
          $d=0;
         $this->councilname = $councilname;
         $this->id = $id;
+
         $this->title = $title;
+        $this->title_ar = $title_ar;
+
         $this->message  = $message;
+        $this->message_ar  = $message_ar;
+
         $this->page = url($page);
         $this->icon  = $icon;
         $this->color = $color;
 
         $data= new Notification();
+        $data->title_ar= $this->title_ar;
+        $data->notify_ar= $this->message_ar;
+
         $data->title= $this->title;
         $data->notify= $this->message;
+
         $data->user_id=$this->id;
         $data->page=$this->page;
         $data->seen=0;

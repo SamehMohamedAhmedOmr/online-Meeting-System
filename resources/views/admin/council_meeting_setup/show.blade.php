@@ -7,6 +7,10 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
 @endsection
 
+@section('pageTitle')
+{{ $council_meeting_setup->Council_definition->council_name }} | {{__("Staff.Meeting")}} {{__("home.Number")}} {{ $council_meeting_setup->meeting_number }}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -25,18 +29,37 @@
 
                 <div class="card">
                     <div class="card-header top-card">
-                        <span>{{__("Staff.Meeting")}}</span>
-                        <span class="name">{{__("home.Number")}} {{ $council_meeting_setup->meeting_number }}</span>
-                        <span>{{__("home.details")}}</span>
+                        <span>{{__("Staff.Meeting")}} {{__("home.Number")}}</span>
+                        <span class="name"> {{ $council_meeting_setup->meeting_number }}</span>
                     </div>
 
                     <div class="card-body">
-                        <div class="mb-3">
-                            <a style='text-decoration:none;' href="{{ url('meeting') }}" title="Back">
-                                <button class="btn btn-warning btn-sm" style="color:#fff;">
-                                    <i class="fa fa-arrow-left" style="font-size: 0.875rem" aria-hidden="true"></i> {{__("home.Back")}}
-                                </button>
-                            </a>
+
+                        <div class="mb-3 {{ (Auth::user()->type == 1) ? 'row' : '' }}">
+                            @if(Auth::user()->type == 1)
+                                @if (Auth::user()->type == 1 && $council_meeting_setup->close == 0)
+                                    <!-- Staff -->
+                                    <div class="col-6 d-flex justify-content-center align-items-center {{ (App::getLocale() == 'ar')?'order-0':'order-1' }}">
+                                        <a class="btn btn-facebook" href="{{ url('meetingSubject/create/'.$council_meeting_setup->id.'') }}">
+                                            {{__("Staff.Addnewsubject")}}
+                                        </a>
+                                    </div>
+                                @endif
+
+                                <div class="col-6 {{ (App::getLocale() == 'ar')?'order-1':'order-0' }}">
+                                    <a style='text-decoration:none;' href="{{ url('meeting') }}" title="{{__("home.Back")}}">
+                                        <button class="btn btn-warning btn-sm" style="color:#fff;">
+                                            <i class="fa fa-arrow-left" style="font-size: 0.875rem; position:relative; top:2px;" aria-hidden="true"></i> {{__("home.Back")}}
+                                        </button>
+                                    </a>
+                                </div>
+                            @else
+                                <a style='text-decoration:none;' href="{{ url('meeting') }}" title="{{__("home.Back")}}">
+                                    <button class="btn btn-warning btn-sm" style="color:#fff;">
+                                        <i class="fa fa-arrow-left" style="font-size: 0.875rem; position:relative; top:2px;" aria-hidden="true"></i> {{__("home.Back")}}
+                                    </button>
+                                </a>
+                            @endif
                         </div>
 
                         <div class="table-responsive view-data mb-3">
@@ -64,7 +87,7 @@
                                     role="tab" aria-controls="subject"
                                     aria-selected="true" style="font-size: 1.2rem !important;">
                                     <i class="mdi mdi-file-document-box"></i>
-                                    <span>{{__("home.Subject")}}</span>
+                                    <span>{{__("Staff.Subjects")}}</span>
                                 </a>
                             </li>
                             @if (Auth::user()->type == 1)

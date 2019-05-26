@@ -5,6 +5,10 @@
 
 @endsection
 
+@section('pageTitle')
+    {{ __('home.Subject') }}
+@endsection
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -18,11 +22,11 @@
             <div class="col-md-12 grid-margin">
                 @include('messages')
                 <div class="card">
-                    <div class="card-header top-card"> {{__("Staff.Subject Type")}}</div>
+                    <div class="card-header top-card"> {{__("home.Subject")}}</div>
                     <div class="card-body">
                         <div class="p-3">
                             <a href="{{ url('subjectType/create') }}" class="btn btn-success btn-sm" title="Add New subjectType">
-                                <i class="fa fa-plus" aria-hidden="true"></i> {{__("home.Add New")}}
+                                <i class="fa fa-plus" aria-hidden="true" style="position:relative; top:2px;"></i> {{__("Staff.Create New Subject Type")}}
                             </a>
                         </div>
 
@@ -41,7 +45,7 @@
                         <!-- Delete Modal -->
                         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
                             aria-labelledby="deleteModal" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header d-flex justify-content-center">
                                         <h5 class="modal-title text-sm-center text-secondary" style="font-size: 14px;"

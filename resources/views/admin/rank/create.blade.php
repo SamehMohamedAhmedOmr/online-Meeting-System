@@ -4,6 +4,11 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/tables.css') }}" />
 @endsection
 
+@section('pageTitle')
+    {{ __('Staff.Ranks') }} | {{ __('Staff.Create New rank') }}
+@endsection
+
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">

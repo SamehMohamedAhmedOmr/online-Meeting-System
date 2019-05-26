@@ -21,6 +21,10 @@
 
 @endsection
 
+@section('pageTitle')
+    {{ __('Staff.Meeting Number') }} {{ $subject->Council_meeting_setup->meeting_number }} | {{__("Staff.Chat")}}
+@endsection
+
 @section('content')
 
 <div class="main-panel">
@@ -34,7 +38,7 @@
 
                             <div class="contact-profile mb-1">
                                 <div class="d-flex justify-content-center flex-column">
-                                    <label for="">Subject Description</label>
+                                    <label for="">{{ __('Staff.Subject Description') }}</label>
                                     <p class="nav-profile-name">
                                         {{ $subject->subject_description }}
                                     </p>
@@ -49,7 +53,7 @@
 
                             <div class="message-input">
                                 <div class="wrap">
-                                    <input style="direction:ltr;" type="text" placeholder="Write your message..."
+                                    <input style="direction:ltr;" type="text" placeholder="{{ __('placeholder.Write your message...') }}"
                                         id="message" required>
                                     <button class="submit">
                                         <i class="fa fa-paper-plane" aria-hidden="true"></i>

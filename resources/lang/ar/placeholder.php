@@ -18,4 +18,25 @@ return array (
   'enter end_date_of_membership' => 'من فضلك ادخل تاريخ نهاية العضوية',
   'Select Council Member' => 'اختار عضو المجلس',
   'Select Membership Order' => 'اختر ترتيب العضوية',
+  'enter Rank Name' => 'من فضلك ادخل اسم المرتبة',
+  'enter Position Name' => 'من فضلك ادخل اسم المنصب',
+  'enter Subject Type' => 'من فضلك ادخل نوع الموضوع',
+  'Select Council' => 'اختار المجلس',
+  'enter Meeting Date' => 'من فضلك ادخل تاريخ الاجتماع',
+  'enter Meeting Time' => 'من فضلك ادخل توقيت الاجتماع',
+  'Select Subject Type' => 'اختار نوع الموضوع',
+  'subject_description' => 'من فضلك ادخل وصف الموضوع',
+  'Select person to redirect' => 'اختار الشخص المحول اليه',
+  'enter final decision description' => 'من فضلك ادخل وصف القرار النهائي',
+  'Execuse Reason' => 'من فضلك ادخل سبب الاعتذار',
+  'Write your message' => 
+  array (
+    '' => 
+    array (
+      '' => 
+      array (
+        '' => 'اكتب رسالتك',
+      ),
+    ),
+  ),
 );

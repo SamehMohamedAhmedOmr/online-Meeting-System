@@ -34,7 +34,7 @@ class CouncilMember extends Model
     }
     public function Faculty_member()
     {
-      return $this->belongsTo('App\Faculty_member');
+      return $this->belongsTo('App\Faculty_member')->withDefault();
 
     }
     public function List_of_membership_order()

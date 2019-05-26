@@ -30,7 +30,7 @@ class Council_meeting_subject extends Model
 
     public function Council_definition()
     {
-      return $this->belongsTo('App\Council_definition');
+      return $this->belongsTo('App\Council_definition','council_definition','id');
     }
 
     public function Council_meeting_setup()

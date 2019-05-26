@@ -49,7 +49,7 @@ class VotesController extends Controller
             Votes::create($requestData);
         }
 
-        return redirect()->back()->with('flash_message', 'Votes added!');
+        return redirect()->back()->with('flash_message', __('flash_message.Votes added'));
     }
 
 }

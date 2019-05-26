@@ -132,7 +132,7 @@
 
     <script type="text/javascript" data-lang='{{ App::getLocale() }}' id='targetScript' data-allow="{{ $allowMembers }}"
         data-formID="{{$id}}">
-        
+
         $(function(){
             var formID = $('#targetScript').data('formID');
 
@@ -165,25 +165,25 @@
                     var endRow = '</div>';
 
                     // Member Template
-                    var memberForeach = '@foreach ($member as $obj)@if (old("faculty_member_id")['+i+'] != null && old("faculty_member_id")['+i+'] == $obj->id)<option value="{{ $obj->id}}" selected>@if (isset($obj->User)){{ $obj->User->name }}@endif</option>@else<option value="{{ $obj->id}}">@if (isset($obj->User)){{ $obj->User->name }}@endif</option>@endif @endforeach';
-                    var memberName = '<div class="form-group {{ $errors->has("faculty_member_id.'+i+'") ? "has-error" : ""}}"><label for="faculty_member_id" class="control-label">{{ __("admin.Member Name") }} <span style="color:red !important;">*</span></label><select class="form-control specialSelect" id="specialSelect'+i+'" name="faculty_member_id[]" required><option hidden value="">{{ __("placeholder.Select Council Member") }}</option>'+memberForeach+'</select>{!! $errors->first("faculty_member_id.'+i+'", "<p class=\'help-block\'>:message</p>") !!}</div>';
+                    var memberForeach = '@foreach ($member as $obj)<option value="{{ $obj->id}}">@if (isset($obj->User)){{ $obj->User->name }}@endif</option> @endforeach';
+                    var memberName = '<div class="form-group ><label for="faculty_member_id" class="control-label">{{ __("admin.Member Name") }} <span style="color:red !important;">*</span></label><select class="form-control specialSelect" id="specialSelect'+i+'" name="faculty_member_id[]" required><option hidden value="">{{ __("placeholder.Select Council Member") }}</option>'+memberForeach+'</select> </div>';
                     var memberTag = startCol + memberName + endtCol;
 
                     // Membership Template
-                    var memberShipOrderForeach = '@foreach ($positions as $obj)@if (old("list_of_membership_order")['+i+'] != null && old("list_of_membership_order")['+i+'] == $obj->id)<option value="{{ $obj->id}}" selected>{{ $obj->position_name }}</option>@else<option value="{{ $obj->id}}">{{ $obj->position_name }}</option>@endif @endforeach';
-                    var memberShipOrder = '<div class="form-group {{ $errors->has("list_of_membership_order.'+i+'") ? "has-error" : ""}}"><label for="list_of_membership_order" class="control-label">{{ __("admin.list_of_membership_order") }} <span style="color:red !important;">*</span></label><select class="form-control specialSelect" id="listSelect'+i+'" name="list_of_membership_order[]" required><option selected hidden value="">{{ __("placeholder.Select Membership Order") }}</option>'+memberShipOrderForeach+'</select> {!! $errors->first("list_of_membership_order.'+i+'", "<p class=\'help-block\'>:message</p>") !!}</div>';
+                    var memberShipOrderForeach = '@foreach ($positions as $obj) <option value="{{ $obj->id}}">{{ $obj->position_name }}</option> @endforeach';
+                    var memberShipOrder = '<div class="form-group"><label for="list_of_membership_order" class="control-label">{{ __("admin.list_of_membership_order") }} <span style="color:red !important;">*</span></label><select class="form-control specialSelect" id="listSelect'+i+'" name="list_of_membership_order[]" required><option selected hidden value="">{{ __("placeholder.Select Membership Order") }}</option>'+memberShipOrderForeach+'</select> </div>';
                     var memberShipTag = startCol + memberShipOrder + endtCol;
 
                     // First Row
                     var firstRow = startRow + memberTag + memberShipTag + endRow;
 
                     // StartDate Template
-                    var startMemberShipDate = '<div class="form-group {{ $errors->has("start_date_of_membership.'+i+'") ? "has-error" : ""}}"><label for="start_date_of_membership" class="control-label">{{ __("admin.Start Date Of Membership") }} <span style="color:red !important;">*</span></label><input class="form-control" placeholder="{{ __("placeholder.enter start_date_of_membership") }}" name="start_date_of_membership[]" type="text" id="start_date'+i+'" required value="{{ old("start_date_of_membership")['+i+'] }}" >{!! $errors->first("start_date_of_membership.'+i+'", "<p class=\"help-block\">:message</p>") !!}</div>';
+                    var startMemberShipDate = '<div class="form-group"><label for="start_date_of_membership" class="control-label">{{ __("admin.Start Date Of Membership") }} <span style="color:red !important;">*</span></label><input class="form-control" placeholder="{{ __("placeholder.enter start_date_of_membership") }}" name="start_date_of_membership[]" type="text" id="start_date'+i+'" required value="" > </div>';
 
                     var startMemberShipTag = startCol + startMemberShipDate + endtCol;
 
                     // EndDate Template
-                    var endMemberShipDate = '<div class="form-group d-block {{ $errors->has("end_date_of_membership.'+i+'") ? "has-error" : ""}}"><label for="end_date_of_membership" class="control-label">{{ __("admin.End Date Of Membership") }} <span style="color:red !important;">*</span></label><input class="form-control" placeholder="{{ __("placeholder.enter end_date_of_membership") }}" name="end_date_of_membership[]" type="text" id="end_date'+i+'" required  value="{{ old("end_date_of_membership")['+i+'] }}" >{!! $errors->first("end_date_of_membership.'+i+'", "<p class=\"help-block\">:message</p>") !!} </div>';
+                    var endMemberShipDate = '<div class="form-group d-block"><label for="end_date_of_membership" class="control-label">{{ __("admin.End Date Of Membership") }} <span style="color:red !important;">*</span></label><input class="form-control" placeholder="{{ __("placeholder.enter end_date_of_membership") }}" name="end_date_of_membership[]" type="text" id="end_date'+i+'" required  value="" >  </div>';
 
                     var endMemberShipTag = startCol + endMemberShipDate + endtCol;
 
