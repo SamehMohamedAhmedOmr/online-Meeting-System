@@ -157,7 +157,7 @@
 
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                         aria-labelledby="notificationDropdown" id="maxy"
-                        style="right: auto; left: 0 !important; overflow-y: auto; max-height: 480px;">
+                        style="{{ (App::getLocale() == 'ar')? 'right: auto; left: 0 !important;' : '' }} overflow-y: auto; max-height: 480px;">
                         <p class="mb-0 font-weight-normal float-left dropdown-header" id='notificationHeader'>
                             {{ __('home.Notification') }}
                         </p>
@@ -287,8 +287,13 @@
 
             <div class="modal-body">
                 <center>
-                <img src="{{ URL::asset('storage/user_pic/'.Auth::user()->id.'/'.Auth::user()->image) }}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
-                <h3 class="media-heading">{{$profile->name}} <small>{{__("home.EGY")}}</small></h3>
+                        @if(Auth::user()->image!='default_default.png')
+                <img src="{{ URL::asset('storage/user_pic/'.Auth::user()->id.'/'.Auth::user()->image) }}" name="aboutme" width="140" height="140" border="0" class="img-circle faculty_logo"></a>
+               @else
+               <img src="{{ URL::asset('storage/user_pic/default/default_default.png') }}" name="aboutme" width="140" height="140" border="0" class="img-circle faculty_logo"></a>
+@endif
+<br>
+               <h3 class="media-heading">{{$profile->name}} <small>{{__("home.EGY")}}</small></h3>
                 <span><strong>{{__("home.E-mail")}}: </strong></span>
                 <span class="label label-warning">{{$profile->email}}</span>
 

@@ -31,7 +31,7 @@ class ProfileProvider extends ServiceProvider
                 $profile=User::where('id',Auth::user()->id)->first();
             }
             else{
-                $data = null;
+                $profile = null;
             }
             View::share('profile',$profile);
         });
