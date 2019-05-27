@@ -50,4 +50,9 @@ return array (
   'Undefined' => 'غير محدد',
   'Yes' => 'نعم',
   'Subject Type Deleted Successfully' => 'تم حذف الموضوع بنجاح',
+  'Admin' => 'الرئيس',
+  'Job' => 'الوظيفه',
+  'EGY' => 'مصر',
+  'E-mail' => 'البريد الالكتروني',
+  'More About Me' => 'المزيد عني',
 );

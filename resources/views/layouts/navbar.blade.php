@@ -30,6 +30,7 @@
             }
         }
 
+
     </style>
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" style="position:fixed !important;">
         <div class="navbar-brand-wrapper d-flex justify-content-center">
@@ -238,8 +239,8 @@
                         <span class="nav-profile-name">{{ Auth::user()->name }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                        <a class="dropdown-item">
-                            <i class="mdi mdi-account-circle text-primary account-icons"></i>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#modalRelatedContent">
+                            <i class="mdi mdi-account-circle text-primary account-icons" ></i>
                             {{ __('home.profile') }}
                         </a>
                         {{-- <a class="dropdown-item">
@@ -266,3 +267,48 @@
 
         </div>
     </nav>
+    <!-- Button trigger modal-->
+
+
+  <!--Modal: modalRelatedContent-->
+  <div class="modal fade right" id="modalRelatedContent" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false" style=" background: rgba(0, 0, 0, 0.5)">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+                <button  type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                      </button>
+            <div class="modal-header">
+
+                <h4 class="modal-title" id="myModalLabel">{{__("home.More About Me")}}</h4>
+
+            </div>
+
+            <div class="modal-body">
+                <center>
+                <img src="{{ URL::asset('storage/user_pic/'.Auth::user()->id.'/'.Auth::user()->image) }}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                <h3 class="media-heading">{{$profile->name}} <small>{{__("home.EGY")}}</small></h3>
+                <span><strong>{{__("home.E-mail")}}: </strong></span>
+                <span class="label label-warning">{{$profile->email}}</span>
+
+                </center>
+                <hr>
+                <center>
+                <p ><strong>{{__("home.Job")}}: </strong>
+                   @if($profile->type==0)
+                   <span class="label label-warning">{{__("home.Admin")}}</span>
+                   @elseif($profile->type==1)
+                   <span class="label label-warning">{{__("home.Staff")}}</span>
+                   @else
+                   <span class="label label-warning">{{__("home.Council Member")}}</span>
+@endif
+                   <br>
+
+                </center>
+            </div>
+
+        </div>
+    </div>
+  </div>
+

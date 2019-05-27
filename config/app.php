@@ -179,6 +179,7 @@ return [
         App\Providers\Notificationservice::class,
 
         App\Providers\RouteServiceProvider::class,
+        App\Providers\ProfileProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         'Barryvdh\TranslationManager\ManagerServiceProvider',
 
