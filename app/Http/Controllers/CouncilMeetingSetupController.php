@@ -15,7 +15,7 @@ use App\Events\Councilcreated;
 use Auth;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
-
+use App\Subject_topic;
 
 class CouncilMeetingSetupController extends Controller
 {
@@ -122,14 +122,16 @@ class CouncilMeetingSetupController extends Controller
      * @return \Illuminate\View\View
      */
     public function show($id)
-    {
+    {$topics=new Subject_topic;
         $council_meeting_setup = Council_meeting_setup::find($id);
         if(!$council_meeting_setup){return redirect('meeting');}
         $council_member = Auth::user()->Faculty_member->CouncilMember->where('council_definition_id',$council_meeting_setup->council_definition_id)->first();
         if(!$council_member){return redirect('meeting');}
         $subjects = Council_meeting_subject::where('council_meeting_id', $council_meeting_setup->id)->orderBy('subject_type_id', 'DESC')->get();
-
-        return view('admin.council_meeting_setup.show', compact('council_meeting_setup','council_member','subjects'));
+        foreach ($subjects as $item) {
+        //    $topics.map(Subject_topic::where('id', $item->id)->get());
+        }
+        return view('admin.council_meeting_setup.show', compact('council_meeting_setup','council_member','subjects',''));
     }
 
     /**

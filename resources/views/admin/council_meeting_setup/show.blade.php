@@ -100,6 +100,14 @@
                                     </a>
                                 </li>
                             @endif
+                            <li class="nav-item">
+                                    <a class="nav-link" id="topic-tab" data-toggle="tab" href="#topic" role="tab"
+                                        aria-controls="topic" style="font-size: 1.2rem !important;"
+                                        aria-selected="false">
+                                        <i class="mdi mdi-file-document-box"></i>
+                                        <span>Agenda</span>
+                                    </a>
+                                </li>
 
                         </ul>
 
@@ -113,6 +121,9 @@
                                     @include('admin.council_meeting_setup.attendence')
                                 </div>
                             @endif
+                            <div class="tab-pane fade" id="topic" role="tabpanel" aria-labelledby="topic-tab">
+                                    @include('admin.topics.report')
+                                </div>
                         </div>
 
                     </div>

@@ -44,8 +44,8 @@ class SubjecttopicController extends Controller
         $councilSubjects = Council_meeting_subject::where('council_definition', $id)->where('council_meeting_id',$index)->get();
         $facultymember=Faculty_member::get();
         $positions=Position::get();
-
-        return view('admin.topics.create',compact('councilSubjects','facultymember','positions'));
+        $meeting=$index;
+        return view('admin.topics.create',compact('councilSubjects','facultymember','positions','meeting'));
     }
 
     /**
@@ -127,4 +127,18 @@ class SubjecttopicController extends Controller
 
         return redirect('topics')->with('flash_message', 'topic deleted!');
     }
+
+    /**
+     * make the specified resource from storage as report.
+     *
+     * @param  int  $id
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function report($id,$index)
+    {
+        $doc=Council_meeting_subject::where('id',$id)->where('council_meeting_id',$index)->get();
+
+        return view('admin.topics.report', compact('doc'));
+  }
 }

@@ -67,7 +67,7 @@
 
                 @foreach ($positions as $obj)
 
-                <option value="{{ $obj->id}}">
+                <option value="{{ $obj->id}}" id="asd">
                     {{ $obj->position_name }}
                 </option>
                 @endforeach
@@ -108,8 +108,6 @@ $('input[name="choose"]').click(function(e) {
     $('#optional').hide();
     $('#council_member_ID').val(null);
     $('#optional2').show();
-
-
   }
 })
 
