@@ -38,4 +38,8 @@ class Position extends Model
       return $this->hasMany('App\CouncilMember');
 
     }
+    public function Subject_topic()
+    {
+      return $this->hasMany('App\Subject_topic');
+    }
 }

@@ -48,5 +48,9 @@ class CouncilMember extends Model
       return $this->hasMany('App\Votes');
 
     }
+    public function Subject_topic()
+    {
+      return $this->hasMany('App\Subject_topic');
+    }
 
 }

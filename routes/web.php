@@ -179,3 +179,5 @@ Route::get('mdi', function () {
 Route::get('translations', function () {
     return view('vendor.translation-manager.index');
 });
+Route::resource('topics', 'SubjecttopicController');
+Route::get('topics/create/{id}/{index}', 'SubjecttopicController@create');

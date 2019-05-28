@@ -14,6 +14,11 @@
             data-target="#deleteSubjectModal{{ $subject->id }}" data-id="{{ $council_meeting_setup->id }}">
             {{__("home.Delete")}}  <i class="mdi mdi-delete-forever inside-icon"></i>
         </a>
+<br>
+        <a href="{{ url('/topics/create/'.$council_meeting_setup->Council_definition->id.'/'.$council_meeting_setup->id) }}" class="btn btn-facebook mb-2">
+          Add Topic Responders  <i class="mdi mdi-plus inside-icon"></i>
+        </a>
+
     @endif
 
 @else

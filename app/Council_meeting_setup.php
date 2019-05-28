@@ -47,6 +47,10 @@ class Council_meeting_setup extends Model
       return $this->belongsTo('App\Council_definition');
 
     }
+    public function Subject_topic()
+    {
+      return $this->hasMany('App\Subject_topic');
+    }
 
 
 }
