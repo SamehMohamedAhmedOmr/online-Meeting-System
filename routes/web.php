@@ -180,4 +180,5 @@ Route::get('translations', function () {
     return view('vendor.translation-manager.index');
 });
 Route::resource('topics', 'SubjecttopicController');
-Route::get('topics/create/{id}/{index}', 'SubjecttopicController@create');
+Route::get('topics/create/{id}/{index}/{app}', 'SubjecttopicController@create');
+Route::post('topics/store/{id}', 'SubjecttopicController@store');

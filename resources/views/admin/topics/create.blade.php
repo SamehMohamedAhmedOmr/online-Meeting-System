@@ -20,7 +20,7 @@
                             </ul>
                         @endif
 
-                        <form method="POST" action="{{  url('meeting/'.$meeting.'')}}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{  url('topics/store/'.$topic->id)}}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
                             @include ('admin.topics.form', ['formMode' => 'create'])

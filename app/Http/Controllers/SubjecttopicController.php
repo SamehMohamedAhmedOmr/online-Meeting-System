@@ -37,15 +37,17 @@ class SubjecttopicController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create($id,$index)
+    public function create($id,$index,$app)
     {
 
 
         $councilSubjects = Council_meeting_subject::where('council_definition', $id)->where('council_meeting_id',$index)->get();
+        $topic = Council_meeting_subject::where('id', $app)->first();
+
         $facultymember=Faculty_member::get();
         $positions=Position::get();
         $meeting=$index;
-        return view('admin.topics.create',compact('councilSubjects','facultymember','positions','meeting'));
+        return view('admin.topics.create',compact('councilSubjects','facultymember','positions','meeting','topic'));
     }
 
     /**
@@ -55,12 +57,11 @@ class SubjecttopicController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
         $validate = Validator::make($request->all(), [
-            'council_meeting_subject_id' => 'required|numeric|exists:council_meeting_subject,id',
             'list_of_member_order' => 'required|numeric|exists:position,id',
-            'job' => 'required|min:0|max:2'
+            'job' => 'required|numeric|min:0|max:2'
         ])->validate();
         if($request->faculty_member==null&&$request->council_member_ID==null)
        {
@@ -76,7 +77,7 @@ class SubjecttopicController extends Controller
        }
         $requestData = $request->all();
 
-        Subject_topic::create($requestData);
+        Subject_topic::create($requestData+['council_meeting_subject_id'=>$id]);
 
         return redirect('topics')->with('flash_message', 'topic added!');
     }

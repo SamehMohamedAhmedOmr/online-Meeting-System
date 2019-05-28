@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/specialFileInput.css') }}" />
 @endsection
 
-<div class="form-group col-md-6 {{ $errors->has('council_meeting_subject_id') ? 'has-error' : ''}}" >
+<div class="form-group col-md-12 {{ $errors->has('council_meeting_subject_id') ? 'has-error' : ''}}" >
     <label for="council_meeting_subject_id" class="control-label">{{ 'Council Meeting Subject Description' }}<span style="color:red !important;">*</span></label>
     <select class="form-control specialSelect" name="council_meeting_subject_id" id='council_meeting_subject_id' required>
             <option selected hidden value="">{{ __('placeholder.Select Subject') }}</option>
@@ -20,24 +20,23 @@
          {!! $errors->first('council_meeting_subject_id', '<p class="help-block">:message</p>') !!}
 
         </div>
-<div class="row">
-        <label class="form-check-label w-100  col-md-6" >
+        <br>
+        <label class="form-check-label w-100  col-md-12" >
                 <input type="radio" class="form-check-input" name="choose" value='yes'>
                 Already a Member
 
             </label>
-            <label class="form-check-label w-100  col-md-6">
+            <br>
+            <label class="form-check-label w-100  col-md-12">
                     <input type="radio" class="form-check-input" name="choose" value='no'  checked>
                     Not a Member
 
 
                 </label>
                 <br>
-            </div>
             <br>
-            <div class="row">
 
-<div class="form-group  col-md-6 {{ $errors->has('council_member_ID') ? 'has-error' : ''}}" id="optional">
+<div class="form-group  col-md-12 {{ $errors->has('council_member_ID') ? 'has-error' : ''}}" id="optional">
     <label for="council_member_ID" class="control-label">{{ 'Faculty Member Name' }}<span style="color:red !important;">*</span></label>
     <select class="form-control specialSelect" name="council_member_ID" id='council_member_ID' >
             <option selected hidden value="">{{ __('placeholder.Select Member') }}</option>
@@ -51,15 +50,14 @@
         </select>
     {!! $errors->first('faculty_member', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="col-md-6">
+<div class="col-md-12">
 <div class="form-group  {{ $errors->has('faculty_member') ? 'has-error' : ''}}" id="optional2">
     <label for="faculty_member" class="control-label">{{ 'Member Name ' }} <span style="color:red !important;">*</span></label>
     <input class="form-control" name="faculty_member" type="text" id="faculty_member" value="{{ isset($topic->faculty_member) ? $topic->faculty_member : ''}}" >
     {!! $errors->first('faculty_member', '<p class="help-block">:message</p>') !!}
 </div>
 </div>
-</div>
-<div class="col-md-6">
+<div class="col-md-12">
         <div class="form-group {{ $errors->has('list_of_membership_order') ? 'has-error' : ''}}  ">
             <label for="list_of_membership_order" class="control-label">{{ __('admin.list_of_membership_order') }} <span style="color:red !important;">*</span></label>
             <select class="form-control specialSelect" name="list_of_member_order" required >
@@ -74,7 +72,7 @@
             </select> {!! $errors->first('faculty_member_id', '<p class="help-block">:message</p>') !!}
         </div>
     </div>
-<div class="form-group col-md-6 {{ $errors->has('job') ? 'has-error' : ''}}">
+<div class="form-group col-md-12 {{ $errors->has('job') ? 'has-error' : ''}}">
     <label for="job" class="control-label">{{ 'Job' }}<span style="color:red !important;">*</span></label>
     <select class="form-control specialSelect" name="job" class="form-control" id="job" >
     @foreach (json_decode('{"0":"Supervisor","1":"Rapporteur","2":"Member"}', true) as $optionKey => $optionValue)
