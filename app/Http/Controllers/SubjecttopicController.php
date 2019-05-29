@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Faculty_member;
 use App\Position;
 use Validator;
+use Redirect;
 class SubjecttopicController extends Controller
 {
     /**
@@ -66,14 +67,13 @@ class SubjecttopicController extends Controller
         ])->validate();
 if(!$id)
 {
-    return redirect('topics')->with('error', 'url must not be muffiend with');
-
+    return  Redirect::back()->with('error', 'url must not be muffiend with');
 }
         $requestData = $request->all();
 
         Subject_topic::create($requestData+['council_meeting_subject_id'=>$id]);
 
-        return redirect('topics')->with('flash_message', 'topic added!');
+        return  Redirect::back()->with('flash_message', 'topic added!');
     }
 
     /**

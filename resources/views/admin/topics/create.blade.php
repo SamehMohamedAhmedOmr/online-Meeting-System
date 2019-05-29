@@ -3,7 +3,16 @@
 @section('content')
     <div class="container">
         <div class="row">
-
+                @if(session()->has('error'))
+                <div class="alert alert-danger">
+                    {{ session()->get('error') }}
+                </div>
+            @endif
+            @if(session()->has('flash_message'))
+                <div class="alert alert-success">
+                    {{ session()->get('flash_message') }}
+                </div>
+            @endif
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Create New topic</div>
