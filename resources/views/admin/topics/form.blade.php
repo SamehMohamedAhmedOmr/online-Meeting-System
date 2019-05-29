@@ -4,52 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/specialFileInput.css') }}" />
 @endsection
 
-<div class="form-group col-md-12 {{ $errors->has('council_meeting_subject_id') ? 'has-error' : ''}}" >
-    <label for="council_meeting_subject_id" class="control-label">{{ 'Council Meeting Subject Description' }}<span style="color:red !important;">*</span></label>
-    <select class="form-control specialSelect" name="council_meeting_subject_id" id='council_meeting_subject_id' required>
-            <option selected hidden value="">{{ __('placeholder.Select Subject') }}</option>
 
-            @foreach ($councilSubjects as $council)
-
-                        <option value="{{ $council->id}}">
-                            {{ $council->subject_description }}
-                        </option>
-            @endforeach
-        </select>
-
-         {!! $errors->first('council_meeting_subject_id', '<p class="help-block">:message</p>') !!}
-
-        </div>
-        <br>
-        <label class="form-check-label w-100  col-md-12" >
-                <input type="radio" class="form-check-input" name="choose" value='yes'>
-                Already a Member
-
-            </label>
-            <br>
-            <label class="form-check-label w-100  col-md-12">
-                    <input type="radio" class="form-check-input" name="choose" value='no'  checked>
-                    Not a Member
-
-
-                </label>
-                <br>
-            <br>
-
-<div class="form-group  col-md-12 {{ $errors->has('council_member_ID') ? 'has-error' : ''}}" id="optional">
-    <label for="council_member_ID" class="control-label">{{ 'Faculty Member Name' }}<span style="color:red !important;">*</span></label>
-    <select class="form-control specialSelect" name="council_member_ID" id='council_member_ID' >
-            <option selected hidden value="">{{ __('placeholder.Select Member') }}</option>
-
-            @foreach ($facultymember as $member)
-
-                        <option value="{{ $member->id}}">
-                            {{ $member->member_name }}
-                        </option>
-            @endforeach
-        </select>
-    {!! $errors->first('faculty_member', '<p class="help-block">:message</p>') !!}
-</div>
 <div class="col-md-12">
 <div class="form-group  {{ $errors->has('faculty_member') ? 'has-error' : ''}}" id="optional2">
     <label for="faculty_member" class="control-label">{{ 'Member Name ' }} <span style="color:red !important;">*</span></label>
@@ -94,22 +49,5 @@
 </script>
 
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
 
-$('input[name="choose"]').click(function(e) {
-  if(e.target.value === 'yes') {
-    $('#optional').show();
-    $('#optional2').hide();
-    $('#faculty_member').val(null);
-
-  } else {
-    $('#optional').hide();
-    $('#council_member_ID').val(null);
-    $('#optional2').show();
-  }
-})
-
-$('#optional').hide();
-
-</script>
 @endsection

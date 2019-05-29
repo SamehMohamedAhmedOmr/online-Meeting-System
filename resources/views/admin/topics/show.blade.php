@@ -25,7 +25,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $topic->id }}</td>
                                     </tr>
-                                    <tr><th> Council Meeting Subject Id </th><td> {{ $topic->council_meeting_subject_id }} </td></tr><tr><th> Faculty Member </th><td> {{ $topic->faculty_member }} </td></tr><tr><th> Council Member ID </th><td> {{ $topic->council_member_ID }} </td></tr>
+                                    <tr><th> Council Meeting Subject Id </th><td> {{ $topic->council_meeting_subject_id }} </td></tr><tr><th> Council Member ID </th><td> {{ $topic->council_member_ID }} </td></tr>
 
                                     <tr><th> Job </th><td>
                                         @if($topic->job ==0)

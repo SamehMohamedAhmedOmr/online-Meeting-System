@@ -25,14 +25,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Council Meeting Subject Id</th><th>Faculty Member</th><th>Council Member ID</th><th>Actions</th>
+                                        <th>#</th><th>Council Meeting Subject Id</th><th>Council Member ID</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($topics as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->council_meeting_subject_id }}</td><td>{{ $item->faculty_member }}</td><td>{{ $item->council_member_ID }}</td>
+                                        <td>{{ $item->council_meeting_subject_id }}</td><td>{{ $item->council_member_ID }}</td>
                                         <td>
                                             <a href="{{ url('topics/' . $item->id) }}" title="View topic"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
 

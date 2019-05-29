@@ -43,7 +43,6 @@ class SubjecttopicController extends Controller
 
         $councilSubjects = Council_meeting_subject::where('council_definition', $id)->where('council_meeting_id',$index)->get();
         $topic = Council_meeting_subject::where('id', $app)->first();
-
         $facultymember=Faculty_member::get();
         $positions=Position::get();
         $meeting=$index;
@@ -60,21 +59,16 @@ class SubjecttopicController extends Controller
     public function store(Request $request,$id)
     {
         $validate = Validator::make($request->all(), [
+
             'list_of_member_order' => 'required|numeric|exists:position,id',
+            'faculty_member'=>'required|string|min:4|max:50',
             'job' => 'required|numeric|min:0|max:2'
         ])->validate();
-        if($request->faculty_member==null&&$request->council_member_ID==null)
-       {
-        return redirect('topics')->with('error', 'either you enter name or chose a member');
-       }
-       if($request->council_member_ID!=null)
-       {
-           if(Faculty_member::where('id',$request->council_member_ID)->first()==null)
-           {
-            return redirect('topics')->with('error', 'the member you chose dont exsits');
+if(!$id)
+{
+    return redirect('topics')->with('error', 'url must not be muffiend with');
 
-           }
-       }
+}
         $requestData = $request->all();
 
         Subject_topic::create($requestData+['council_meeting_subject_id'=>$id]);
