@@ -26,36 +26,39 @@
     <hr>
         <hr style="height:1px;border:none;color:#333;background-color:#333;" />
         <h5>
-            اجتمعت  {{ $council_meeting_setup->Council_definition->council_name }} رقم {{ $council_meeting_setup->meeting_number }} بتاريخ   {{ $council_meeting_setup->meeting_date }} الساعه  {{ $council_meeting_setup->meeting_time }} برئاسه السيد/ه  {{App\Rank::where('id',$council_member->faculty_member->rank_id)->pluck('rank_name')->first()}} /{{$council_member->faculty_member->member_name}} {{App\Position::where('id',$council_member->faculty_member->position_id)->pluck('position_name')->first()}}<br>  :بحضور كل من<br>
+            اجتمعت  {{ $council_meeting_setup->Council_definition->council_name }} رقم {{ $council_meeting_setup->meeting_number }} بتاريخ   {{ $council_meeting_setup->meeting_date }} الساعه  {{ $council_meeting_setup->meeting_time }} برئاسه السيد/ه  {{App\Rank::where('id',$council_member->faculty_member->rank_id)->pluck('rank_name')->first()}} /{{$council_member->faculty_member->member_name}} {{App\Position::where('id',$council_member->faculty_member->position_id)->pluck('position_name')->first()}}<br>
             @foreach ($council_members as $item)
            <div class="row">
                 @if(App\Meeting_attendance::where('faculty_member_id',$item->faculty_member->id)->where('meeting_number',$council_meeting_setup->id)->first())
-               @if(App\Meeting_attendance::where('faculty_member_id',$item->faculty_member->id)->where('meeting_number',$council_meeting_setup->id)->first()->pluck('attend')=='0')
+
+               @if(App\Meeting_attendance::where('faculty_member_id',$item->faculty_member->id)->where('meeting_number',$council_meeting_setup->id)->first()->attend==0)
                <h5 class="col-md-4">
-            وعدم حضور         {{App\Rank::where('id',$item->faculty_member->rank_id)->pluck('rank_name')->first()}} /{{$item->faculty_member->member_name}}
+   وعدم حضور  : {{App\Rank::where('id',$item->faculty_member->rank_id)->pluck('rank_name')->first()}} /{{$item->faculty_member->member_name}}
                    </h5>
 
                    <h5 class="col-md-4">
                     {{App\Position::where('id',$item->faculty_member->position_id)->pluck('position_name')->first()}}
                 </h5>
-                @if(App\Meeting_attendance::where('faculty_member_id',$item->faculty_member->id)->where('meeting_number',$council_meeting_setup->id)->first()->pluck('excuse')=='1')
+                @if(App\Meeting_attendance::where('faculty_member_id',$item->faculty_member->id)->where('meeting_number',$council_meeting_setup->id)->first()->excuse=='1')
                 <h5 class="col-md-4">
                         وذلك ل  {{App\Meeting_attendance::where('faculty_member_id',$item->faculty_member->id)->where('meeting_number',$council_meeting_setup->id)->first()->excuse_description}}
                        </h5>
                        @endif
             @else
-           <h5 class="col-md-6">
+            بحضور :
+           <h5 class="col-md-4">
             {{App\Rank::where('id',$item->faculty_member->rank_id)->pluck('rank_name')->first()}} /{{$item->faculty_member->member_name}}
            </h5>
-           <h5 class="col-md-6">
+           <h5 class="col-md-4">
             {{App\Position::where('id',$item->faculty_member->position_id)->pluck('position_name')->first()}}
         </h5>
     @endif
     @else
-    <h5 class="col-md-6">
+    بحضور :
+    <h5 class="col-md-4">
             {{App\Rank::where('id',$item->faculty_member->rank_id)->pluck('rank_name')->first()}} /{{$item->faculty_member->member_name}}
            </h5>
-           <h5 class="col-md-6">
+           <h5 class="col-md-4">
             {{App\Position::where('id',$item->faculty_member->position_id)->pluck('position_name')->first()}}
     @endif
     </div>
