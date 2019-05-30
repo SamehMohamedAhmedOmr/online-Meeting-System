@@ -19,18 +19,18 @@ class SubjecttopicController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index(Request $request)
+    public function index(Request $request,$index,$meeting)
     {
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 20;
 
         if (!empty($keyword)) {
-            $topics = Subject_topic::oldest('id')->paginate($perPage);
+            $topics = Subject_topic::where('council_meeting_subject_id',$index)->oldest('id')->paginate($perPage);
         } else {
-            $topics = Subject_topic::oldest('id')->paginate($perPage);
+            $topics = Subject_topic::where('council_meeting_subject_id',$index)->oldest('id')->paginate($perPage);
         }
 
-        return view('admin.topics.index', compact('topics'));
+        return view('admin.topics.index', compact('topics','meeting'));
     }
 
     /**
@@ -120,7 +120,7 @@ if(!$id)
     {
         Subject_topic::destroy($id);
 
-        return redirect('topics')->with('flash_message', 'topic deleted!');
+        return  Redirect::back()->with('flash_message', 'deleted succesfully');
     }
 
     /**

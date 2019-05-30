@@ -127,7 +127,7 @@ class CouncilMeetingSetupController extends Controller
         if(!$council_meeting_setup){return redirect('meeting');}
         $council_member = Auth::user()->Faculty_member->CouncilMember->where('council_definition_id',$council_meeting_setup->council_definition_id)->first();
         if(!$council_member){return redirect('meeting');}
-        $subjects = Council_meeting_subject::where('council_meeting_id', $council_meeting_setup->id)->orderBy('subject_type_id', 'DESC')->orderBy('additional_subject', 'ASC')->get();
+        $subjects = Council_meeting_subject::where('council_meeting_id', $council_meeting_setup->id)->orderBy('additional_subject', 'ASC')->orderBy('subject_type_id', 'DESC')->get();
 
                 return view('admin.council_meeting_setup.show', compact('council_meeting_setup','council_member','subjects'));
     }

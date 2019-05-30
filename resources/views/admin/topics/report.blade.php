@@ -10,7 +10,13 @@
         position: absolute;
         left: 0;
         top: 0;
+        size: auto;
+        margin: 0;
       }
+      a[href]:after {
+        content: none !important;
+    }
+
   }
 </style>
 <form dir="rtl" lang="ar" style="float:right;" class="col-md-12" id="print">
@@ -55,10 +61,14 @@
 
    @endforeach
    @endif
-
    <br>
-@endforeach
 
+@endforeach
+<h5 style="float:left">
+    رئيس اللجنه
+    <br>
+    ا.د/{{$council_member->faculty_member->member_name}}
+    </h5>
 </form>
 <button onclick="myFunction()">Print this page</button>
 

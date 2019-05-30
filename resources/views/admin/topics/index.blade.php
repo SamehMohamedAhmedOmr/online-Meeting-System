@@ -28,15 +28,16 @@
                                         <th>#</th><th>Council Meeting Subject Id</th><th>Council Member ID</th><th>Actions</th>
                                     </tr>
                                 </thead>
+                                <a href="{{ url('meeting/'.$meeting) }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+
                                 <tbody>
                                 @foreach($topics as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->council_meeting_subject_id }}</td><td>{{ $item->council_member_ID }}</td>
                                         <td>
-                                            <a href="{{ url('topics/' . $item->id) }}" title="View topic"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
 
-                                            <form method="POST" action="{{ url('topics' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                            <form method="get" action="{{ url('topicsdelete/'. $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete topic" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
