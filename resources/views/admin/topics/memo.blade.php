@@ -117,7 +117,6 @@
         <h5 style="float:right">
                 امين اللجنه
                 <br>
-            {{Auth::user()->name}}
                 </h5>
     </form>
     <button onclick="myFunction()">Print this page</button>
