@@ -25,7 +25,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Council Meeting Subject Id</th><th>Council Member ID</th><th>Actions</th>
+                                        <th>#</th><th>Faculty Member</th><th>List Of Membership Order</th><th>Job</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <a href="{{ url('meeting/'.$meeting) }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
@@ -34,7 +34,17 @@
                                 @foreach($topics as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->council_meeting_subject_id }}</td><td>{{ $item->council_member_ID }}</td>
+                                        <td>{{ $item->faculty_member }}</td>
+                                        <td>{{App\Position::where('id',$item->list_of_member_order)->pluck('position_name')->first()}}</td>
+                                        <td>
+                                        @if($item->job ==0)
+                                        Supervisor
+                                        @elseif($item->job==1)
+                                        Rapporteur
+                                        @else
+                                        Member
+                                        @endif
+                                        </td>
                                         <td>
 
                                             <form method="get" action="{{ url('topicsdelete/'. $item->id) }}" accept-charset="UTF-8" style="display:inline">
