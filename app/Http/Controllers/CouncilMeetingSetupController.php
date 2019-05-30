@@ -243,4 +243,29 @@ class CouncilMeetingSetupController extends Controller
         }
         return 0;
     }
+
+    public function openMeeting($id)
+    {
+        $meeting = Council_meeting_setup::find($id);
+        if($meeting)
+        {
+            $meeting->close = 0;
+            $meeting->save();
+            return 1;
+        }
+        return 0;
+    }
+
+    public function suggetMeetingNumber(Request $request)
+    {
+        try{
+            $lastMeeeting = Council_meeting_setup::where('council_definition_id',$request->id)->orderBy('meeting_date', 'desc')->first();
+            if(isset($lastMeeeting)){
+                return $lastMeeeting->meeting_number+1;
+            }
+            return 1;
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
 }

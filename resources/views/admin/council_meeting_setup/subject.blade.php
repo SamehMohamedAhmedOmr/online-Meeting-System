@@ -1,7 +1,7 @@
 <div class="subject-accordion accordion mt-3 {{ (App::getLocale() == 'ar')?'text-right':'' }}" id="subject">
 
     @foreach ($subjects as $indexKey => $subject)
-    <div class="card mb-5">
+    <div class="card mb-3">
         <div class="card-header" id="heading{{ $subject->id }}">
             <h2 class="mb-0 row">
 
@@ -12,11 +12,7 @@
                         style="text-align: right; line-height: 25px;">
                         <div class="title">
                             <i class="mdi mdi-library-plus"></i>
-                            <span> {{__("Staff.Subject Number")}} {{ ++$indexKey }} -
-                                <span style="color: #E91E63; !important">
-                                    {{ $subject->Subject_type->subject_type_name }}
-                                </span>
-                            </span>
+                            <span> {{__("Staff.Subject Number")}} {{ ++$indexKey }}</span>
                         </div>
                     </button>
                 </div>
@@ -51,13 +47,13 @@
 
 
                 @if (Auth::user()->type == 2)
-                    <!-- Member -->
-                    @include('admin.council_meeting_setup.myVoteonSubject')
+                <!-- Member -->
+                @include('admin.council_meeting_setup.myVoteonSubject')
                 @endif
 
                 @if ($subject->final_decision != 2)
 
-                    @include('admin.council_meeting_setup.finalDecision')
+                @include('admin.council_meeting_setup.finalDecision')
 
                 @endif
 

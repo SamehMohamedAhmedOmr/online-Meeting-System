@@ -34,8 +34,8 @@
     </div>
     <div class="col-md-6">
         <div class="form-group {{ $errors->has('department_id') ? 'has-error' : ''}}">
-            <label for="department_id" class="control-label">{{__("admin.Department")}} <span style="color:red !important;">*</span></label>
-            <select class="form-control specialSelect" name="department_id" required>
+            <label for="department_id" class="control-label">{{__("admin.Department")}}</label>
+            <select class="form-control specialSelect" name="department_id">
                 <option selected hidden value="">{{ __('placeholder.Select Department') }}</option>
 
                 @foreach ($departments as $department)

@@ -37,7 +37,10 @@ class UserMemberController extends Controller
         return Datatables::of($users)
         ->addColumn('Position', function ($user) {
             if($user->Faculty_member){
-                return $user->Faculty_member->Position->position_name;
+                if($user->Faculty_member->Position){
+                    return $user->Faculty_member->Position->position_name;
+                }
+                return null;
             }
             return null;
         })->addIndexColumn()->make(true);
@@ -178,7 +181,7 @@ class UserMemberController extends Controller
 
         $requestData = $request->all();
         unset($requestData['password']);
-        
+
         // if($request->password == null){
         //     unset($requestData['password']);
         // }

@@ -40,7 +40,7 @@ class CouncilMeetingSubjectController extends Controller
             'subject_description' => 'required|string|min:3|max:255',
             'additional_subject' => 'required|boolean',
             'subject_type_id' => 'required|numeric|exists:subject_type,id',
-            'department_id' => 'required|numeric|exists:department,id',
+            'department_id' => 'nullable|numeric|exists:department,id',
             "attachment_document"    => "nullable|array",
             'attachment_document.*'=>'nullable|file|distinct|mimes:jpg,jpeg,png,doc,docx,pdf,xls|max:20000',
         ])->validate();
@@ -140,7 +140,7 @@ class CouncilMeetingSubjectController extends Controller
             'subject_description' => 'required|string|min:3|max:255',
             'additional_subject' => 'required|boolean',
             'subject_type_id' => 'required|numeric|exists:subject_type,id',
-            'department_id' => 'required|numeric|exists:department,id',
+            'department_id' => 'nullable|numeric|exists:department,id',
         ])->validate();
 
         $council_meeting_subject = Council_meeting_subject::find($request->council_meeting_subject);

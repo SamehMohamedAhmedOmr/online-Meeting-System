@@ -2,7 +2,7 @@
 $check = $subject->Votes->where('council_member_id',$council_member->id)->first();
 @endphp
 @if (isset($check) && $check->vote !=2)
-<div aria-label="My Vote" class="row mb-3">
+<div aria-label="My Vote" class="row mb-1">
     <div class="col-md-4 subject-specific-data">
         <label class="btn btn-info subject-title">
             <i class="fas-fa-project-diagram menu-icon"></i>

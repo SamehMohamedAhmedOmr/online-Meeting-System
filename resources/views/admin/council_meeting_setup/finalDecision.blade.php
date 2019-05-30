@@ -1,4 +1,4 @@
-<div aria-label="finalDecision" class="row mb-3">
+<div aria-label="finalDecision" class="row mb-1">
     <div class="col-md-4 subject-specific-data">
         <label class="btn subject-title
                     @if ($subject->final_decision == 2) {{ 'btn-secondary'}}
@@ -7,8 +7,7 @@
                     @endif">
 
             <i class="fas fa-balance-scale menu-icon"></i>
-            <span
-                class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("Staff.Finaldecision")}}</span>
+            <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("Staff.Finaldecision")}}</span>
         </label>
     </div>
     <div class="col-md-8 subject-specific-data">
@@ -29,7 +28,7 @@
     </div>
 </div>
 
-<div aria-label="finalDecisionDescription" class="row mb-3">
+<div aria-label="finalDecisionDescription" class="row mb-1">
     <div class="col-md-4 subject-specific-data">
         <label class="btn subject-title
                         @if ($subject->final_decision == 2) {{ 'btn-secondary'}}
@@ -39,7 +38,7 @@
 
             <i class="fas fa-edit menu-icon"></i>
             <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">
-                    {{ __('Staff.Final Decision Description') }}
+                {{ __('Staff.Final Decision Description') }}
             </span>
         </label>
     </div>
@@ -52,12 +51,11 @@
     </div>
 </div>
 
-<div aria-label="personRedirect" class="row mb-3">
+<div aria-label="personRedirect" class="row mb-1">
     <div class="col-md-4 subject-specific-data">
         <label class="btn btn-primary subject-title">
             <i class="fas fa-user-tie  menu-icon"></i>
-            <span
-                class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("Staff.Personredirected")}}</span>
+            <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("Staff.Personredirected")}}</span>
         </label>
     </div>
     <div class="col-md-8 subject-specific-data">
@@ -67,12 +65,11 @@
     </div>
 </div>
 
-<div aria-label="next_council_definition" class="row mb-3">
+<div aria-label="next_council_definition" class="row mb-1">
     <div class="col-md-4 subject-specific-data">
         <label class="btn btn-primary subject-title">
             <i class="fas fa-clipboard-list menu-icon"></i>
-            <span
-                class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("Staff.Nextcouncildefinition")}}</span>
+            <span class="{{ (App::getLocale() == 'ar')?'mr-3':'ml-3' }}">{{__("Staff.Nextcouncildefinition")}}</span>
         </label>
     </div>
     <div class="col-md-8 subject-specific-data">

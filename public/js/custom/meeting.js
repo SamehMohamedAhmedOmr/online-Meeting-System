@@ -14,4 +14,29 @@ $(function() {
 
     });
 
+
+    $('.specialSelect').on('change',function(){
+        var councilID = $('.specialSelect option').attr('value');
+
+        if(councilID != null){
+            var targetURL = '/suggetMeetingNumber';
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: targetURL,
+                type: "post",
+                data: {
+                    "id": councilID,
+                },
+                success: function (response) {
+                    $('#meeting_number').val(response)
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+    });
+
 });

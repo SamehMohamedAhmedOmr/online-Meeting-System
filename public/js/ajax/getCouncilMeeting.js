@@ -73,10 +73,21 @@ $(function () {
                     var arr = data.split('-');
                     // arr[0] = id
                     // arr[1] = close
-                    unlock = '<a data-toggle="modal" title="un-lock" data-target="#closeMeetingModal" onclick="CloseMeetingModal(' + arr[0] + ')" class="btn btn-sm text-white ml-2" style="background-color:#57c7d4;"><i class="fas fa-lock-open"></i> </a>';
-                    lock = '<a class="btn btn-sm text-white ml-2" style="background-color:#f96868; cursor: initial;" title="lock"><i class="fas fa-lock"></i> </a>';
+                    if(lang == 'ar'){
+                        unlock = '<a data-toggle="modal" title="مفتوح" data-target="#closeMeetingModal" onclick="CloseMeetingModal(' + arr[0] + ')" class="btn btn-sm text-white ml-2" style="background-color:#57c7d4;"><i class="fas fa-lock-open"></i> </a>';
+                        lock = '<a data-toggle="modal" data-target="#openMeetingModal" onclick="CloseMeetingModal(' + arr[0] + ')" class="btn btn-sm text-white ml-2" style="background-color:#f96868;" title="مغلق"><i class="fas fa-lock"></i> </a>';
 
-                    unlockFoCustomer = '<a class="btn btn-sm text-white ml-2" title="un-lock" style="background-color:#57c7d4; cursor: initial;"><i class="fas fa-lock-open"></i> </a>';
+                        unlockFoCustomer = '<a class="btn btn-sm text-white ml-2" title="مفتوح" style="background-color:#57c7d4; cursor: initial;"><i class="fas fa-lock-open"></i> </a>';
+                        lockForCustomer = '<a class="btn btn-sm text-white ml-2" style="background-color:#f96868; cursor: initial;" title="مغلق"><i class="fas fa-lock"></i> </a>';
+
+                    }
+                    else{
+                        unlock = '<a data-toggle="modal" title="open" data-target="#closeMeetingModal" onclick="CloseMeetingModal(' + arr[0] + ')" class="btn btn-sm text-white ml-2" style="background-color:#57c7d4;"><i class="fas fa-lock-open"></i> </a>';
+                        lock = '<a data-toggle="modal" data-target="#openMeetingModal" onclick="CloseMeetingModal(' + arr[0] + ')" class="btn btn-sm text-white ml-2" style="background-color:#f96868;" title="close"><i class="fas fa-lock"></i> </a>';
+
+                        unlockFoCustomer = '<a class="btn btn-sm text-white ml-2" title="open" style="background-color:#57c7d4; cursor: initial;"><i class="fas fa-lock-open"></i> </a>';
+                        lockForCustomer = '<a class="btn btn-sm text-white ml-2" style="background-color:#f96868; cursor: initial;" title="close"><i class="fas fa-lock"></i> </a>';
+                    }
 
                     if(type == 1){ // staff Only
                         if(arr[1] == 0){ // to be locked
@@ -91,7 +102,7 @@ $(function () {
                             return unlockFoCustomer;
                         }
                         else if(arr[1] == 1){
-                            return lock;
+                            return lockForCustomer;
                         }
                     }
                 }
@@ -196,6 +207,37 @@ function CloseMeeting() {
                 $('#get-data').DataTable().ajax.reload(null, false);
                 setTimeout(function () {
                     $('#SuccessClose').fadeOut('fast');
+                }, 5000); // <-- time in milliseconds
+            } else {
+                alert('Drawing not deleted !!  try again later');
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+function openMeeting() {
+    var id = $('#closeModal').val();
+    // ajax delete data to database
+    var targetURL = 'openMeeting/' + id;
+
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: targetURL,
+        type: "POST",
+        data: {
+            "id": id,
+        },
+        success: function (response) {
+            if (response == 1) {
+                $('#SuccessOpen').fadeIn(200);
+                $('#get-data').DataTable().ajax.reload(null, false);
+                setTimeout(function () {
+                    $('#SuccessOpen').fadeOut('fast');
                 }, 5000); // <-- time in milliseconds
             } else {
                 alert('Drawing not deleted !!  try again later');

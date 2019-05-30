@@ -38,7 +38,7 @@ return array (
   'Meeting Deleted Successfully' => 'Meeting Deleted Successfully',
   'Meeting Closed Successfully' => 'Meeting Closed Successfully',
   'Meeting will Delete Permanently , Are you sure ?' => 'Meeting will Delete Permanently , Are you sure ?',
-  'Meeting will Close Permanently , Are you sure ?' => 'Meeting will Close Permanently , Are you sure ?',
+  'Meeting will Close Permanently , Are you sure ?' => 'Meeting will be closed , Are you sure ?',
   'Attachment View' => 'Attachment View',
   'Subject will Delete Permanently , Are you sure ?' => 'Subject will Delete Permanently , Are you sure ?',
   'Attachment will Delete Permanently , Are you sure ?' => 'Attachment will Delete Permanently , Are you sure ?',
@@ -78,4 +78,6 @@ return array (
   'edit Final Decision' => 'Edit Final Decision',
   'NoOne' => 'No one',
   'video conference' => 'Video conference',
+  'Meeting Open Successfully' => 'Meeting open Successfully',
+  'Meeting will be Open , Are you sure ?' => 'Meeting will be Open , Are you sure ?',
 );

@@ -39,4 +39,7 @@ return array (
       ),
     ),
   ),
+  'enter meeting Number' => 'Please enter meeting number',
+  'lock' => 'Lock',
+  'unlock' => 'open',
 );

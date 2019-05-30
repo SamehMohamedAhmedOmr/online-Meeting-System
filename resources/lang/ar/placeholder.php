@@ -39,4 +39,7 @@ return array (
       ),
     ),
   ),
+  'enter meeting Number' => 'من فضلك ادخل رقم الاجتماع',
+  'lock' => 'مغلق',
+  'unlock' => 'مفتوح',
 );

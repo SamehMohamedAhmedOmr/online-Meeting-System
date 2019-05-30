@@ -93,7 +93,8 @@ Route::middleware('auth')->group(function () {
         Route::patch('meeting/{id}', 'CouncilMeetingSetupController@update');
         Route::delete('meeting/{id}', 'CouncilMeetingSetupController@destroy');
         Route::post('closeMeeting/{id}', 'CouncilMeetingSetupController@closeMeeing');
-
+        Route::post('openMeeting/{id}', 'CouncilMeetingSetupController@openMeeting');
+        Route::post('suggetMeetingNumber', 'CouncilMeetingSetupController@suggetMeetingNumber');
 
         // meeting Attendence
         Route::post('meetingAttendence/{id}', 'CouncilMeetingSetupController@attendence');
