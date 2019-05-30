@@ -108,6 +108,14 @@
                                         <span>Agenda</span>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="memo-tab" data-toggle="tab" href="#memo" role="tab"
+                                        aria-controls="memo" style="font-size: 1.2rem !important;"
+                                        aria-selected="false">
+                                        <i class="mdi mdi-file-document-box"></i>
+                                        <span>Memo</span>
+                                    </a>
+                                </li>
 
                         </ul>
 
@@ -123,6 +131,9 @@
                             @endif
                             <div class="tab-pane fade" id="topic" role="tabpanel" aria-labelledby="topic-tab">
                                     @include('admin.topics.report')
+                                </div>
+                                <div class="tab-pane fade" id="memo" role="tabpanel" aria-labelledby="memo-tab">
+                                    @include('admin.topics.memo')
                                 </div>
                         </div>
 
