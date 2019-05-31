@@ -23,13 +23,25 @@
             <ul class="list-unstyled mb-0">
                 @foreach ($subject->Subject_attachment as $index => $attachment)
                 <li class="m-2 row" style="border: 1px solid #b9bbbd !important;">
+                    @php
+                        if(strpos($attachment->attachment_document, '.docx') == true || strpos($attachment->attachment_document, '.doc') == true || strpos($attachment->attachment_document, '.xls') == true || strpos($attachment->attachment_document, '.xlsx') == true){
+                            $checkview = true;
+                        }
+                        else{
+                            $checkview = false;
+                        }
+                    @endphp
 
                     <div
                         class="{{ (Auth::user()->type == 1 && $council_meeting_setup->close == 0)?'col-10 justify-content-start':'justify-content-center w-100' }} d-flex  align-items-center p-1 {{ (App::getLocale() == 'ar')?'pr-3' : 'pl-3' }}">
                         <a class='d-flex justify-content-start align-items-center'
+                            @if ($checkview == true)
+                                href="{{ url('downloadAttachment/'.$subject->id.'/'.$attachment->id.'') }}"
+                            @else
+                                data-toggle="modal" data-target="#viewAttachment{{ $attachment->id }}"
+                            @endif
                             {{-- href="{{ url('downloadAttachment/'.$subject->id.'/'.$attachment->id.'') }}" --}}
-                            style="text-decoration:none; cursor: pointer;" data-toggle="modal"
-                            data-target="#viewAttachment{{ $attachment->id }}">
+                            style="text-decoration:none; cursor: pointer; color:#000;">
                             <span>
                                 {{ __('Staff.Attachment Number') }} {{ $index+1 }}
                                 @if( strpos($attachment->attachment_document, '.png') !==
@@ -42,7 +54,9 @@
                             </span>
                             <i class="fas fa-eye mx-2" style="color:#2ecc71;"></i>
                         </a>
-                        @include('admin.council_meeting_setup.Modal.viewAttachmentModal')
+                        @if ($checkview == false)
+                            @include('admin.council_meeting_setup.Modal.viewAttachmentModal')
+                        @endif
                     </div>
 
                     @if (Auth::user()->type == 1 && $council_meeting_setup->close == 0)

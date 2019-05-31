@@ -42,7 +42,7 @@ class CouncilMeetingSubjectController extends Controller
             'subject_type_id' => 'required|numeric|exists:subject_type,id',
             'department_id' => 'nullable|numeric|exists:department,id',
             "attachment_document"    => "nullable|array",
-            'attachment_document.*'=>'nullable|file|distinct|mimes:jpg,jpeg,png,doc,docx,pdf,xls|max:20000',
+            'attachment_document.*'=>'nullable|file|distinct|mimes:jpg,jpeg,png,doc,docx,pdf,xls,xlsx|max:20000',
         ])->validate();
 
         $faculty_id = Auth::user()->Faculty_member->id;
@@ -104,7 +104,7 @@ class CouncilMeetingSubjectController extends Controller
         $validate = Validator::make($request->all(), [
             'Council_meeting_subject_id' => 'required|numeric|exists:council_meeting_subject,id',
             "attachment_document"    => "required|array",
-            'attachment_document.*'=>'required|file|distinct|mimes:jpg,jpeg,png,doc,docx,pdf,xls|max:20000',
+            'attachment_document.*'=>'required|file|distinct|mimes:jpg,jpeg,png,doc,docx,pdf,xls,xlsx|max:20000',
         ])->validate();
 
         $subject = Council_meeting_subject::find($request->Council_meeting_subject_id);

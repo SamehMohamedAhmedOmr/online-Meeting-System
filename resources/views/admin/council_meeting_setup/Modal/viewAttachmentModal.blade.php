@@ -13,11 +13,13 @@
                     @endif
                 </h5>
             </div>
-            <div class="modal-body">
+            <div class="modal-body text-center">
                 @if( strpos($attachment->attachment_document, '.png') !== false||strpos($attachment->attachment_document, '.jpg') !== false||strpos($attachment->attachment_document, '.jpeg') !== false)
-                    <img src ="{{ URL::asset('/storage/subject_att/'.$attachment->id.'/'.$attachment->attachment_document) }}" >
+                    <img style="max-width:100%; padding: 5px; border: 1px solid #ccc;"
+                        src ="{{ URL::asset('/storage/subject_att/'.$attachment->id.'/'.$attachment->attachment_document) }}" >
                 @elseif( strpos($attachment->attachment_document, '.pdf') !== false)
-                    <iframe src ="{{ URL::asset('/storage/subject_att/'.$attachment->id.'/'.$attachment->attachment_document) }}" width="1000px" height="600px"></iframe>
+                    <iframe src ="{{ URL::asset('/storage/subject_att/'.$attachment->id.'/'.$attachment->attachment_document) }}"
+                        width="1000px" height="600px"></iframe>
                 @else
                     <iframe src ="{{ URL::asset('/storage/subject_att/'.$attachment->id.'/'.$attachment->attachment_document) }}"></iframe>
                 @endif

@@ -36,7 +36,7 @@
         var lang = $('#scriptToFile').data('lang');
         $("#my-file-selector").fileinput({
             theme: "fas",
-            allowedFileExtensions: ["JPEG", "JPG", "PNG", 'doc', 'docx', 'pdf', 'xls'],
+            allowedFileExtensions: ["JPEG", "JPG", "PNG", 'doc', 'docx', 'pdf', 'xls','xlsx'],
             language: lang
         });
     });

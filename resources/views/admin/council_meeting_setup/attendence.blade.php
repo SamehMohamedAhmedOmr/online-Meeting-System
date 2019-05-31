@@ -10,7 +10,7 @@
 
 
     @foreach ($council_meeting_setup->Meeting_attendance as $indexKey => $attendance)
-    <div class="card mb-5">
+    <div class="card mb-3">
         <div class="card-header" id="heading{{ $attendance->id }}">
             <h2 class="mb-0 row">
 

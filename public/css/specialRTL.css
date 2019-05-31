@@ -112,3 +112,9 @@ form{
 #ui-datepicker-div {
     left: 30% !important;
 }
+
+
+.subject-accordion .subject-data,
+.attendence-accordion .subject-data{
+    text-align: right !important;
+}

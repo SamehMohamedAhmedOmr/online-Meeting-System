@@ -15,8 +15,8 @@
                 <form action="{{ url('meetingAttendence/' . $council_meeting_setup->id) }}" method="POST">
                     {{ csrf_field() }}
 
-                    <div class="row w-100" style=" padding: 13px;">
-                        <div class="col-lg-6 col-md-8 col-10">
+                    <div class="row w-100 text-center" style=" padding: 13px;">
+                        <div class="w-100">
                             <h3 style="color:#34495e;">
                                 <span class="badge badge-dark" style="font-size: 1.5rem; padding: 15px;">
                                     {{__("Staff.Councilmembers")}}
@@ -53,7 +53,7 @@
                     </div>
                     @endforeach
                     <div class="form-group mt-4">
-                        <input class="btn btn-primary" type="submit" value="Save">
+                        <input class="btn btn-primary" type="submit" value="{{ __('home.Save') }}">
                     </div>
                 </form>
                 @else

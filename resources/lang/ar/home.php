@@ -34,7 +34,7 @@ return array (
   'details' => 'تفاصيل',
   'Accepted' => 'وافق',
   'Rejected' => 'رفض',
-  'NotVoted' => 'لم يصوت',
+  'NotVoted' => 'ممتنع',
   'total' => 'العدد الكلي',
   'No' => 'لا',
   'Close' => 'الغاء',
@@ -49,10 +49,10 @@ return array (
   'data' => 'بيانات',
   'Undefined' => 'غير محدد',
   'Yes' => 'نعم',
+  'No Votes Yet' => 'لا يوجد أصوات حتى الآن.',
   'Subject Type Deleted Successfully' => 'تم حذف الموضوع بنجاح',
-  'Admin' => 'الرئيس',
-  'Job' => 'الوظيفه',
-  'EGY' => 'مصر',
-  'E-mail' => 'البريد الالكتروني',
-  'More About Me' => 'المزيد عني',
+  'No Subject yet' => 
+  array (
+    '' => 'لا يوجد مواضيع حتى الآن.',
+  ),
 );

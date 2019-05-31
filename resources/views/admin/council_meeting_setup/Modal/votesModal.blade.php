@@ -19,7 +19,7 @@
                         <h4 class='totalVotes{{ $subject->id }}'>{{ $subject->Votes->count() }}</h4>
                     </div>
                     <div class="col-lg-3 col-6 text-center mb-lg-0 mb-3" style="color:#71C016;">
-                    <h4>{{__("home.Accepted")}}</h4>
+                        <h4>{{__("home.Accepted")}}</h4>
                         <h4 class="acceptedVotes{{ $subject->id }}">{{ $subject->Votes->where('vote', 1)->count() }}</h4>
                     </div>
                     <div class="col-lg-3 col-6 text-center" style="color:#FF2121;">

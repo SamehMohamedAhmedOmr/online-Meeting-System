@@ -18,9 +18,11 @@ $check = $subject->Votes->where('council_member_id',$council_member->id)->first(
                 <i class="mdi mdi-close-circle-outline red"></i>
                 @endif
             </div>
-            <div style="border: 1px solid #b9bbbd !important;" class="mt-2">
-                {{ $check->commet }}
-            </div>
+            @if (isset($check->commet))
+                <div style="border: 1px solid #b9bbbd !important;" class="mt-2">
+                    {{ $check->commet }}
+                </div>
+            @endif
         </label>
     </div>
 </div>

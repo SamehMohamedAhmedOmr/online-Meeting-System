@@ -34,7 +34,7 @@ return array (
   'addvote' => 'Add Vote',
   'comment' => 'Comment',
   'reject' => 'Reject',
-  'UpdateAttendance' => 'Update Attendance',
+  'UpdateAttendance' => 'Apologies',
   'Meeting Deleted Successfully' => 'Meeting Deleted Successfully',
   'Meeting Closed Successfully' => 'Meeting Closed Successfully',
   'Meeting will Delete Permanently , Are you sure ?' => 'Meeting will Delete Permanently , Are you sure ?',

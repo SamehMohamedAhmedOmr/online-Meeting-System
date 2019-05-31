@@ -86,7 +86,7 @@
 
 .subject-accordion .subject-title{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
     border-radius: 5px;
@@ -96,6 +96,18 @@
     -o-border-radius: 5px;
 }
 
+i.icon-details{
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+i.icon-details:hover{
+    color: #f9ca24 !important;
+}
+
 .subject-accordion .subject-data,
 .attendence-accordion .subject-data{
     background-color: initial !important;
@@ -103,6 +115,7 @@
     color: initial !important;
     line-height: 20px;
     width: 100%;
+    text-align: left;
 }
 
 .subject-accordion .subject-title span{

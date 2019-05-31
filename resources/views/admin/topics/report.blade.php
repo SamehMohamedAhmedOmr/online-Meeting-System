@@ -19,7 +19,7 @@
 
   }
 </style>
-<form dir="rtl" lang="ar" style="float:right;" class="col-md-12" id="print">
+<form dir="rtl" lang="ar" style="float:right; padding:25px;" class="col-md-12" id="print">
    <h3>
     جدول اعمال {{ $council_meeting_setup->Council_definition->council_name }} رقم {{ $council_meeting_setup->meeting_number }} بتاريخ {{ $council_meeting_setup->meeting_date }} الساعه  {{ $council_meeting_setup->meeting_time }}
 </h3>

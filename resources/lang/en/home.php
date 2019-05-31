@@ -50,9 +50,9 @@ return array (
   'Undefined' => 'Undefined',
   'Yes' => 'yes',
   'Subject Type Deleted Successfully' => 'Subject Type Deleted Successfully',
-  'Admin' => 'Admin',
-  'E-mail' => 'E-mail',
-  'EGY' => 'EGY',
-  'Job' => 'Job',
-  'More About Me' => 'More About Me',
+  'No Subject yet' => 
+  array (
+    '' => 'No Subject yet.',
+  ),
+  'No Votes Yet' => 'No Votes yet.',
 );

@@ -122,17 +122,23 @@ class CouncilMeetingSetupController extends Controller
      * @return \Illuminate\View\View
      */
     public function show($id)
-    {$topics=new Subject_topic;
+    {
+        $topics=new Subject_topic;
         $council_meeting_setup = Council_meeting_setup::find($id);
         if(!$council_meeting_setup){return redirect('meeting');}
         $council_member = Auth::user()->Faculty_member->CouncilMember->where('council_definition_id',$council_meeting_setup->council_definition_id)->first();
         if(!$council_member){return redirect('meeting');}
         $subjects = Council_meeting_subject::where('council_meeting_id', $council_meeting_setup->id)->orderBy('additional_subject', 'ASC')->orderBy('subject_type_id', 'DESC')->get();
-        $council_members=CouncilMember::where('council_definition_id',$council_meeting_setup->council_definition_id)->get();
-       $attend= Council_meeting_setup::find($id)->Meeting_attendance->where('attend',1)->all();
-       $nattend= Council_meeting_setup::find($id)->Meeting_attendance->where('attend',0)->all();
 
-        return view('admin.council_meeting_setup.show', compact('council_meeting_setup','council_member','subjects','council_members','attend','nattend'));
+        $subjectsV2 = $subjects;
+
+        $lastSubjectID = $subjectsV2->sortByDesc('id')->pluck('id')->first();
+
+        $council_members=CouncilMember::where('council_definition_id',$council_meeting_setup->council_definition_id)->get();
+        $attend= Council_meeting_setup::find($id)->Meeting_attendance->where('attend',1)->all();
+        $nattend= Council_meeting_setup::find($id)->Meeting_attendance->where('attend',0)->all();
+
+        return view('admin.council_meeting_setup.show', compact('council_meeting_setup','council_member','subjects','council_members','attend','nattend','lastSubjectID'));
     }
 
     /**

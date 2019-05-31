@@ -34,7 +34,7 @@ return array (
   'reject' => 'رفض',
   'addvote' => 'اضف تصويت',
   'comment' => 'تعليق',
-  'UpdateAttendance' => 'تحديث الحضور',
+  'UpdateAttendance' => 'الاعتذار',
   'Meeting Deleted Successfully' => 'تم حذف الاجتماع بنجاح',
   'Meeting Closed Successfully' => 'تم اغلاق الاجتماع بنجاح',
   'Meeting will Delete Permanently , Are you sure ?' => 'سوف يتم حذف الاجتماع تماما, هل انت متاكد؟',
