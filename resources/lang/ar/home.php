@@ -57,4 +57,8 @@ return array (
   ),
   'Enter your email to reset your password' => 'ادخل بريدك الاكتروني لاعادة تعيين كلمة مرورك',
   'Reset Password' => 'اعادة تعيين كلمة السر',
+  'No subject' => 'لا يوجد موضوع يحتوى على تلك الكلمة',
+  'Enter To Search' => 'ابحث عن موضوع',
+  'result' => 'النتائج',
+  'job' => 'الوظيفة',
 );

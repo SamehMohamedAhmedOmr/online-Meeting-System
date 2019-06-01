@@ -89,8 +89,57 @@
                 $('.whole-page-overlay').slideUp();
             });
 
+            $(document).click(function(){
+                $('.search-area').removeClass('d-block').addClass('d-none');
+                $('.search-area ul').empty();
+            });
 
+            $.ajaxSetup({
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
+            $('#searchy').on('keyup', function(){
+                $value = $(this).val();
+                $('.search-area').removeClass('d-none').addClass('d-block');
+                var ul = $('.search-area ul');
+
+                if($value != "" | $value != " "){
+                    $.ajax({
+                    type : 'get',
+                    url : '/search',
+                    data:{'text':$value},
+                    success: function(data){
+                        ul.empty();
+
+                        if(data == 0){
+                            var li = document.createElement('li');
+                            var des = document.createElement('p');
+                            des.innerHTML='{{ __("home.No subject") }}';
+                            li.append(des);
+                            ul.append(li);
+                        }
+                        else{
+                            data.forEach(element => {
+                                var li = document.createElement('li');
+                                var a = document.createElement('a');
+                                var des = document.createElement('p');
+                                var h6 = document.createElement('h6');
+                                h6.textContent = element.council_definition.council_name;
+                                a.append(h6);
+
+                                des.innerHTML=element.subject_description;
+                                a.setAttribute('href',element.url);
+                                a.append(des);
+                                li.append(a);
+                                ul.append(li);
+                            });
+                        }
+                    }
+                });
+                }
+            });
         });
 
         var errorMsg = document.getElementById('input-errors').getAttribute("data-errorMSG");
@@ -110,47 +159,6 @@
         });
 
 
-$('#searchy').on('keydown',function(){
-
-$value=$(this).val();
-
-$.ajax({
-
-type : 'get',
-
-url : '/search',
-
-data:{'text':$value},
-
-success:function(data){
-    $('#dropdown-toggler').empty();
-    for (i = 0; i < data.length; i++) {
-           var ul = document.getElementById("dropdown-toggler");
-            var li = document.createElement('li');
-            var des = document.createElement('p');
-            des.innerHTML=data[i].subject_description;
-            li.appendChild(des);
-            ul.appendChild(li);
-}
-$("#dropdown-toggler").dropdown('toggle');
-
-
-
-}
-
-});
-
-});
-$.ajaxSetup({
-headers: {
-  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-}
-});
-
-
-$(document).click(function(){
-  $("#dropdown-toggler").hide();
-});
 
 
     </script>

@@ -57,4 +57,8 @@ return array (
   'No Votes Yet' => 'No Votes yet.',
   'Enter your email to reset your password' => 'Enter your email to reset your password',
   'Reset Password' => 'Reset Password',
+  'No subject' => 'No subject with that name',
+  'Enter To Search' => 'Search on subject',
+  'result' => 'Result',
+  'job' => 'Job',
 );

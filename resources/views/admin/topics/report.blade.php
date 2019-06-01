@@ -40,17 +40,30 @@
     <div class="report-header d-flex justify-content-center mb-5">
         <h3 class="text-center w-100" style="line-height: 2.7rem;">
             جدول اعمال {{ $council_meeting_setup->Council_definition->council_name }} رقم
-            {{ $council_meeting_setup->meeting_number }} بتاريخ {{ $council_meeting_setup->meeting_date }}
+            {{ $council_meeting_setup->meeting_number }} بتاريخ <span>{{ $council_meeting_setup->meeting_date }}</span>
         </h3>
     </div>
 
-    @foreach ($subjects as $indexKey => $item)
+    @php
+    $covar=-1;
+    $subjectCount = 0;
+    @endphp
+        @foreach ($subjects as $indexKey => $item)
+            @if($item->subject_type_id!=$covar)
+            @php
+            $count = 0;
+            $subjectCount++;
+            @endphp
+            <h4 class="mb-3">(الموضوع رقم {{ $subjectCount }}  {{App\Subject_type::where('id',$item->subject_type_id)->first()->subject_type_name}})</h4>
+            @endif
+        @php
+            $covar=$item->subject_type_id;
+        @endphp
         <div class="singleSubject mb-4">
             @if($item->additional_subject==1)
                 <h6 class="mb-3">ما يستجد من اعمال</h6>
             @endif
-            <h4 class="mb-2" style="line-height:2.7rem;">(الموضوع رقم {{ ++$indexKey }} {{ $item->Subject_type->subject_type_name }})</h4>
-            <p class='mb-3' style="font-size: 1rem; line-height: 1.7rem;">{{ $item->subject_description}}</p>
+            <p class='mb-3' style="font-size: 1rem; line-height: 1.7rem;">{{ ++$count }} - {{ $item->subject_description}}</p>
 
             @if(!(\App\Subject_topic::where('council_meeting_subject_id',$item->id)->get())->isEmpty())
                 <div class="topics mb-2">

@@ -52,15 +52,23 @@ class Controller extends BaseController
     }
     public function search(Request $request)
     {
-        $data = Searchy::council_meeting_subject('subject_description')->query($request->text)->get();
+        //$data = Searchy::council_meeting_subject('subject_description')->query($request->text)->get();
        // $data = DB::table('council_meeting_subject')
         //->where('subject_description', 'like', '%'.urldecode($request->text).'%')->get();
 
-        $data = Council_meeting_subject::where('subject_description' , 'LIKE' , "%{$request->text}%")->get();
-        if ($data) {
+        $defintions = Auth::user()->Faculty_member->CouncilMember->pluck('council_definition_id');
+
+        $data = Council_meeting_subject::whereIn('council_definition',$defintions)->where('subject_description' , 'LIKE' , "%{$request->text}%")->limit(5)->get();
+
+        if (count($data) > 0) {
+            foreach($data as $d){
+                $d->url = url('meeting/'.$d->council_meeting_id);
+                $d->Council_definition;
+                $d->Council_meeting_setup;
+            }
             return $data;
         } else {
-            return 'no subject fits that description';
+            return 0;
         }
     }
 }

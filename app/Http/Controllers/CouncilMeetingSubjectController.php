@@ -64,7 +64,7 @@ class CouncilMeetingSubjectController extends Controller
                 if(isset($member->Faculty_member->User)){
                     $userType = $member->Faculty_member->User->type;
                     $userID = $member->Faculty_member->User->id;
-                    if($userType !=2){
+                    if($userType != 2){
                         continue;
                     }
                     // add event of the new Notification
@@ -79,16 +79,16 @@ class CouncilMeetingSubjectController extends Controller
                     $icon = 'mdi mdi-file-document-box';
                     $color = 'bg-warning';
                     event(new Councilcreated($councilName,$userID,$title,$msg,$title_ar,$msg_ar,$page,$icon,$color));
+
+                    $vote = new Votes;
+                    $vote->vote = 2;
+                    $vote->council_member_id = $member->id;
+                    $vote->Council_meeting_subject_id = $check->id;
+                    $vote->save();
                 }
                 else{
                     continue;
                 }
-
-                $vote = new Votes;
-                $vote->vote = 2;
-                $vote->council_member_id = $member->id;
-                $vote->Council_meeting_subject_id = $check->id;
-                $vote->save();
             }
             if($request->attachment_document){
                 app('App\Http\Controllers\SubjectAttachmentController')->store($check->id,$request->council_meeting_id,$request);

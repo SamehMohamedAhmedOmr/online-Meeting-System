@@ -21,22 +21,10 @@
             content: none !important;
         }
 
-<<<<<<< Updated upstream
         .report-header {
         border-bottom: 5px double #000;
         padding-bottom: 1px;
         }
-=======
-      }
-    </style>
-    <form dir="rtl" lang="ar" style="float:right;padding:25px;" class="col-md-12" id="print">
-       <h3>
-     {{ $council_meeting_setup->Council_definition->council_name }} رقم {{ $council_meeting_setup->meeting_number }} بتاريخ {{ $council_meeting_setup->meeting_date }} الساعه  {{ $council_meeting_setup->meeting_time }}
-    </h3>
-    <hr>
-        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
-        <h5>
->>>>>>> Stashed changes
 
         .report-header h3{
             margin-bottom: 1px;
@@ -157,21 +145,7 @@
             @endif
 
         @endforeach
-<<<<<<< Updated upstream
     </p>
-=======
-        <h5 style="float:left">
-            رئيس اللجنه
-            <br>
-            ا.د/{{$council_member->faculty_member->member_name}}
-            </h5>
-            <h5 style="float:right">
-                    امين اللجنه
-                    <br>
-                </h5>
-        </form>
-        <button onclick="myFunction()">Print this page</button>
->>>>>>> Stashed changes
 
     <h5 style="float:left">
         <span class="d-block mb-3">رئيس اللجنه</span>
