@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
     // both Staff & admin $ members
 
     Route::middleware('AdminStaff')->group(function () {
+        Route::get('home', 'DashboardController@filesizes');
 
         Route::get('councilDefinition', 'CouncilDefinitionController@index');
         Route::get('councilDefinition/{id}', 'CouncilDefinitionController@show');

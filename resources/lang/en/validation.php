@@ -148,14 +148,21 @@ return [
         'faculty_id'            => 'Faculty Name',
 
         // Council Member input
+<<<<<<< Updated upstream
         'faculty_member_id'            => 'Member Name',
         'council_definition_id'        => 'Definition Name',
         'list_of_membership_order'     => 'Membership Order',
+=======
+        'faculty_member_id'          => 'Member Name',
+        'council_definition_id'      => 'Definition Name',
+        'list_of_membership_order'   => 'Membership Order',
+>>>>>>> Stashed changes
 
         'faculty_member_id.*'          => 'Member Name',
         'council_definition_id.*'      => 'Definition Name',
         'list_of_membership_order.*'   => 'Membership Order',
 
+<<<<<<< Updated upstream
         //Subject input
         'subject_type_id'              => 'Subject type',
         'council_meeting_id'           => 'Meeting',
@@ -164,6 +171,8 @@ return [
 
         //Vote input
         'Council_meeting_subject_id'     => 'Subject',
+=======
+>>>>>>> Stashed changes
 
         //
     ],
