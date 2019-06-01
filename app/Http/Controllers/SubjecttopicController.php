@@ -73,7 +73,7 @@ if(!$id)
 
         Subject_topic::create($requestData+['council_meeting_subject_id'=>$id]);
 
-        return  Redirect::back()->with('flash_message', 'topic added!');
+        return  Redirect::back()->with('flash_message', __('flash_message.topic added!'));
     }
 
     /**
@@ -120,7 +120,7 @@ if(!$id)
     {
         Subject_topic::destroy($id);
 
-        return  Redirect::back()->with('flash_message', 'deleted succesfully');
+        return  Redirect::back()->with('flash_message', __('flash_message.deleted succesfully'));
     }
 
     /**

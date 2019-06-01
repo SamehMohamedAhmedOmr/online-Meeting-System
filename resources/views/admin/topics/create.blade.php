@@ -7,6 +7,7 @@
                 <div class="alert alert-danger">
                     {{ session()->get('error') }}
                 </div>
+
             @endif
             @if(session()->has('flash_message'))
                 <div class="alert alert-success">
@@ -15,9 +16,9 @@
             @endif
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Create New topic</div>
+                    <div class="card-header">{{__("Staff.Add Topic Responders")}}</div>
                     <div class="card-body">
-                        <a  href="{{ url('meeting/'.$meeting.'') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a  href="{{ url('meeting/'.$meeting.'') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> {{__("home.Back")}}</button></a>
                         <br />
                         <br />
 

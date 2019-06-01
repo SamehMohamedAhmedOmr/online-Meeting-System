@@ -34,4 +34,6 @@ return array (
   'Edit final Decision' => 'تم تعديل القرار النهائي بنجاح',
   'Votes added' => 'تم اضافة صوتك بنجاح',
   'Attendance Updated Successfully' => 'تم تحديث الحضور بنجاح',
+  'topic added!' => 'تم اضافه العضو',
+  'deleted succesfully' => 'تم المسح',
 );

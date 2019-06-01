@@ -105,7 +105,7 @@
                                         aria-controls="topic" style="font-size: 1.2rem !important;"
                                         aria-selected="false">
                                         <i class="mdi mdi-file-document-box"></i>
-                                        <span>Agenda</span>
+                                        <span>{{__("Staff.Agenda")}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -113,7 +113,7 @@
                                         aria-controls="memo" style="font-size: 1.2rem !important;"
                                         aria-selected="false">
                                         <i class="mdi mdi-file-document-box"></i>
-                                        <span>Memo</span>
+                                        <span>{{__("Staff.Memo")}}</span>
                                     </a>
                                 </li>
 
@@ -129,14 +129,17 @@
                                     @include('admin.council_meeting_setup.attendence')
                                 </div>
                             @endif
+                            @if (count($subjects) != 0)
                             <div class="tab-pane fade" id="topic" role="tabpanel" aria-labelledby="topic-tab">
                                     @include('admin.topics.report')
                                 </div>
+
+
                                 <div class="tab-pane fade" id="memo" role="tabpanel" aria-labelledby="memo-tab">
                                     @include('admin.topics.memo')
                                 </div>
                         </div>
-
+                        @endif
                     </div>
                 </div>
             </div>
