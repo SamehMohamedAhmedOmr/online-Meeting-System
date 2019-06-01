@@ -110,7 +110,51 @@
         });
 
 
+$('#searchy').on('keydown',function(){
+
+$value=$(this).val();
+
+$.ajax({
+
+type : 'get',
+
+url : '/search',
+
+data:{'text':$value},
+
+success:function(data){
+    $('#dropdown-toggler').empty();
+    for (i = 0; i < data.length; i++) {
+           var ul = document.getElementById("dropdown-toggler");
+            var li = document.createElement('li');
+            var des = document.createElement('p');
+            des.innerHTML=data[i].subject_description;
+            li.appendChild(des);
+            ul.appendChild(li);
+}
+$("#dropdown-toggler").dropdown('toggle');
+
+
+
+}
+
+});
+
+});
+$.ajaxSetup({
+headers: {
+  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+}
+});
+
+
+$(document).click(function(){
+  $("#dropdown-toggler").hide();
+});
+
+
     </script>
 </body>
 
 </html>
+

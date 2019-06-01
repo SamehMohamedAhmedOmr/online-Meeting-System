@@ -48,17 +48,30 @@
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
             <ul class="navbar-nav mr-lg-4 w-100">
-                <li class="nav-item nav-search d-none d-lg-block w-100">
+                <li class="nav-item nav-search d-none d-lg-block w-100" id="sea">
                     <div class="input-group">
                         <div class="input-group-prepend search-icon">
                             <span class="input-group-text" id="search">
                                 <i class="mdi mdi-magnify"></i>
                             </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="{{ __('home.Search now') }}" aria-label="search"
+                        <input type="text" class="form-control" id="searchy" placeholder="{{ __('home.Search now') }}" aria-label="search"
                             aria-describedby="search">
-                    </div>
-                </li>
+                            <ul class="navbar-nav navbar-nav-right" style="" id="dropdown-toggler">
+
+                                </ul>
+                        </div>
+
+                        <li class="nav-item nav-search d-none d-lg-block w-100">
+                        <div class="dropdown">
+                                <span class="caret"></span></button>
+
+                                <ul class="navbar-nav navbar-nav-right" style="" id="dropdown-toggler">
+
+                                </ul>
+                              </div>
+                        </li>
+
             </ul>
 
             <ul class="navbar-nav navbar-nav-right">
@@ -268,4 +281,9 @@
         </div>
     </div>
   </div>
+
+
+
+
+
 

@@ -98,6 +98,7 @@
                                     </a>
                                 </li>
                             @endif
+                            @if (count($subjects) != 0)
                             <li class="nav-item">
                                     <a class="nav-link" id="topic-tab" data-toggle="tab" href="#topic" role="tab"
                                         aria-controls="topic" style="font-size: 1.2rem !important;"
@@ -114,7 +115,7 @@
                                         <span>{{__("Staff.Memo")}}</span>
                                     </a>
                                 </li>
-
+@endif
                         </ul>
 
                         <div class="tab-content py-0 px-0">

@@ -164,7 +164,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-
+        TomLingham\Searchy\SearchyServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -238,6 +238,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Input' => Illuminate\Support\Facades\Input::class,
-    ],
+        'Searchy' => TomLingham\Searchy\Facades\Searchy::class,
+        ],
 
 ];

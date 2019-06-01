@@ -185,5 +185,7 @@ Route::get('translations', function () {
 Route::get('topics/{index}/{meeting}', 'SubjecttopicController@index');
 Route::get('topicsdelete/{id}', 'SubjecttopicController@destroy');
 Route::get('topics/create/{id}/{index}/{app}', 'SubjecttopicController@create');
+Route::get('search', 'Controller@search');
+
 Route::post('topics/store/{id}', 'SubjecttopicController@store');
 //Route::resource('topics/{index}', 'SubjecttopicController');

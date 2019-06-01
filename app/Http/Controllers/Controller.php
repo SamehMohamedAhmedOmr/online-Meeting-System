@@ -10,24 +10,28 @@ use Yajra\DataTables\Utilities\Request;
 use App\Notification;
 use Auth;
 use View;
+use Searchy;
+use DB;
+use App\Council_meeting_subject;
+
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function home(Request $request)
     {
-         return view('Pages.dashboard');
+        return view('Pages.dashboard');
     }
     public function updateseen(Request $request)
     {
-        $data=Notification::where('id',$request->seen)->first();
+        $data=Notification::where('id', $request->seen)->first();
         $data->seen=1;
         $data->update();
     }
 
     public function watchNotification()
     {
-        try{
+        try {
             $notifications = Notification::where('user_id', Auth::user()->id)->get();
             foreach ($notifications as $notification) {
                 $notification->watch=1;
@@ -37,7 +41,7 @@ class Controller extends BaseController
             return response()->json(['data' => $notifications]);
 
             return $notifications;
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()]);
         }
     }
@@ -45,5 +49,18 @@ class Controller extends BaseController
     public function files()
     {
         return view('pdf');
+    }
+    public function search(Request $request)
+    {
+        $data = Searchy::council_meeting_subject('subject_description')->query($request->text)->get();
+       // $data = DB::table('council_meeting_subject')
+        //->where('subject_description', 'like', '%'.urldecode($request->text).'%')->get();
+
+        $data = Council_meeting_subject::where('subject_description' , 'LIKE' , "%{$request->text}%")->get();
+        if ($data) {
+            return $data;
+        } else {
+            return 'no subject fits that description';
+        }
     }
 }

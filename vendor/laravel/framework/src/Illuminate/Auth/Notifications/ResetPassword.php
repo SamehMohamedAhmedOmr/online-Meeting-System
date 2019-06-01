@@ -5,7 +5,6 @@ namespace Illuminate\Auth\Notifications;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
-use App\User;
 
 class ResetPassword extends Notification
 {
@@ -57,24 +56,12 @@ class ResetPassword extends Notification
             return call_user_func(static::$toMailCallback, $notifiable, $this->token);
         }
 
-        $userName = User::where('email', $notifiable->email)->pluck('name')->first();
-
-        $greatMsg = __('Emails.Hello').' '.$userName;
-
-        $expireFirstMsg = __('Emails.This password reset link will expire in');
-        $expireTime = config('auth.passwords.users.expire');
-        $expireLastMsg = __('Emails.minutes.');
-        $expiration = $expireFirstMsg.' '.$expireTime.' '.$expireLastMsg;
-
-        $salutation = __('Emails.Regards');
         return (new MailMessage)
-            ->greeting($greatMsg)
-            ->subject(Lang::getFromJson( __('Emails.Reset Password Notification')))
-            ->line(Lang::getFromJson( __('Emails.mail reason') ))
-            ->action(Lang::getFromJson( __('home.Reset Password')), url(config('app.url').route('password.reset', ['token' => $this->token], false)))
-            ->line(Lang::getFromJson($expiration))
-            ->line(Lang::getFromJson(__('Emails.no reset Request')))
-            ->salutation($salutation);
+            ->subject(Lang::getFromJson('Reset Password Notification'))
+            ->line(Lang::getFromJson('You are receiving this email because we received a password reset request for your account.'))
+            ->action(Lang::getFromJson('Reset Password'), url(config('app.url').route('password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()], false)))
+            ->line(Lang::getFromJson('This password reset link will expire in :count minutes.', ['count' => config('auth.passwords.users.expire')]))
+            ->line(Lang::getFromJson('If you did not request a password reset, no further action is required.'));
     }
 
     /**
