@@ -104,6 +104,10 @@ i.icon-details{
     -o-transition: all 0.2s ease-in-out;
 }
 
+.card-header{
+    background-color: rgba(191, 191, 191, 0.03) !important;
+}
+
 i.icon-details:hover{
     color: #f9ca24 !important;
 }

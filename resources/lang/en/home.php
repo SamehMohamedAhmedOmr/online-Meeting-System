@@ -6,7 +6,7 @@ return array (
   'Search now' => 'Search now',
   'Langauge' => 'Langauge',
   'Arabic' => 'Arabic',
-  'English' => 'ُEnglish',
+  'English' => 'English',
   'Messages' => 'Messages',
   'Notification' => 'Notification',
   'Logout' => 'Logout',
@@ -55,4 +55,6 @@ return array (
     '' => 'No Subject yet.',
   ),
   'No Votes Yet' => 'No Votes yet.',
+  'Enter your email to reset your password' => 'Enter your email to reset your password',
+  'Reset Password' => 'Reset Password',
 );

@@ -55,4 +55,6 @@ return array (
   array (
     '' => 'لا يوجد مواضيع حتى الآن.',
   ),
+  'Enter your email to reset your password' => 'ادخل بريدك الاكتروني لاعادة تعيين كلمة مرورك',
+  'Reset Password' => 'اعادة تعيين كلمة السر',
 );

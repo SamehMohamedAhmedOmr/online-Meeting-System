@@ -65,4 +65,11 @@ return array (
   'Member Number' => 'Member Number',
   'Add More' => 'Add More',
   'hide' => 'Hide',
+  'Forgot Password' => 'Reset Password',
+  'You can reset your password here' => 
+  array (
+    '' => 'You can reset your password here.',
+  ),
+  'Send Password Reset Link' => 'Send Password Reset Link',
+  'password_confirmation' => 'Password Confirmation',
 );

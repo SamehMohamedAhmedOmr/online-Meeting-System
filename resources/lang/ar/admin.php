@@ -65,4 +65,11 @@ return array (
   'Member Number' => 'العضو رقم',
   'Add More' => 'اضافة المزيد',
   'hide' => 'اخفاء',
+  'Forgot Password' => 'طلب تعيين كلمة سر',
+  'You can reset your password here' => 
+  array (
+    '' => 'تستطيع اعادة تعيين كلمة مرورك هنا',
+  ),
+  'Send Password Reset Link' => 'ارسال رابط اعادة تعيين كلمة المرور',
+  'password_confirmation' => 'تأكيد كلمة السر',
 );
