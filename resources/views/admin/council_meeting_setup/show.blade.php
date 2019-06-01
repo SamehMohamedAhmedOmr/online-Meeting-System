@@ -35,23 +35,21 @@
 
                     <div class="card-body">
 
-                        <div class="mb-3 {{ (Auth::user()->type == 1) ? 'row' : '' }}">
-                            @if(Auth::user()->type == 1)
-                                @if (Auth::user()->type == 1 && $council_meeting_setup->close == 0)
-                                    <!-- Staff -->
+                        <div class="mb-3">
+                            @if(Auth::user()->type == 1 && $council_meeting_setup->close == 0)
+                                <div class="row">
                                     <div class="col-6 d-flex justify-content-center align-items-center {{ (App::getLocale() == 'ar')?'order-0':'order-1' }}">
                                         <a class="btn btn-facebook" href="{{ url('meetingSubject/create/'.$council_meeting_setup->id.'') }}">
                                             {{__("Staff.Addnewsubject")}}
                                         </a>
                                     </div>
-                                @endif
-
-                                <div class="col-6 {{ (App::getLocale() == 'ar')?'order-1':'order-0' }}">
-                                    <a style='text-decoration:none;' href="{{ url('meeting') }}" title="{{__("home.Back")}}">
-                                        <button class="btn btn-warning btn-sm" style="color:#fff;">
-                                            <i class="fa fa-arrow-left" style="font-size: 0.875rem; position:relative; top:2px;" aria-hidden="true"></i> {{__("home.Back")}}
-                                        </button>
-                                    </a>
+                                    <div class="col-6 {{ (App::getLocale() == 'ar')?'order-1':'order-0' }}">
+                                        <a style='text-decoration:none;' href="{{ url('meeting') }}" title="{{__("home.Back")}}">
+                                            <button class="btn btn-warning btn-sm" style="color:#fff;">
+                                                <i class="fa fa-arrow-left" style="font-size: 0.875rem; position:relative; top:2px;" aria-hidden="true"></i> {{__("home.Back")}}
+                                            </button>
+                                        </a>
+                                    </div>
                                 </div>
                             @else
                                 <a style='text-decoration:none;' href="{{ url('meeting') }}" title="{{__("home.Back")}}">

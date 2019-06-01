@@ -23,67 +23,75 @@
 
     }
 
+    .report-header {
+        border-bottom: 5px double #000;
+        padding-bottom: 1px;
+    }
+
+    .report-header h3{
+        margin-bottom: 1px;
+        border-bottom: 1px solid #000;
+        padding-bottom: 15px;
+    }
+
 </style>
 
 <form dir="rtl" lang="ar" style="float:right; padding:25px;" class="col-md-12" id="print">
-    <h3>
-        جدول اعمال {{ $council_meeting_setup->Council_definition->council_name }} رقم
-        {{ $council_meeting_setup->meeting_number }} بتاريخ {{ $council_meeting_setup->meeting_date }} الساعه
-        {{ $council_meeting_setup->meeting_time }}
-    </h3>
-    <hr>
-    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
-    @foreach ($subjects as $indexKey => $item)
-    @if($item->additional_subject==1)
-    ما يستجد من اعمال
-    <br>
-    @endif
-    <h2>
-        ( الموضوع رقم {{ ++$indexKey }} {{ $item->Subject_type->subject_type_name }} )
-    </h2>
-    <br>
-    <h3>
-        {{ $item->subject_description}}
-    </h3>
-    <br>
-    @if(!(\App\Subject_topic::where('council_meeting_subject_id',$item->id)->get())->isEmpty())
-    <h4> لتتكون اللجنه من كلا من :
-    </h4>
-    <br>
-    @foreach(\App\Subject_topic::where('council_meeting_subject_id',$item->id)->orderBy('list_of_member_order',
-    'ASC')->get() as $data)
-    <div class="row">
-        <h5 class="col-md-4">{{$data->faculty_member}}</h5>
-
-        <h5 class="col-md-4">{{\App\Position::where('id',$data->list_of_member_order)->first()->position_name }}</h5>
-        <h5 class="col-md-4">
-            @if($data->job ==0)
-            Supervisor
-            @elseif($data->job==1)
-            Rapporteur
-            @else
-            Member
-            @endif
-            <br>
-        </h5>
+    <div class="report-header d-flex justify-content-center mb-5">
+        <h3 class="text-center w-100" style="line-height: 2.7rem;">
+            جدول اعمال {{ $council_meeting_setup->Council_definition->council_name }} رقم
+            {{ $council_meeting_setup->meeting_number }} بتاريخ {{ $council_meeting_setup->meeting_date }}
+        </h3>
     </div>
 
-    @endforeach
-    @endif
-    <br>
+    @foreach ($subjects as $indexKey => $item)
+        <div class="singleSubject mb-4">
+            @if($item->additional_subject==1)
+                <h6 class="mb-3">ما يستجد من اعمال</h6>
+            @endif
+            <h4 class="mb-2" style="line-height:2.7rem;">(الموضوع رقم {{ ++$indexKey }} {{ $item->Subject_type->subject_type_name }})</h4>
+            <p class='mb-3' style="font-size: 1rem; line-height: 1.7rem;">{{ $item->subject_description}}</p>
+
+            @if(!(\App\Subject_topic::where('council_meeting_subject_id',$item->id)->get())->isEmpty())
+                <div class="topics mb-2">
+                    <h4 class="mb-3"> لتتكون اللجنه من كلا من :</h4>
+
+                    @foreach(\App\Subject_topic::where('council_meeting_subject_id',$item->id)->orderBy('list_of_member_order',
+                            'ASC')->get() as $data)
+                        <div class="row">
+                            <p class="col-4">{{$data->faculty_member}}</p>
+
+                            <p class="col-4">{{\App\Position::where('id',$data->list_of_member_order)->first()->position_name }}</p>
+                            <p class="col-4">
+                                @if($data->job ==0)
+                                مشرفًا
+                                @elseif($data->job==1)
+                                مقررًا
+                                @else
+                                عضوًا
+                                @endif
+                                <br>
+                            </p>
+                        </div>
+
+                    @endforeach
+                </div>
+            @endif
+        </div>
 
     @endforeach
+
     <h5 style="float:left">
-        رئيس اللجنه
-        <br>
-        ا.د/{{$council_member->faculty_member->member_name}}
+        <span class="d-block mb-3">رئيس اللجنه</span>
+
+        <span> ا.د/{{$council_member->faculty_member->User->name}}</span>
     </h5>
 </form>
-<button onclick="myFunction()">Print this page</button>
+
+<button class="btn btn-dark" onclick="myFunction()">اطبع التقرير</button>
 
 <script>
     function myFunction() {
         window.print();
     }
-
 </script>
