@@ -78,6 +78,7 @@
                                 <i class="mdi mdi-magnify"></i>
                             </span>
                         </div>
+<<<<<<< Updated upstream
                         <input type="text" class="form-control" id="searchy" placeholder="{{ __('home.Search now') }}"
                             aria-label="search" aria-describedby="search" autocomplete="off">
                     </div>
@@ -88,6 +89,15 @@
                             <li style="color:#000;">{{ __('home.Enter To Search') }}</li>
                         </ul>
                     </div>
+=======
+                        <input type="text" class="form-control" id="searchy" placeholder="{{ __('home.Search now') }}" aria-label="search"
+                            aria-describedby="search">
+
+                        </div>
+
+
+
+>>>>>>> Stashed changes
             </ul>
 
             <ul class="navbar-nav navbar-nav-right">
