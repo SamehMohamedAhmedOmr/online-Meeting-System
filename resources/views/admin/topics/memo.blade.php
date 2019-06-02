@@ -39,14 +39,14 @@
     <div class="report-header d-flex justify-content-center mb-5">
         <h3 class="text-center w-100" style="line-height: 2.7rem;">
             {{ $council_meeting_setup->Council_definition->council_name }} رقم
-            {{ $council_meeting_setup->meeting_number }} بتاريخ {{ $council_meeting_setup->meeting_date }}
+            {{ $council_meeting_setup->meeting_number }} بتاريخ <span  dir="ltr"> {{ $council_meeting_setup->meeting_date }}</span>
         </h3>
     </div>
 
     <p style="font-size: 1.2rem; line-height: 1.7rem;">
 
         اجتمعت {{ $council_meeting_setup->Council_definition->council_name }} رقم
-        {{ $council_meeting_setup->meeting_number }} بتاريخ {{ $council_meeting_setup->meeting_date }} الساعه
+        {{ $council_meeting_setup->meeting_number }} بتاريخ <span  dir="ltr">{{ $council_meeting_setup->meeting_date }}</span> الساعه
         {{ $council_meeting_setup->meeting_time }} برئاسه السيد/ه
         {{App\Rank::where('id',$council_member->faculty_member->rank_id)->pluck('rank_name')->first()}}
         /{{$council_member->faculty_member->User->name}}
@@ -112,7 +112,7 @@
                     <h4>القرار</h4>
                     <p style="font-size: 1.1rem; line-height: 1.7rem;">
                         اوصت {{ $council_meeting_setup->Council_definition->council_name }} رقم {{ $council_meeting_setup->meeting_number }}
-                        بتاريخ {{ $council_meeting_setup->meeting_date }} بـ{{$item->final_decision_description}}
+                        بتاريخ <span  dir="ltr">{{ $council_meeting_setup->meeting_date }}</span> بـ{{$item->final_decision_description}}
                     </p>
                </div>
             @endif

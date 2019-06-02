@@ -40,7 +40,7 @@
     <div class="report-header d-flex justify-content-center mb-5">
         <h3 class="text-center w-100" style="line-height: 2.7rem;">
             جدول اعمال {{ $council_meeting_setup->Council_definition->council_name }} رقم
-            {{ $council_meeting_setup->meeting_number }} بتاريخ <span>{{ $council_meeting_setup->meeting_date }}</span>
+            {{ $council_meeting_setup->meeting_number }} بتاريخ <span  dir="ltr"> {{ $council_meeting_setup->meeting_date }}</span>
         </h3>
     </div>
 
