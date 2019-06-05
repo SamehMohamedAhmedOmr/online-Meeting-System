@@ -136,10 +136,10 @@
     </div>
     <!-- /.modal -->
 </div>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 <script>
 function setupVar(idea){
     var base_url = window.location.origin;
     document.getElementById("frame").src=base_url+"/meetingSubject/finalDesicion/"+idea;
 }
 </script>
+

@@ -165,9 +165,7 @@
                     }]
                 },
                 options: {
-                    legend: {
-        display: false
-    },
+
                     scales: {
                         yAxes: [{
                             ticks: {
