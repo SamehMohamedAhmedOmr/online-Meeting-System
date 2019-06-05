@@ -2,7 +2,7 @@
     <!-- Staff -->
     @if ($council_meeting_setup->close == 0)
 
-        <a href="{{ url('meetingSubject/finalDesicion/'.$subject->id.'') }}" class="btn btn-github mb-2">
+<a href="{{ url('meetingSubject/finalDesicion/'.$subject->id.'') }}" id="{{$subject->id}}" onclick="setupVar(this.id)" class="btn btn-github mb-2" name="side" data-toggle="modal" data-target="#myModal">
             {{ ($subject->final_decision != 2) ? __("Staff.edit Final Decision") : __("Staff.Addfinaldescision") }}  <i class="mdi mdi-plus inside-icon"></i>
         </a>
 
@@ -50,3 +50,4 @@
     @endif
 
 @endif
+

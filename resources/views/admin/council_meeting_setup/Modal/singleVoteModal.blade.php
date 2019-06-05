@@ -9,7 +9,6 @@
                 </h5>
             </div>
             <div class="modal-body">
-                <form action="{{ url('addVote') }}" method="GET">
                     {{ csrf_field() }}
 
                     <input type="hidden" name="Council_meeting_subject_id" value="{{ $subject->id }}">
@@ -57,10 +56,51 @@
                     </div>
 
                     <div class="form-group mt-4">
-                        <input class="btn btn-primary" type="submit" value="{{__("home.Save")}}">
+                    <input class="btn btn-primary" type="submit" id="{{$subject->id}}"  value="{{__("home.Save")}}">
                     </div>
-                </form>
             </div>
         </div>
     </div>
 </div>
+@include('layouts.scripts')
+<script data-defc="{{ $subject->id }}" id='councila'>
+  var Council_meeting_subject_id = $('#councila').data('defc');
+        jQuery('#'+Council_meeting_subject_id).click(function(){
+            alert(Council_meeting_subject_id);
+
+            //var Council_meeting_subject_id = $('#councila').data('defc');
+            alert(Council_meeting_subject_id);
+            var commet = $('textarea#voteComment').val();
+            var vote = $("input[name='vote']:checked").val();
+            console.log(vote);
+
+        $value=$(this).val();
+
+        $.ajax({
+
+        type : 'get',
+
+        url : '/addVote',
+
+        data:{
+            'commet':commet,
+            'vote':vote,
+            'Council_meeting_subject_id':Council_meeting_subject_id,
+
+        },
+
+        success:function(data){
+
+
+        }
+
+        });
+
+        })
+
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+        </script>

@@ -118,4 +118,28 @@
     </div>
     @endif
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" width="500" height="500">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+              <iframe  width="480" height="480" frameborder="0" allowtransparency="true" id="frame"></iframe>
+          </div>
+
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 </div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<script>
+function setupVar(idea){
+    var base_url = window.location.origin;
+    document.getElementById("frame").src=base_url+"/meetingSubject/finalDesicion/"+idea;
+}
+</script>
