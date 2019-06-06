@@ -93,4 +93,9 @@ return array (
   'Topics' => 'Topics',
   'Confirm delete' => 'this member will be deleted permanently , are you sure?',
   'Member Name' => 'Member Name',
+  'Print this page' => 'Print this page',
+  'High' => 'High',
+  'Medium' => 'Medium',
+  'Low' => 'Low',
+  'priority' => 'Priority',
 );

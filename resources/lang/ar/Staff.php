@@ -93,4 +93,9 @@ return array (
   'Topics' => 'اللجان',
   'Confirm delete' => 'سيتم مسح العضو, هل انت واثق؟',
   'Member Name' => 'اسم العضو مصحوب بالاسم الوظيفي',
+  'Print this page' => 'طباعه',
+  'High' => 'عالي',
+  'Low' => 'منخفض',
+  'Medium' => 'متوسط',
+  'priority' => 'الاهميه',
 );

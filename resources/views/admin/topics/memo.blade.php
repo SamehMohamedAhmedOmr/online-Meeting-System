@@ -122,7 +122,7 @@
                 <div class="topics mb-2">
                     <h4 class="mb-3"> لتتكون اللجنه من كلا من :</h4>
 
-                    @foreach(\App\Subject_topic::where('council_meeting_subject_id',$item->id)->orderBy('list_of_member_order',
+                    @foreach(\App\Subject_topic::join('position','subject_topic.list_of_member_order','=','position.id')->where('council_meeting_subject_id',$item->id)->orderBy('position.priority',
                             'ASC')->get() as $data)
                         <div class="row">
                             <p class="col-4">{{$data->faculty_member}}</p>

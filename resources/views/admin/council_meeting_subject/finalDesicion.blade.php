@@ -14,39 +14,12 @@
 <link rel="stylesheet" href="{{ URL::asset('css/specialRTL.css') }}">
 @endif
 
-<style>
-    input[type='radio']:after {
-        width: 15px;
-        height: 15px;
-        border-radius: 15px;
-        top: -2px;
-        left: -1px;
-        position: relative;
-        background-color: #d1d3d1;
-        content: '';
-        display: inline-block;
-        visibility: visible;
-        border: 2px solid white;
-    }
-
-    input[type='radio']:checked:after {
-        width: 15px;
-        height: 15px;
-        border-radius: 15px;
-        top: -2px;
-        left: -1px;
-        position: relative;
-        background-color: #ffa500;
-        content: '';
-        display: inline-block;
-        visibility: visible;
-        border: 2px solid white;
-    }
-
-</style>
 
 
 <div class="main-panel">
+        <div class="alert alert-success" role="alert" hidden id="succes">
+            {{__("home.Saved")}}
+              </div>
     <div class="content-wrapper">
 
         <div class="row">
@@ -230,9 +203,8 @@ data:{
 },
 
 success:function(data){
-
-   // $('#finalDecisionModal').modal('hide');
-
+    $(window).scrollTop(0);
+ $("#succes"). removeAttr("hidden");
 }
 
 });

@@ -2,7 +2,7 @@ $(function () {
     // when docs ready call data table
     var targetURL = 'getPositionAjax';
     var lang = $('#dataTableAjaxScript').data('lang');
-    if(lang == 'ar'){
+    if (lang == 'ar') {
         var arabicLanguage = {
             "sProcessing": "جارٍ التحميل...",
             "sLengthMenu": "أظهر _MENU_ مدخلات",
@@ -14,14 +14,14 @@ $(function () {
             "sSearch": "ابحث:",
             "sUrl": "",
             "oPaginate": {
-            "sFirst": "الأول",
-            "sPrevious": "السابق",
-            "sNext": "التالي",
-            "sLast": "الأخير"
+                "sFirst": "الأول",
+                "sPrevious": "السابق",
+                "sNext": "التالي",
+                "sLast": "الأخير"
             }
         };
     }
-    else{
+    else {
         var arabicLanguage = {};
     }
 
@@ -34,20 +34,57 @@ $(function () {
             type: "GET",
         },
         columns: [{
-                data: 'position_name',
-                render: function (position_name) {
-                    return position_name;
+            data: 'position_name',
+            render: function (position_name) {
+                return position_name;
+            }
+        },
+        {
+            data: 'priority',
+            render: function (priority) {
+                if (priority == '0'){
+                    if (lang == 'ar')
+                    {
+                        return"عالي";
+                    }
+                    else
+                    {
+                        return "High";
+                    }
                 }
-            },
-            {
-                data: 'id',
-                orderable: false,
-                render: function (data) {
-                    edit = '<a href="position/' + data + '/edit" class="btn btn-sm btn-info text-white ml-2"><i class="fas fa-marker"></i> </a>';
-                    remove = '<a  class="btn btn-sm btn-danger text-white" data-toggle="modal" data-target="#deleteModal" onclick="openModal(' + data + ')" > <i class="far fa-trash-alt"></i> </a>';
-                    return edit + '&nbsp;' + remove;
+
+                if (priority == '1'){
+                if (lang == 'ar')
+                {
+                    return "متوسط";
                 }
-            },
+                else
+                {
+                    return "Medium";
+                }
+            }
+                if (priority == '2'){
+                if (lang == 'ar')
+                {
+                    return "منخفض";
+                }
+                else
+                {
+                    return "Low";
+                }
+            }
+
+            }
+        },
+        {
+            data: 'id',
+            orderable: false,
+            render: function (data) {
+                edit = '<a href="position/' + data + '/edit" class="btn btn-sm btn-info text-white ml-2"><i class="fas fa-marker"></i> </a>';
+                remove = '<a  class="btn btn-sm btn-danger text-white" data-toggle="modal" data-target="#deleteModal" onclick="openModal(' + data + ')" > <i class="far fa-trash-alt"></i> </a>';
+                return edit + '&nbsp;' + remove;
+            }
+        },
         ]
     });
 
