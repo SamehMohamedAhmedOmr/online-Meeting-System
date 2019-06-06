@@ -1,40 +1,59 @@
 @extends('layouts.app')
 
+@section('styles')
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/specialFileInput.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/tables.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/meeting.css') }}" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
+@endsection
+
+@section('pageTitle')
+{{ __('home.Redirect Subject') }}
+@endsection
+
 @section('content')
-    <div class="container">
+<div class="main-panel">
+    <div class="content-wrapper">
+
         <div class="row">
-            @include('admin.sidebar')
+            <div class="col-md-12 grid-margin">
+                @include('messages')
 
-            <div class="col-md-9">
+                @if ($errors->any())
+                <ul class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                @endif
+
                 <div class="card">
-                    <div class="card-header">council_meeting_subject {{ $council_meeting_subject->id }}</div>
-                    <div class="card-body">
+                    <div class="card-header top-card">
+                        <span>{{ __('home.Redirect Subject') }} {{ __('home.From') }} {{ $subject->Council_definition->council_name }}</span>
+                    </div>
 
-                        <a href="{{ url('/admin/council_meeting_subject') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <a href="{{ url('/admin/council_meeting_subject/' . $council_meeting_subject->id . '/edit') }}" title="Edit council_meeting_subject"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                    <div class="card-body subject-accordion">
 
-                        <form method="POST" action="{{ url('admin/council_meeting_subject' . '/' . $council_meeting_subject->id) }}" accept-charset="UTF-8" style="display:inline">
-                            {{ method_field('DELETE') }}
-                            {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger btn-sm" title="Delete council_meeting_subject" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-                        </form>
-                        <br/>
-                        <br/>
-
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <th>ID</th><td>{{ $council_meeting_subject->id }}</td>
-                                    </tr>
-                                    <tr><th> Council Definition </th><td> {{ $council_meeting_subject->council_definition }} </td></tr><tr><th> Council Meeting Id </th><td> {{ $council_meeting_subject->council_meeting_id }} </td></tr><tr><th> Subject Description </th><td> {{ $council_meeting_subject->subject_description }} </td></tr>
-                                </tbody>
-                            </table>
+                        <div class="row mb-4" style="justify-content: space-evenly;">
+                            <button class="btn btn-success">
+                                {{ __('Staff.accept') }}
+                            </button>
+                            <button class="btn btn-danger">
+                                {{ __('Staff.reject') }}
+                            </button>
                         </div>
+
+                        @include('admin.council_meeting_setup.commonSubjectData')
+
+                        @include('admin.council_meeting_setup.subjectAttachment')
+
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endsection
+
+

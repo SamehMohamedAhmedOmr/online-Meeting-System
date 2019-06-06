@@ -182,9 +182,19 @@
                                 </div>
                             </div>
                             <div class="item-content">
-                                <h6 class="font-weight-normal">{{$item->title}}</h6>
+                                <h6 class="font-weight-normal">
+                                    @if (App::getLocale() == 'ar')
+                                        {{$item->title_ar}}
+                                    @else
+                                        {{$item->title}}
+                                    @endif
+                                </h6>
                                 <p class="font-weight-light small-text mb-0 text-muted">
-                                    {{$item->notify}}
+                                    @if (App::getLocale() == 'ar')
+                                        {{$item->notify_ar}}
+                                    @else
+                                        {{$item->notify}}
+                                    @endif
                                 </p>
                                 <p class="font-weight-light small-text mb-0 text-muted" style="font-size:0.8em;">
                                     {{$item->created_at}}

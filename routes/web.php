@@ -118,6 +118,8 @@ Route::middleware('auth')->group(function () {
     Route::middleware('members')->group(function () { // members , type = 2
 
         Route::get('addVote', 'VotesController@store');
+        Route::get('meetingSubject/redirect/{id}','CouncilMeetingSubjectController@show');
+
     });
 
 

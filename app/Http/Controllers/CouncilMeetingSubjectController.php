@@ -98,7 +98,6 @@ class CouncilMeetingSubjectController extends Controller
         return redirect('meeting/'.$request->council_meeting_id)->with('flash_message', __('flash_message.Council Meeting Subject added') );
     }
 
-
     public function addAttachment(Request $request)
     {
         $validate = Validator::make($request->all(), [
@@ -207,7 +206,7 @@ class CouncilMeetingSubjectController extends Controller
         $msg_ar = 'موضوع جديد محول الى'.$councilName;
         $title_ar = 'موضوع جديد محول';
 
-        $page = 'meeting';
+        $page = 'meetingSubject/redirect/'.$council_meeting_subject->id;
         $icon = 'fas fa-clipboard-list';
         $color = 'bg-danger';
         event(new Councilcreated($councilName,$userID,$title,$msg,$title_ar,$msg_ar,$page,$icon,$color));
@@ -218,7 +217,6 @@ class CouncilMeetingSubjectController extends Controller
         return redirect('meeting/'.$council_meeting_subject->council_meeting_id.'')->with('flash_message', __('flash_message.Edit final Decision'));
 
     }
-
 
     public function destroy(Request $request)
     {
@@ -234,5 +232,14 @@ class CouncilMeetingSubjectController extends Controller
         Council_meeting_subject::destroy($request->id);
 
         return redirect()->back()->with('flash_message', __('flash_message.Council Meeting Subject deleted'));
+    }
+
+    public function show($id)
+    {
+        $subject = Council_meeting_subject::find($id);
+        if(!$subject){return redirect()->back();}
+        $checkAuth = Auth::user()->Faculty_member->CouncilMember->where('council_definition_id',$subject->council_definition)->where('type',0)->count();
+        if($checkAuth == 0){return redirect()->back();}
+        return view('admin.council_meeting_subject.show', compact('subject'));
     }
 }

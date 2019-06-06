@@ -129,7 +129,7 @@
                                 </div>
                             @endif
                             @if (count($subjects) != 0)
-                            <div class="tab-pane fade" id="topic" role="tabpanel" aria-labelledby="topic-tab">
+                                <div class="tab-pane fade" id="topic" role="tabpanel" aria-labelledby="topic-tab">
                                     @include('admin.topics.report')
                                 </div>
 
@@ -137,8 +137,8 @@
                                 <div class="tab-pane fade" id="memo" role="tabpanel" aria-labelledby="memo-tab">
                                     @include('admin.topics.memo')
                                 </div>
+                            @endif
                         </div>
-                        @endif
                     </div>
                 </div>
             </div>
