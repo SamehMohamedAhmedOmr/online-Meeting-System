@@ -13,6 +13,15 @@
 
                         <input type="hidden" name="Council_meeting_subject_id" value="{{ $subject->id }}">
 
+                        <div id='voteError{{ $subject->id }}'
+                            class='message d-none' style="width: 100%; text-align: center; color:#fff;">
+                            <ul class="list-unstyled">
+                                <li class='alert alert-danger' style="direction:ltr">
+                                    <strong style="color:#000;">{{ __('flash_message.enterVote') }}</strong>
+                                </li>
+                            </ul>
+                        </div>
+
                         <div class="form-group">
                             @php
                             if($council_member){
@@ -26,7 +35,7 @@
                                 <div class="col-sm-3 {{ (App::getLocale() == 'ar')?'mr-sm-3 ml-sm-5':'ml-sm-3 mr-sm-5' }}">
                                     <div class="form-check d-sm-flex text-sm-center ">
                                         <label class="form-check-label w-100">
-                                            <input type="radio" class="form-check-input" name="vote" id="membershipRadios1"
+                                            <input type="radio" class="form-check-input" name="vote{{ $subject->id }}" id="membershipRadios1"
                                                 value="1" required @if ($check) {{ ($check->vote != 0) ? 'checked' : '' }}
                                                 @endif>
                                             {{__("Staff.accept")}}
@@ -37,7 +46,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-check d-sm-flex text-sm-center">
                                         <label class="form-check-label w-100">
-                                            <input type="radio" class="form-check-input" name="vote" id="membershipRadios2"
+                                            <input type="radio" class="form-check-input" name="vote{{ $subject->id }}" id="membershipRadios2"
                                                 value="0" required @if ($check) {{ ($check->vote == 0) ? 'checked' : '' }}
                                                 @endif>
                                             {{__("Staff.reject")}}
@@ -51,43 +60,19 @@
                         <div class="form-group">
                             <label for="voteComment" class="d-block">{{__("Staff.comment")}}
                             </label>
-                            <textarea class="form-control" id="voteComment" rows="4"
+                            <textarea class="form-control" id="voteComment{{ $subject->id }}" rows="4"
                                 name='commet'>@if ($check){{ $check->commet }}@endif</textarea>
                         </div>
 
-                        <div class="form-group mt-4">
-                        <input class="btn btn-primary" type="submit" id="{{$subject->id}}"  value="{{__("home.Save")}}">
+                        <div class="form-group mt-4 d-flex justify-content-center">
+                            <button class="btn btn-primary"  style="cursor:pointer;"
+                                id="{{$subject->id}}"  value="" onclick="makeVote()">{{__("home.Save")}}</button>
                         </div>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-    <script data-defc="{{ $subject->id }}" id='councila'>
-      var Council_meeting_subject_id = $('#councila').data('defc');
-            jQuery('#'+Council_meeting_subject_id).click(function(){
-                alert(Council_meeting_subject_id);
-                //var Council_meeting_subject_id = $('#councila').data('defc');
-                alert(Council_meeting_subject_id);
-                var commet = $('textarea#voteComment').val();
-                var vote = $("input[name='vote']:checked").val();
-                console.log(vote);
-            $value=$(this).val();
-            $.ajax({
-            type : 'get',
-            url : '/addVote',
-            data:{
-                'commet':commet,
-                'vote':vote,
-                'Council_meeting_subject_id':Council_meeting_subject_id,
-            },
-            success:function(data){
-            }
-            });
-            })
-            $.ajaxSetup({
-              headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-            });
-            </script>
+
+
+
+

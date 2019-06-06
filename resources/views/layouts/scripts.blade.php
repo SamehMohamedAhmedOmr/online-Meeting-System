@@ -44,4 +44,8 @@
 
 @yield('votingGrahpScripts')
 
+
+@yield('singlVoteScript')
+
+
 @include('layouts.PushScripts')

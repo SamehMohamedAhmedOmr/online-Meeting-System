@@ -1,8 +1,20 @@
 <div class="subject-accordion accordion mt-3 {{ (App::getLocale() == 'ar')?'text-right':'' }}" id="subject">
 
     @foreach ($subjects as $indexKey => $subject)
+
+    <div id='voteSuccess{{ $subject->id }}'
+            class='message d-none' style="width: 100%; text-align: center; color:#fff;">
+        <ul class="list-unstyled">
+            <li class='alert alert-success' style="direction:ltr">
+                <strong style="color:#fff;">{{ __('flash_message.Votes added') }}</strong>
+            </li>
+        </ul>
+    </div>
+
     <div class="card mb-3" style="overflow:initial;">
+
         <div class="card-header" id="heading{{ $subject->id }}">
+
             <h2 class="mb-0 row">
 
                 <div aria-label="header"
@@ -36,7 +48,8 @@
                 <div aria-label="Member-Only text-center d-flex justify-content-center" class="col-12">
                     <p class="p-3 {{ (App::getLocale() == 'ar')?'pr-4':'pl-4' }}"> {{ $subject->subject_description }}
                     </p>
-                    <div class="d-flex justify-content-center">
+
+                    <div class="d-flex justify-content-center row">
                         <div class="col-lg-3 col-6 text-center mb-lg-0 mb-3" style="color:#71C016;">
                             <h4>{{__("home.Accepted")}}</h4>
                             <h4 class="acceptedVotes{{ $subject->id }}">{{ $subject->Votes->where('vote', 1)->count() }}
@@ -53,6 +66,7 @@
                             </h4>
                         </div>
                     </div>
+
                     <div class="d-flex align-items-center mt-3 flex-column">
                         <p class="mt-2" data-toggle="collapse" data-target="#collapse{{ $subject->id }}"
                             aria-expanded="true" aria-controls="collapseOne">
@@ -119,12 +133,9 @@
     @endif
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="finalDecisionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content" width="500" height="500">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          </div>
           <div class="modal-body">
               <iframe  width="480" height="480" frameborder="0" allowtransparency="true" id="frame"></iframe>
           </div>
@@ -136,10 +147,13 @@
     </div>
     <!-- /.modal -->
 </div>
+
 <script>
 function setupVar(idea){
     var base_url = window.location.origin;
     document.getElementById("frame").src=base_url+"/meetingSubject/finalDesicion/"+idea;
 }
 </script>
+
+
 

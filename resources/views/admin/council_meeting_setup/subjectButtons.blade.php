@@ -2,7 +2,7 @@
     <!-- Staff -->
     @if ($council_meeting_setup->close == 0)
 
-<a href="{{ url('meetingSubject/finalDesicion/'.$subject->id.'') }}" id="{{$subject->id}}" onclick="setupVar(this.id)" class="btn btn-github mb-2" name="side" data-toggle="modal" data-target="#myModal">
+<a href="{{ url('meetingSubject/finalDesicion/'.$subject->id.'') }}" id="{{$subject->id}}" onclick="setupVar(this.id)" class="btn btn-github mb-2" name="side" data-toggle="modal" data-target="#finalDecisionModal">
             {{ ($subject->final_decision != 2) ? __("Staff.edit Final Decision") : __("Staff.Addfinaldescision") }}  <i class="mdi mdi-plus inside-icon"></i>
         </a>
 
@@ -44,10 +44,15 @@
         </a>
 
         <a href="#" class="btn btn-google" data-toggle="modal" data-target="#singleVote{{ $subject->id }}"
-            data-id="{{ $council_meeting_setup->id }}">
+            data-id="{{ $council_meeting_setup->id }}" onclick="OpenVoteModal( {{ $subject->id }} )">
             {{__("Staff.Votes")}} <i class="mdi mdi-plus-one inside-icon"></i>
         </a>
+
+        <input type="hidden" id='subjectID' value="">
+        <input type="hidden" id='lastVote' value="">
     @endif
 
 @endif
+
+
 

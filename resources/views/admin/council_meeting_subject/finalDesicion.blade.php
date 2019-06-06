@@ -3,6 +3,17 @@
  <!-- endinject -->
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+<link rel="stylesheet" href="{{ URL::asset('css/selectize.bootstrap3.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/specialFileInput.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/tables.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/meeting.css') }}" />
+
+@if (App::getLocale() == 'ar')
+<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.rtl.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/specialRTL.css') }}">
+@endif
+
 <style>
     input[type='radio']:after {
         width: 15px;
@@ -31,10 +42,9 @@
         visibility: visible;
         border: 2px solid white;
     }
+
 </style>
-<link rel="stylesheet" href="{{ URL::asset('css/selectize.bootstrap3.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/specialFileInput.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/tables.css') }}" />
+
 
 <div class="main-panel">
     <div class="content-wrapper">
@@ -59,8 +69,8 @@
                             <input type="hidden" name="council_meeting_subject" value="{{ $council_meeting_subject->id }}">
 
                             <div class="form-group {{ $errors->has('final_decision') ? 'has-error' : ''}}"style="background-color:white;">
-                                <label for="membershipRadios1" class="control-label">{{ __('Staff.Finaldecision') }} <span style="color:red !important;">*</span></label>
-                                <div class="row">
+                                <label for="membershipRadios1" class="control-label d-block {{ (App::getLocale() == 'ar') ? 'text-right' : 'text-left' }}">{{ __('Staff.Finaldecision') }} <span style="color:red !important;">*</span></label>
+                                <div class="row" style="direction: ltr; flex-wrap: nowrap; text-align: center; {{ (App::getLocale() == 'ar') ? 'flex-direction: row-reverse;' : '' }} ">
                                     <div class="col-sm-6 {{ (App::getLocale() == 'ar')?'mr-sm-3 ml-sm-5':'ml-sm-3 mr-sm-5' }}">
                                         <div class="form-check d-sm-flex text-sm-center ">
                                             <label class="form-check-label w-100">
@@ -91,7 +101,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group {{ $errors->has('person_redirected') ? 'has-error' : ''}}">
                                         <label for="person_redirected"
-                                            class="control-label">{{ __('Staff.Personredirected') }} <span style="color:red !important;">*</span></label>
+                                            class="control-label d-block {{ (App::getLocale() == 'ar') ? 'text-right' : 'text-left' }}">{{ __('Staff.Personredirected') }} <span style="color:red !important;">*</span></label>
 
                                         <select class="form-control specialSelect" name="person_redirected"
                                             id='person_redirected' required>
@@ -128,7 +138,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group {{ $errors->has('next_council_definition_id') ? 'has-error' : ''}}">
                                         <label for="next_council_definition_id"
-                                            class="control-label">{{ __('Staff.Nextcouncildefinition') }} <span style="color:red !important;">*</span></label>
+                                            class="control-label d-block {{ (App::getLocale() == 'ar') ? 'text-right' : 'text-left' }}">{{ __('Staff.Nextcouncildefinition') }} <span style="color:red !important;">*</span></label>
                                         <select class="form-control specialSelect" name="next_council_definition_id"
                                             id='next_council_definition_id' required>
                                             <option selected hidden value="">{{ __('placeholder.Select Council') }}</option>
@@ -166,7 +176,7 @@
 
                             <div class="form-group {{ $errors->has('final_decision_description') ? 'has-error' : ''}}">
                                 <label for="final_decision_description"
-                                    class="control-label">{{ __('Staff.Final Decision Description') }} <span style="color:red !important;">*</span></label>
+                                    class="control-label d-block {{ (App::getLocale() == 'ar') ? 'text-right' : 'text-left' }}">{{ __('Staff.Final Decision Description') }} <span style="color:red !important;">*</span></label>
                                 <textarea class="form-control" id="final_decision_description" rows="4" required
                                     placeholder="{{ __('placeholder.enter final decision description') }}"
                                     name='final_decision_description'>{{ (isset($council_meeting_subject->final_decision_description)) ? $council_meeting_subject->final_decision_description : old('final_decision_description') }}</textarea>
@@ -221,6 +231,7 @@ data:{
 
 success:function(data){
 
+   // $('#finalDecisionModal').modal('hide');
 
 }
 

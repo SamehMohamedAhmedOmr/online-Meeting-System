@@ -11,7 +11,7 @@ $check = $subject->Votes->where('council_member_id',$council_member->id)->first(
     </div>
     <div class="col-md-8 subject-specific-data">
         <label class="btn btn-outline-dark btn-fw subject-data">
-            <div>
+            <div class="d-flex justify-content-center" id="myPrevVote{{ $subject->id }}">
                 @if ($check->vote)
                 <i class="mdi mdi-checkbox-marked-circle-outline green"></i>
                 @else
@@ -19,7 +19,7 @@ $check = $subject->Votes->where('council_member_id',$council_member->id)->first(
                 @endif
             </div>
             @if (isset($check->commet))
-            <div style="border: 1px solid #b9bbbd !important;" class="mt-2">
+            <div style="border: 1px solid #b9bbbd !important;" class="mt-4 p-2">
                 {{ $check->commet }}
             </div>
             @endif

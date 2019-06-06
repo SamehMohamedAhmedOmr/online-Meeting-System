@@ -99,7 +99,7 @@
                                 </li>
                             @endif
                             @if (count($subjects) != 0)
-                            <li class="nav-item">
+                                <li class="nav-item">
                                     <a class="nav-link" id="topic-tab" data-toggle="tab" href="#topic" role="tab"
                                         aria-controls="topic" style="font-size: 1.2rem !important;"
                                         aria-selected="false">
@@ -115,7 +115,7 @@
                                         <span>{{__("Staff.Memo")}}</span>
                                     </a>
                                 </li>
-@endif
+                            @endif
                         </ul>
 
                         <div class="tab-content py-0 px-0">
@@ -145,5 +145,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+
+@section('singlVoteScript')
+
+<script id='councila' src="{{ URL::asset('js/custom/addVote.js') }}"></script>
+
 @endsection
 

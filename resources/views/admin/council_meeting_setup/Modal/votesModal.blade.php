@@ -16,19 +16,19 @@
                 <div class="row mb-4 pb-3" style="border-bottom: 1px solid #ccc;">
                     <div class="col-lg-3 col-6 text-center mb-lg-0 mb-3" style="color:#2D4278;">
                         <h4>{{__("home.total")}}</h4>
-                        <h4 class='totalVotes{{ $subject->id }}'>{{ $subject->Votes->count() }}</h4>
+                        <h4 id='totalVotes{{ $subject->id }}'>{{ $subject->Votes->count() }}</h4>
                     </div>
                     <div class="col-lg-3 col-6 text-center mb-lg-0 mb-3" style="color:#71C016;">
                         <h4>{{__("home.Accepted")}}</h4>
-                        <h4 class="acceptedVotes{{ $subject->id }}">{{ $subject->Votes->where('vote', 1)->count() }}</h4>
+                        <h4 id="acceptedVotes{{ $subject->id }}">{{ $subject->Votes->where('vote', 1)->count() }}</h4>
                     </div>
                     <div class="col-lg-3 col-6 text-center" style="color:#FF2121;">
                         <h4>{{__("home.Rejected")}}</h4>
-                        <h4 class="rejectedVotes{{ $subject->id }}">{{ $subject->Votes->where('vote', 0)->count() }}</h4>
+                        <h4 id="rejectedVotes{{ $subject->id }}">{{ $subject->Votes->where('vote', 0)->count() }}</h4>
                     </div>
                     <div class="col-lg-3 col-6 text-center" style="color:#555555;">
                         <h4>{{__("home.NotVoted")}}</h4>
-                        <h4 class="notVotedVotes{{ $subject->id }}">{{ $subject->Votes->where('vote', 2)->count() }}</h4>
+                        <h4 id="notVotedVotes{{ $subject->id }}">{{ $subject->Votes->where('vote', 2)->count() }}</h4>
                     </div>
                 </div>
 
@@ -113,10 +113,10 @@
             var id = $(this).data('id');
             var ctx = $('#myChart'+id);
 
-            var totalVotes = $('.totalVotes'+id).text();
-            var acceptedVotes = $('.acceptedVotes'+id).text();
-            var rejectedVotes = $('.rejectedVotes'+id).text();
-            var notVotedVotes = $('.notVotedVotes'+id).text();
+            var totalVotes = $('#totalVotes'+id).text();
+            var acceptedVotes = $('#acceptedVotes'+id).text();
+            var rejectedVotes = $('#rejectedVotes'+id).text();
+            var notVotedVotes = $('#notVotedVotes'+id).text();
 
             var acceptedPercentage = Math.round(acceptedVotes * 100) / totalVotes;
             var rejectedPercentage = Math.round(rejectedVotes * 100) / totalVotes;
