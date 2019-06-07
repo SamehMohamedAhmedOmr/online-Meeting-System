@@ -26,9 +26,9 @@ return array (
   'start' => 'بدايه',
   'Chairman' => 'رئيس الجلسه',
   'order' => 'ترتيب',
-  'VotersList' => 'قائمة ابداء الرأي',
-  'Members who Voted' => 'إبداء الرأي',
-  'Members who didn\'t vote' => 'الممتنعين',
+  'VotersList' => 'قائمه المصوتين',
+  'Members who Voted' => 'المصوتين',
+  'Members who didn\'t vote' => 'الممتنعين عن التصويت',
   'No Votes Yet' => 'لم يصوت احد',
   'Vote Status' => 'احصائيات المصوتين',
   'Number of Voters' => 'عدد المصوتين',
@@ -65,11 +65,8 @@ return array (
   'Member Number' => 'العضو رقم',
   'Add More' => 'اضافة المزيد',
   'hide' => 'اخفاء',
-  'Forgot Password' => 'طلب تعيين كلمة سر',
-  'You can reset your password here' => 
-  array (
-    '' => 'تستطيع اعادة تعيين كلمة مرورك هنا',
-  ),
-  'Send Password Reset Link' => 'ارسال رابط اعادة تعيين كلمة المرور',
-  'password_confirmation' => 'تأكيد كلمة السر',
+  'Nearset Meeting Number/Date' => 'اقرب اجتماع/رقمه',
+  'Closed Meetings' => 'الاجتماعات المغلقه',
+  'Opened Meetings' => 'الاجتماعات المفتوحه',
+  'Total Meeting Your in' => 'عدد الاجتماعات الكليه لك',
 );

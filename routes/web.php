@@ -20,26 +20,20 @@ Route::get('setlocale/{locale}', function ($locale) {
 });
 
 Route::middleware('guest')->group(function () {
-    Route::get('/', function () {
-        return view('auth.login');
-    });
+
     Route::get('login', function () {
         return view('auth.login');
     });
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', function () {
-        return view('Pages.dashboard');
-    });
-    Route::get('login', function () {
-        return view('Pages.dashboard');
-    });
+    Route::get('dashboard', 'DashboardController@welcome');
+    Route::get('/', 'DashboardController@welcome');
+
 
     // both Staff & admin $ members
 
     Route::middleware('AdminStaff')->group(function () {
-        Route::get('home', 'DashboardController@filesizes');
 
         Route::get('councilDefinition', 'CouncilDefinitionController@index');
         Route::get('councilDefinition/{id}', 'CouncilDefinitionController@show');
@@ -73,8 +67,13 @@ Route::middleware('auth')->group(function () {
         // Council-Chairman
         Route::get('councilChairman/create/{id}', 'CouncilmemberController@createCouncilMember');
         Route::post('addCouncilChairman/{id}', 'CouncilmemberController@StoreChairman');
-    });
+//dashboard
+        Route::get('cleanslate', 'DashboardController@CleanSlate');
+        Route::get('deletefirebase', 'DashboardController@deletefirebase');
+        Route::get('deletenotification', 'DashboardController@deletenotification');
 
+
+    });
 
     // Staff
     Route::middleware('Staff')->group(function () { // type = 1
@@ -152,9 +151,7 @@ Auth::routes();
 
 
 /** **/
-Route::get('dashboard', function () {
-    return view('Pages.dashboard');
-});
+
 
 // Route::get('chartjs', function () {
 //     return view('Pages.charts.chartjs');

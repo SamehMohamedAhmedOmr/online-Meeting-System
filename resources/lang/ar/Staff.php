@@ -51,7 +51,7 @@ return array (
   'Edit position' => 'تعديل منصب',
   'Position Name' => 'اسم المنصب',
   'Position' => 'المنصب',
-  'Position will Delete Permanently , Are you sure ?' => 'سيتم حذف المنصب ,هل انت متاكد؟',
+  'Position will Delete Permanently , Are you sure ?' => 'جميع المعلومات الخاصه بالموقع سيتم مسحها ,هل انت واثق؟',
   'Position Deleted Successfully' => 'تم حذف المنصب بنجاح',
   'Meetings' => 'اجتماعات',
   'Create New Subject Type' => 'اضافة نوع موضوع جديد',
@@ -98,4 +98,9 @@ return array (
   'Low' => 'منخفض',
   'Medium' => 'متوسط',
   'priority' => 'الاهميه',
+  'All Messages will be will Delete Permanently , Are you sure' => 'سسيتم مسح جميع المحاداثات ,هل انت واثق؟',
+  'Latest Added Users' => 'المنضمين حديثا',
+  'Website Data will Delete Permanently , Are you sure' => 'سيتم مسح جميع المعلومات الخاصه بالموقع , هل انت واثق؟',
+  'Notifications be will Delete Permanently , Are you sure?' => 'سيتم مسح جميع الاشعارات, هل انت واثق؟',
+  'Latest Meetings' => 'اخر الاجتماعات',
 );

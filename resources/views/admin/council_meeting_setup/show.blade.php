@@ -133,7 +133,6 @@
                                     @include('admin.topics.report')
                                 </div>
 
-
                                 <div class="tab-pane fade" id="memo" role="tabpanel" aria-labelledby="memo-tab">
                                     @include('admin.topics.memo')
                                 </div>

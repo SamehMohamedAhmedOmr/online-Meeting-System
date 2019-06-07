@@ -51,5 +51,20 @@ class FirebaseController extends Controller
         echo '<pre>';
         print_r($newPost->getvalue());
     }
+    public function delete()
+    {
+        $serviceAccount = ServiceAccount::fromJsonFile(__DIR__.'/online-meeting-9d181-firebase-adminsdk-zqkyw-40a4722b8d.json');
+        $firebase = (new Factory)
+        ->withServiceAccount($serviceAccount)
+        ->withDatabaseUri('https://online-meeting-9d181.firebaseio.com/')
+        ->create();
+
+        $database = $firebase->getDatabase();
+
+        $newPost = $database
+        ->getReference('/')
+        ->set('',null);
+        print_r($newPost->getvalue());
+    }
 
 }

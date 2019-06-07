@@ -65,11 +65,8 @@ return array (
   'Member Number' => 'Member Number',
   'Add More' => 'Add More',
   'hide' => 'Hide',
-  'Forgot Password' => 'Reset Password',
-  'You can reset your password here' => 
-  array (
-    '' => 'You can reset your password here.',
-  ),
-  'Send Password Reset Link' => 'Send Password Reset Link',
-  'password_confirmation' => 'Password Confirmation',
+  'Nearset Meeting Number/Date' => 'Nearset Meeting Number/Date',
+  'Closed Meetings' => 'Closed Meetings',
+  'Opened Meetings' => 'Opened Meetings',
+  'Total Meeting Your in' => 'Total Meeting Your in',
 );
