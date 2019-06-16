@@ -16,7 +16,7 @@ return array (
   'type' => 'النوع',
   'faculty' => 'الكليه',
   'Department' => 'القسم',
-  'Rank' => 'المرتبه',
+  'Rank' => 'الدرجه',
   'Logo' => 'الشعار',
   'noofmembers' => 'عدد الاعضاء',
   'noofmeetings' => 'عدد الاجتماعات',
@@ -66,7 +66,8 @@ return array (
   'Add More' => 'اضافة المزيد',
   'hide' => 'اخفاء',
   'Nearset Meeting Number/Date' => 'اقرب اجتماع/رقمه',
-  'Closed Meetings' => 'الاجتماعات المغلقه',
+  'Closed Meetings' => 'الاجتماعات المنتهيه',
   'Opened Meetings' => 'الاجتماعات المفتوحه',
   'Total Meeting Your in' => 'عدد الاجتماعات الكليه لك',
+  'job' => 'الوظيفه',
 );

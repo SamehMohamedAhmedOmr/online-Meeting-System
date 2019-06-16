@@ -70,9 +70,7 @@
                     <div class="d-flex align-items-center mt-3 flex-column">
                         <p class="mt-2" data-toggle="collapse" data-target="#collapse{{ $subject->id }}"
                             aria-expanded="true" aria-controls="collapseOne">
-                            <i class="mdi mdi-arrow-down-bold-circle-outline icon-details"
-                                style="font-size:1.8rem; color:#da3232; cursor:pointer;">
-                            </i>
+
                         </p>
                     </div>
                 </div>

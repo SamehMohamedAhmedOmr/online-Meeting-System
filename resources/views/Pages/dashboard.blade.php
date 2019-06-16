@@ -117,7 +117,7 @@
                                     <i class="mdi mdi-calendar-heart icon-lg mr-3 text-primary"></i>
                                     <div class="d-flex flex-column justify-content-around">
                                 <small class="mb-1 text-muted">{{__("admin.Nearset Meeting Number/Date")}}</small>
-                              <h5 class="mr-2 mb-0">{{$upcoming_birthdays->meeting_number}}/{{$upcoming_birthdays->meeting_date}}</h5>
+                                    <h5 class="mr-2 mb-0">{{$upcoming_birthdays->meeting_number}}/{{$upcoming_birthdays->meeting_date}}/{{App\Council_definition::where('id',$upcoming_birthdays->council_definition_id)->pluck('council_name')->first()}}</h5>
                               </div>
                             </div>
                           </div>
@@ -206,7 +206,7 @@
                                 <i class="mdi mdi-calendar-heart icon-lg mr-3 text-primary"></i>
                                 <div class="d-flex flex-column justify-content-around">
                             <small class="mb-1 text-muted">{{__("admin.Nearset Meeting Number/Date")}}</small>
-                          <h5 class="mr-2 mb-0">{{$upcoming_birthdays->meeting_number}}/{{$upcoming_birthdays->meeting_date}}</h5>
+                          <h5 class="mr-2 mb-0">{{$upcoming_birthdays->meeting_number}}/{{$upcoming_birthdays->meeting_date}}/{{App\Council_definition::where('id',$upcoming_birthdays->council_definition_id)->pluck('council_name')->first()}}</h5>
                           </div>
                         </div>
                     </div>
@@ -260,6 +260,7 @@
                                           <thead>
                                                 <tr>
                                                         <th class="no-sort">{{__("Staff.Meetingnumber")}}</th>
+                                                        <th class="no-sort">{{__("Staff.Meetingname")}}</th>
                                                         <th class="no-sort">{{__("Staff.Meetingdate")}}</th>
 
                                                         <th class="no-sort">{{__("Staff.Meetingtime")}}</th>
@@ -270,8 +271,9 @@
 
                             <tr>
                                 <td>
-                                    {{ $item->meeting_number }}
+                                    {{ $item->meeting_number  }}
                                 </td>
+                            <td>{{App\Council_definition::where('id',$item->council_definition_id)->pluck('council_name')->first()}}</td>
                                 <td>
                                     {{ $item->meeting_date }}
                                 </td>
@@ -326,12 +328,15 @@
                         {{__("Staff.Notifications be will Delete Permanently , Are you sure?")}}
                     </h5>
                     <input type="hidden" value="" id="RemoveItem">
+                    <br>
+                    <input type="date" value="" id="date" name="date" required>
                 </div>
                 <div class="modal-footer d-flex justify-content-center" style="border:none">
                     <button type="button" class="btn btn-info"
                         data-dismiss="modal">{{__("home.Close")}}</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal"
-                data-backdrop="false" onclick="location.href='deletenotification'" >{{__("home.Delete")}}</button>
+
+                data-backdrop="false" onclick="Deletechat()" >{{__("home.Delete")}}</button>
             </div>
             </div>
         </div>
@@ -413,6 +418,37 @@
             });
         });
 
+    </script>
+    <script>
+       function Deletechat() {
+    var date = $('#date').val();
+    // ajax delete data to database
+ var targetURL = 'deletenotification';
+if(!date)
+{
+    today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //As January is 0.
+var yyyy = today.getFullYear();
+    date=yyyy+'-'+mm+'-'+dd;
+}
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: targetURL,
+        type: "GET",
+        data: {
+            "date": date
+        },
+        success: function (response) {
+            console.log("done")
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
     </script>
 
 @endsection

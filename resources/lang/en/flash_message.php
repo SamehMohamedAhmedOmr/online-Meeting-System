@@ -34,5 +34,6 @@ return array (
   'Edit final Decision' => 'Edit final Decision successfully',
   'Votes added' => 'Your vote added Successfully',
   'Attendance Updated Successfully' => 'Attendance Updated Successfully',
-  'enterVote' => 'Please determine your Vote before submit',
+  'topic added!' => 'member added!',
+  'deleted succesfully' => 'deleted succesfully',
 );

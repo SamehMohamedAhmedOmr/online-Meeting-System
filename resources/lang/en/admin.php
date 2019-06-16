@@ -69,4 +69,5 @@ return array (
   'Closed Meetings' => 'Closed Meetings',
   'Opened Meetings' => 'Opened Meetings',
   'Total Meeting Your in' => 'Total Meeting Your in',
+  'job' => 'Job',
 );

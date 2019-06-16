@@ -16,8 +16,8 @@ return array (
   'Council Chairman Added' => 'تم اضافة رئيس الجلسة بنجاح',
   'Number of Member is large than' => 'عدد الأعضاء أكبر من',
   'Members' => 'اعضاء',
-  'Rank Updated' => 'تم تعديل بيانات المرتبة بنجاح',
-  'Rank Added' => 'تم اضافة المرتبة بنجاح',
+  'Rank Updated' => 'تم تعديل بيانات الدرجه بنجاح',
+  'Rank Added' => 'تم اضافة الدرجه بنجاح',
   'Position Updated' => 'تم تعديل بيانات المنصب بنجاح',
   'Position Added' => 'تم اضافة المنصب بنجاح',
   'Subject Type Added' => 'تم اضافة نوع الموضوع بنجاح',
@@ -34,5 +34,6 @@ return array (
   'Edit final Decision' => 'تم تعديل القرار النهائي بنجاح',
   'Votes added' => 'تم اضافة صوتك بنجاح',
   'Attendance Updated Successfully' => 'تم تحديث الحضور بنجاح',
-  'enterVote' => 'من فضلك حدد اختيارك قبل الحفظ ف قاعدة البيانات',
+  'topic added!' => 'تم اضافه العضو',
+  'deleted succesfully' => 'تم المسح',
 );

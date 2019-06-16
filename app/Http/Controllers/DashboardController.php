@@ -23,6 +23,9 @@ use Illuminate\Support\Facades\Schema;
 use App\Notification;
 use App\Council_meeting_subject;
 use Auth;
+use DateTime;
+use PHPUnit\Framework\MockObject\Stub\Exception;
+
 class DashboardController extends Controller
 {
   public function welcome()
@@ -160,11 +163,21 @@ if(Auth::user()->type==2)
     return redirect('/dashboard')->with('flash_message','done');
 
   }
-  public function deletenotification()
+  public function deletenotification(Request $request)
   {
-    Notification::truncate();
-    return redirect('/dashboard')->with('flash_message','done');
 
+try {
+    $date = new DateTime;
+    $date->modify($request->date);
+    $formatted = $date->format('Y-m-d');
+    Notification::where('created_at', '<=', $formatted)->delete();
+    // Notification::truncate();
+    return redirect('/dashboard')->with('flash_message', 'done');
+}
+catch(Exception $x)
+{
+    return $x;
+}
   }
 
 }

@@ -28,7 +28,7 @@
         </div>
     </div>
 <div class="form-group col-md-12 {{ $errors->has('job') ? 'has-error' : ''}}">
-    <label for="job" class="control-label">{{ 'Job' }}<span style="color:red !important;">*</span></label>
+    <label for="job" class="control-label">{{ __('admin.job') }}<span style="color:red !important;">*</span></label>
     <select class="form-control specialSelect" name="job" class="form-control" id="job" >
 @php
  $var=[
