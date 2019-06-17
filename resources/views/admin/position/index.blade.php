@@ -37,7 +37,6 @@
                                 <thead>
                                     <tr>
                                         <th>{{__('home.Name') }}</th>
-                                        <th>{{__('Staff.priority') }}</th>
                                         <th class="no-sort">{{__('home.Options') }}</th>
                                     </tr>
                                 </thead>

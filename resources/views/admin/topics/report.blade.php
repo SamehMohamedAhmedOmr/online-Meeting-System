@@ -68,13 +68,11 @@
             @if(!(\App\Subject_topic::where('council_meeting_subject_id',$item->id)->get())->isEmpty())
                 <div class="topics mb-2">
                     <h4 class="mb-3"> لتتكون اللجنه من كلا من :</h4>
-
-                    @foreach(\App\Subject_topic::join('position','subject_topic.list_of_member_order','=','position.id')->where('council_meeting_subject_id',$item->id)->orderBy('position.priority',
-                            'ASC')->get() as $data)
+                    @foreach(\App\Subject_topic::where('council_meeting_subject_id',$item->id)->orderBy('list_of_member_order','DESC')->get() as $data)
                         <div class="row">
                             <p class="col-4">{{$data->faculty_member}}</p>
 
-                            <p class="col-4">{{\App\Position::where('id',$data->list_of_member_order)->first()->position_name }}</p>
+                            <p class="col-4">{{\App\Position::where('id',$data->position_id)->first()->position_name }}</p>
                             <p class="col-4">
                                 @if($data->job ==0)
                                 مشرفًا

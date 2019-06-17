@@ -47,24 +47,8 @@
                     <div class="col-md-6">
                         <div class="form-group {{ $errors->has('list_of_membership_order.0') ? 'has-error' : ''}}  ">
                             <label for="list_of_membership_order" class="control-label">{{ __('admin.list_of_membership_order') }} <span style="color:red !important;">*</span></label>
-                            <select class="form-control specialSelect" name="list_of_membership_order[]" required
-                                style="width:100%;">
-                                <option selected hidden value="">{{ __('placeholder.Select Membership Order') }}</option>
-
-                                @foreach ($positions as $obj)
-
-                                    @if (old('list_of_membership_order')[0] != null && old('list_of_membership_order')[0] == $obj->id)
-                                        <option value="{{ $obj->id}}" selected>
-                                            {{ $obj->position_name }}
-                                        </option>
-                                    @else
-                                        <option value="{{ $obj->id}}">
-                                            {{ $obj->position_name }}
-                                        </option>
-                                    @endif
-                                @endforeach
-
-                            </select> {!! $errors->first('faculty_member_id.0', '<p class="help-block">:message</p>') !!}
+                            <input class="form-control" name="list_of_membership_order[]" type="number" id="list_of_membership_order" required>
+                           {!! $errors->first('faculty_member_id.0', '<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
                 </div>
@@ -171,7 +155,7 @@
 
                     // Membership Template
                     var memberShipOrderForeach = '@foreach ($positions as $obj) <option value="{{ $obj->id}}">{{ $obj->position_name }}</option> @endforeach';
-                    var memberShipOrder = '<div class="form-group"><label for="list_of_membership_order" class="control-label">{{ __("admin.list_of_membership_order") }} <span style="color:red !important;">*</span></label><select class="form-control specialSelect" id="listSelect'+i+'" name="list_of_membership_order[]" required><option selected hidden value="">{{ __("placeholder.Select Membership Order") }}</option>'+memberShipOrderForeach+'</select> </div>';
+                    var memberShipOrder = '<div class="form-group"><label for="list_of_membership_order" class="control-label">{{ __("admin.list_of_membership_order") }} <span style="color:red !important;">*</span></label><input class="form-control" name="list_of_membership_order[]" type="number" id="list_of_membership_order" required></div>';
                     var memberShipTag = startCol + memberShipOrder + endtCol;
 
                     // First Row

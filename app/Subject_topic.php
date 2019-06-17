@@ -27,7 +27,7 @@ class Subject_topic extends Model
      *
      * @var array
      */
-    protected $fillable = ['council_meeting_subject_id','faculty_member','council_member_ID','list_of_member_order','job'];
+    protected $fillable = ['council_meeting_subject_id','faculty_member','council_member_ID','list_of_member_order','position_id','job'];
 
     public function Council_meeting_subject()
     {

@@ -26,7 +26,7 @@ class Position extends Model
      *
      * @var array
      */
-    protected $fillable = ['position_name','priority'];
+    protected $fillable = ['position_name'];
 
     public function Faculty_member()
     {

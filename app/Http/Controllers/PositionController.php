@@ -47,7 +47,6 @@ class PositionController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'position_name' => 'required|string|min:3|max:100',
-            'priority' => 'required|numeric|min:0|max:2',
         ])->validate();
 
         $requestData = $request->all();
@@ -95,7 +94,6 @@ class PositionController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'position_name' => 'required|string|min:3|max:100',
-            'priority' => 'required|numeric|min:0|max:2',
         ])->validate();
 
         $requestData = $request->all();

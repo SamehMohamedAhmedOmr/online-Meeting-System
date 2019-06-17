@@ -57,28 +57,29 @@
 
         @foreach ($attend as $item)
         <div class="row">
-
             <h5 class="col-6">
-                {{App\Rank::where('id',$item->faculty_member->rank_id)->pluck('rank_name')->first()}}
-                /{{$item->faculty_member->member_name}}
+                {{App\Rank::where('id',App\Faculty_member::where('id',$item->faculty_member_id)->first()->rank_id
+                )->pluck('rank_name')->first()}}
+                /{{App\Faculty_member::where('id',$item->faculty_member_id)->first()->member_name}}
             </h5>
             <h5 class="col-6">
-                {{App\Position::where('id',$item->faculty_member->position_id)->pluck('position_name')->first()}}
+                {{App\Position::where('id',App\Faculty_member::where('id',$item->faculty_member_id)->first()->position_id)->pluck('position_name')->first()}}
             </h5>
         </div>
         @endforeach
 
-        @if($nattend)
+        @if(!$nattend->isEmpty())
             <span class="d-block my-3"> وعدم حضور كل من : </span>
 
             @foreach ($nattend as $item)
             <div class="row">
                 <h5 class="col-md-4">
-                    {{App\Rank::where('id',$item->faculty_member->rank_id)->pluck('rank_name')->first()}} /
-                    {{$item->faculty_member->member_name}}
-                </h5>
+                    {{App\Rank::where('id',App\Faculty_member::where('id',$item->faculty_member_id)->first()->rank_id
+                    )->pluck('rank_name')->first()}}
+                /{{App\Faculty_member::where('id',$item->faculty_member_id)->first()->member_name}}
+            </h5>
                 <h5 class="col-md-4">
-                    {{App\Position::where('id',$item->faculty_member->position_id)->pluck('position_name')->first()}}
+                    {{App\Position::where('id',App\Faculty_member::where('id',$item->faculty_member_id)->first()->position_id)->pluck('position_name')->first()}}
                 </h5>
                 @if($item->excuse==1)
                 <h5 class="col-md-4">
@@ -122,12 +123,11 @@
                 <div class="topics mb-2">
                     <h4 class="mb-3"> لتتكون اللجنه من كلا من :</h4>
 
-                    @foreach(\App\Subject_topic::join('position','subject_topic.list_of_member_order','=','position.id')->where('council_meeting_subject_id',$item->id)->orderBy('position.priority',
-                            'ASC')->get() as $data)
+                    @foreach(\App\Subject_topic::where('council_meeting_subject_id',$item->id)->orderBy('list_of_member_order','DESC')->get() as $data)
                         <div class="row">
                             <p class="col-4">{{$data->faculty_member}}</p>
 
-                            <p class="col-4">{{\App\Position::where('id',$data->list_of_member_order)->first()->position_name }}</p>
+                            <p class="col-4">{{\App\Position::where('id',$data->position_id)->first()->position_name }}</p>
                             <p class="col-4">
                                 @if($data->job ==0)
                                 مشرفًا

@@ -33,22 +33,9 @@
     <div class="col-md-6">
         <div class="form-group {{ $errors->has('list_of_membership_order') ? 'has-error' : ''}}  ">
             <label for="list_of_membership_order" class="control-label">{{ __('admin.list_of_membership_order') }} <span style="color:red !important;">*</span></label>
-            <select class="form-control specialSelect" name="list_of_membership_order" required>
-                <option selected hidden value="">{{ __('placeholder.Select Membership Order') }}</option>
+            <input class="form-control" name="list_of_membership_order" type="number" id="list_of_membership_order" required value="{{ isset($councilmember->list_of_membership_order) ? $councilmember->list_of_membership_order : ''}}">
 
-                @foreach ($positions as $obj)
-                @if (isset($councilmember))
-                <option value="{{ $obj->id}}"
-                    {{ ($obj->id == $councilmember->list_of_membership_order)?'selected':'' }}>
-                    {{ $obj->position_name }}
-                </option>
-                @else
-                <option value="{{ $obj->id}}">
-                    {{ $obj->position_name }}
-                </option>
-                @endif
-                @endforeach
-            </select> {!! $errors->first('faculty_member_id', '<p class="help-block">:message</p>') !!}
+             {!! $errors->first('faculty_member_id', '<p class="help-block">:message</p>') !!}
         </div>
     </div>
 </div>

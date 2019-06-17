@@ -13,18 +13,27 @@
 </div>
 </div>
 <div class="col-md-12">
+    <div class="form-group {{ $errors->has('position_id') ? 'has-error' : ''}}  ">
+        <label for="position_id" class="control-label">{{ __('Staff.Position Name') }} <span style="color:red !important;">*</span></label>
+        <select class="form-control specialSelect" name="position_id" required >
+            <option selected hidden value="">{{ __('Staff.Position Name') }}</option>
+
+            @foreach ($positions as $obj)
+
+            <option value="{{ $obj->id}}" id="asd">
+                {{ $obj->position_name }}
+            </option>
+            @endforeach
+        </select>
+       {!! $errors->first('faculty_member_id', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+<div class="col-md-12">
         <div class="form-group {{ $errors->has('list_of_membership_order') ? 'has-error' : ''}}  ">
             <label for="list_of_membership_order" class="control-label">{{ __('admin.list_of_membership_order') }} <span style="color:red !important;">*</span></label>
-            <select class="form-control specialSelect" name="list_of_member_order" required >
-                <option selected hidden value="">{{ __('placeholder.Select Membership Order') }}</option>
+            <input class="form-control" name="list_of_member_order" type="number" id="list_of_member_order" required value="{{ isset($councilmember->list_of_membership_order) ? $councilmember->list_of_membership_order : ''}}">
 
-                @foreach ($positions as $obj)
-
-                <option value="{{ $obj->id}}" id="asd">
-                    {{ $obj->position_name }}
-                </option>
-                @endforeach
-            </select> {!! $errors->first('faculty_member_id', '<p class="help-block">:message</p>') !!}
+           {!! $errors->first('faculty_member_id', '<p class="help-block">:message</p>') !!}
         </div>
     </div>
 <div class="form-group col-md-12 {{ $errors->has('job') ? 'has-error' : ''}}">

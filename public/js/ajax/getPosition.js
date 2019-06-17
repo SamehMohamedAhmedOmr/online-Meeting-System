@@ -40,43 +40,6 @@ $(function () {
             }
         },
         {
-            data: 'priority',
-            render: function (priority) {
-                if (priority == '0'){
-                    if (lang == 'ar')
-                    {
-                        return"عالي";
-                    }
-                    else
-                    {
-                        return "High";
-                    }
-                }
-
-                if (priority == '1'){
-                if (lang == 'ar')
-                {
-                    return "متوسط";
-                }
-                else
-                {
-                    return "Medium";
-                }
-            }
-                if (priority == '2'){
-                if (lang == 'ar')
-                {
-                    return "منخفض";
-                }
-                else
-                {
-                    return "Low";
-                }
-            }
-
-            }
-        },
-        {
             data: 'id',
             orderable: false,
             render: function (data) {

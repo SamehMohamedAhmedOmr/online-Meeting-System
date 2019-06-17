@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use App\Subject_topic;
 use App\CouncilMember;
+use DB;
 class CouncilMeetingSetupController extends Controller
 {
     /**
@@ -133,14 +134,14 @@ class CouncilMeetingSetupController extends Controller
         $subjectsV2 = $subjects;
 
         $lastSubjectID = $subjectsV2->sortByDesc('id')->pluck('id')->first();
-
         $council_members=CouncilMember::where('council_definition_id',$council_meeting_setup->council_definition_id)->get();
-        $attend= Council_meeting_setup::find($id)->Meeting_attendance->where('attend',1)->all();
-        $nattend= Council_meeting_setup::find($id)->Meeting_attendance->where('attend',0)->all();
+        //$get=DB::table('meeting_attendance')->join('council_member', 'meeting_attendance.faculty_member_id', '=', 'council_member.faculty_member_id')->where('meeting_number',$id)->get();
 
+        $attend=DB::table('meeting_attendance')->join('council_member', 'meeting_attendance.faculty_member_id', '=', 'council_member.faculty_member_id')->where('council_definition_id',$council_meeting_setup->council_definition_id)->where('meeting_number',$id)->where('attend',1)->orderBy('list_of_membership_order','DESC')->get();
+
+        $nattend=DB::table('meeting_attendance')->join('council_member', 'meeting_attendance.faculty_member_id', '=', 'council_member.faculty_member_id')->where('meeting_number',$id)->where('attend',0)->orderBy('list_of_membership_order','DESC')->get();
         return view('admin.council_meeting_setup.show', compact('council_meeting_setup','council_member','subjects','council_members','attend','nattend','lastSubjectID'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -274,4 +275,5 @@ class CouncilMeetingSetupController extends Controller
             return $e->getMessage();
         }
     }
+
 }

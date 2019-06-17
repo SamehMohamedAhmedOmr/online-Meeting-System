@@ -13,22 +13,6 @@
     {!! $errors->first('position_name', '<p class="help-block">:message</p>') !!}
 </div>
 
-<div class="form-group col-md-7 {{ $errors->has('priority') ? 'has-error' : ''}}" custom-form-group>
-        <label for="priority" class="control-label">{{ __('Staff.priority') }}<span style="color:red !important;">*</span></label>
-        <select class="form-control specialSelect" name="priority" class="form-control" id="priority" >
-    @php
-     $var=[
-     "0"=>__("Staff.High"),
-     "1"=>__("Staff.Medium"),
-     "2"=>__("Staff.Low")
-        ];
-    @endphp
-        @foreach ($var as $optionKey => $optionValue)
-            <option value="{{ $optionKey }}" {{ (isset($position->priority) && $position->priority == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
-        @endforeach
-    </select>
-        {!! $errors->first('priority', '<p class="help-block">:message</p>') !!}
-    </div>
 
     <div class="form-group">
     <input class="btn btn-primary" type="submit" value="{{ $formMode === 'edit' ? __('home.update') : __('home.Create') }}">

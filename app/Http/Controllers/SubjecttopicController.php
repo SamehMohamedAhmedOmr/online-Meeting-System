@@ -61,7 +61,8 @@ class SubjecttopicController extends Controller
     {
         $validate = Validator::make($request->all(), [
 
-            'list_of_member_order' => 'required|numeric|exists:position,id',
+            'list_of_member_order' => 'required|numeric',
+            'position_id' => 'required|numeric|exists:position,id',
             'faculty_member'=>'required|string|min:4|max:50',
             'job' => 'required|numeric|min:0|max:2'
         ])->validate();
